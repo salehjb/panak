@@ -4,11 +4,9 @@ import { useRouter } from "next/router";
 import {
   AppBar,
   Container,
-  Typography,
   Toolbar,
   Tabs,
   Tab,
-  Button,
   useTheme,
   Box,
 } from "@mui/material";
@@ -71,10 +69,19 @@ function Navbar() {
       <Container maxWidth="xl">
         <Toolbar sx={{ minHeight: "80px !important" }}>
           <LaptopIcon sx={{ ml: 6 }} />
-          <Tabs variant="fullWidth" value={activeLink} sx={{ flexGrow: 1 }} TabIndicatorProps={{ style: styles.tabIndicator }}>
+          <Tabs
+            variant="fullWidth"
+            value={activeLink}
+            sx={{ flexGrow: 1 }}
+            TabIndicatorProps={{ style: styles.tabIndicator }}
+          >
             {PAGES.map((page, index) => (
               <Link href={page.href} key={index}>
-                <Tab sx={{ margin: "0 0.3rem" }} label={<a style={styles.pagesLink}>{page.text}</a>} disableRipple />
+                <Tab
+                  sx={{ margin: "0 0.3rem" }}
+                  label={<a style={styles.pagesLink}>{page.text}</a>}
+                  disableRipple
+                />
               </Link>
             ))}
           </Tabs>
@@ -84,7 +91,7 @@ function Navbar() {
           <Box sx={styles.icon}>
             <ShoppingCartIcon />
           </Box>
-          <Link href="/">
+          <Link href="/signup">
             <a style={styles.authButton}>ثبت نام / ورود</a>
           </Link>
         </Toolbar>

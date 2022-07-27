@@ -13,7 +13,7 @@ const lightTheme = createTheme({
   },
   palette: {
     background: {
-      default: "#E1E1E1"
+      default: "#f1f1f1"
     },
     primary: {
       light: "#0E363F",

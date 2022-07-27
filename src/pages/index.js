@@ -1,11 +1,8 @@
 // components
-import Meta from "../components/Meta";
+import PageLayout from "../components/layout/PageLayout";
 
 export default function Home() {
   return (
-    <>
-      <Meta title="صفحه اصلی" />
-      <div>خانه</div>
-    </>
+    <div>خانه</div>
   );
 }
