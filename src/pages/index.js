@@ -1,8 +1,10 @@
-// components
-import PageLayout from "../components/layout/PageLayout";
+// MUI
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
-    <div>خانه</div>
+    <Box>
+
+    </Box>
   );
 }

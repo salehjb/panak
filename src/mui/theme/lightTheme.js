@@ -13,19 +13,19 @@ const lightTheme = createTheme({
   },
   palette: {
     background: {
-      default: "#f1f1f1"
+      default: "#f1f1f1",
     },
     primary: {
       light: "#0E363F",
       main: "#0E363F",
       dark: "#0E363F",
-      contrastText: "#37474F"
+      contrastText: "#37474F",
     },
     secondary: {
       light: "#FF9B0C",
       main: "#FF9B0C",
       dark: "#FF9B0C",
-      contrastText: "#fff"
+      contrastText: "#fff",
     },
   },
 });

@@ -13,8 +13,8 @@ import { Search } from "@mui/icons-material";
 // components
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import CoursesGrouping from "../components/CoursesGrouping";
-import CourseBox from "../components/CourseBox";
+import CoursesGrouping from "../components/courses-page/CoursesGrouping";
+import CourseBox from "../components/courses-page/CourseBox";
 // datas
 import { COURSES, SORT_COURSES } from "../datas";
 

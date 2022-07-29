@@ -10,7 +10,7 @@ import {
   Typography,
   useTheme,
 } from "@mui/material";
-import { ArrowTop } from "../shared/Icons";
+import { ArrowTop } from "../../shared/Icons";
 
 function CoursesGrouping() {
   // styles

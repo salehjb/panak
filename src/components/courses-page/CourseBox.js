@@ -1,7 +1,9 @@
 // MUI
 import { Box, Grid, IconButton, Typography } from "@mui/material";
 // icons
-import { ProfileIcon, ClockIcon, AddProductIcon } from "../shared/Icons";
+import { ProfileIcon, ClockIcon, AddProductIcon } from "../../shared/Icons";
+// utils
+import { priceFormatter, timeFormatter, toPersianNumber } from "../../utils/functions";
 
 function CourseBox({ title, teacher, time, price, image }) {
   // styles
@@ -48,7 +50,7 @@ function CourseBox({ title, teacher, time, price, image }) {
         <Grid item xs={12} mb={2} display="flex" alignItems="center">
           <ClockIcon />
           <Typography fontSize="15px" fontWeight="300" mr={1}>
-            {time}
+            {timeFormatter(20, 30)}
           </Typography>
         </Grid>
         <Grid
@@ -59,8 +61,8 @@ function CourseBox({ title, teacher, time, price, image }) {
           justifyContent="space-between"
           alignItems="center"
         >
-          <Typography fontSize="16px" fontWeight="400">
-            {price} تومان
+          <Typography fontSize="18px" fontWeight="400">
+            {priceFormatter(price)} تومان
           </Typography>
           <IconButton sx={styles.shopIcon}>
             <AddProductIcon />

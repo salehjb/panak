@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 // components
 import AuthLayout from "./layout/AuthLayout";
@@ -19,6 +19,12 @@ import { GoogleIcon } from "../shared/Icons";
 
 function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
+
+  const emailInput = useRef();
+
+  useEffect(() => {
+    emailInput.current.focus()
+  }, [])
 
   // styles
   const theme = useTheme();
@@ -66,6 +72,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
               <InputBase
                 sx={styles.input}
                 type={isShowPassword ? "text" : item.type}
+                inputRef={item.email && emailInput}
                 endAdornment={
                   item.type === "password" && (
                     <InputAdornment position="end">

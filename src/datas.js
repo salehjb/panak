@@ -80,28 +80,110 @@ export const COOPERATION_BENEFITS = [
 ];
 
 export const SIGNUP_INPUTS = [
-  { label: "ایمیل", type: "text" },
+  { label: "ایمیل", type: "text", email: true },
   { label: "رمز عبور", type: "password" },
   { label: "شماره موبایل", type: "text" },
 ];
 
 export const LOGIN_INPUTS = [
-  { label: "ایمیل", type: "email" },
+  { label: "ایمیل", type: "text", email: true },
   { label: "رمز عبور", type: "password" },
 ];
 
 export const COURSES = [
-  { title: "دوره ری اکت", teacher: "صالح جلیلی", time: "20:33:00", price: "1,200,000", image: "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200" },
-  { title: "دوره جاوااسکریپت", teacher: "صالح جلیلی", time: "20:33:00", price: "900,000", image: "https://media.newyorker.com/photos/5c929565301bde0a3b6216a1/4:3/w_1999,h_1499,c_limit/EmiliaClarke-PersonalEssay-Story.jpg" },
-  { title: "دوره جنگو", teacher: "مهدی جلیلی", time: "20:33:00", price: "1,100,000", image: "https://assets.televizier.nl/upload/m/t/Me_Before_You_1620314376.jpg" },
-  { title: "دوره نکست جی اس", teacher: "صالح جلیلی", time: "20:33:00", price: "500,000", image: "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg" },
-  { title: "دوره پایتون", teacher: "مهدی جلیلی", time: "20:33:00", price: "900,000", image: "https://cdn.cnn.com/cnnnext/dam/assets/220617111229-game-of-thrones-kit-harington-s8e4-super-tease.jpg" },
-  { title: "دوره نود جی اس", teacher: "صالح جلیلی", time: "20:33:00", price: "1,300,000", image: "https://images.indulgexpress.com/uploads/user/imagelibrary/2022/6/17/original/KitHaringtonwillstarasJonSnowinanewGameofThronesspin-offseries.jpg?w=400&dpr=2.6" },
-]
+  {
+    title: "دوره ری اکت",
+    teacher: "صالح جلیلی",
+    time: 20,
+    price: 1200000,
+    image:
+      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
+  },
+  {
+    title: "دوره جاوااسکریپت",
+    teacher: "صالح جلیلی",
+    time: 20,
+    price: 900000,
+    image:
+      "https://media.newyorker.com/photos/5c929565301bde0a3b6216a1/4:3/w_1999,h_1499,c_limit/EmiliaClarke-PersonalEssay-Story.jpg",
+  },
+  {
+    title: "دوره جنگو",
+    teacher: "مهدی جلیلی",
+    time: 20,
+    price: 1100000,
+    image:
+      "https://assets.televizier.nl/upload/m/t/Me_Before_You_1620314376.jpg",
+  },
+  {
+    title: "دوره نکست جی اس",
+    teacher: "صالح جلیلی",
+    time: 20,
+    price: 500000,
+    image:
+      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
+  },
+  {
+    title: "دوره پایتون",
+    teacher: "مهدی جلیلی",
+    time: 20,
+    price: 900000,
+    image:
+      "https://cdn.cnn.com/cnnnext/dam/assets/220617111229-game-of-thrones-kit-harington-s8e4-super-tease.jpg",
+  },
+  {
+    title: "دوره نود جی اس",
+    teacher: "صالح جلیلی",
+    time: 20,
+    price: 1300000,
+    image:
+      "https://images.indulgexpress.com/uploads/user/imagelibrary/2022/6/17/original/KitHaringtonwillstarasJonSnowinanewGameofThronesspin-offseries.jpg?w=400&dpr=2.6",
+  },
+];
 
 export const SORT_COURSES = [
   { text: "جدیدترین ها" },
   { text: "محبوب ترین ها" },
   { text: "گرانترین ها" },
   { text: "ارزانترین ها" },
+];
+
+export const CART_COURSES = [
+  {
+    title: "دوره پایتون",
+    teacher: "مهدی جلیلی",
+    time: "20:33:00",
+    price: 900000,
+    image:
+      "https://cdn.cnn.com/cnnnext/dam/assets/220617111229-game-of-thrones-kit-harington-s8e4-super-tease.jpg",
+  },
+  {
+    title: "دوره نکست جی اس",
+    teacher: "صالح جلیلی",
+    time: "20:33:00",
+    price: 500000,
+    image:
+      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
+  },
+  {
+    title: "دوره ری اکت",
+    teacher: "صالح جلیلی",
+    time: "20:33:00",
+    price: 1200000,
+    image:
+      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
+  },
+  {
+    title: "دوره نود جی اس",
+    teacher: "صالح جلیلی",
+    time: "20:33:00",
+    price: 1300000,
+    image:
+      "https://images.indulgexpress.com/uploads/user/imagelibrary/2022/6/17/original/KitHaringtonwillstarasJonSnowinanewGameofThronesspin-offseries.jpg?w=400&dpr=2.6",
+  },
+];
+
+export const PAYMENT_GATEWAYS = [
+  { name: "زرین پال", image: "/logos/zarinpal.png", value: "zarinpal" },
+  { name: "بانک ملت", image: "/logos/melat.png", value: "melat" },
 ]
