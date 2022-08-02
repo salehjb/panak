@@ -1,48 +1,13 @@
 import Image from "next/image";
+import { Box, Button, Grid, TextField, Typography } from "@mui/material";
 // components
-import PageLayout from "../components/layout/PageLayout";
-// MUI
-import { Box, Button, Grid, TextField, Typography, useTheme } from "@mui/material";
+import PageLayout from "components/layout/PageLayout";
 // datas
-import { COOPERATION_BENEFITS, PANAK_EMPLOYMENT_INPUTS } from "../datas";
+import { COOPERATION_BENEFITS, PANAK_EMPLOYMENT_INPUTS } from "datas";
+// mui => theme
+import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 
 function PanakEmployment() {
-  // styles
-  const theme = useTheme();
-  const styles = {
-    vector: {
-      position: "relative",
-      width: "358px",
-      height: "205px"
-    },
-    iconBox: {
-      width: "62px",
-      height: "62px",
-      backgroundColor: "#0E363F",
-      borderRadius: "8px",
-      color: "white",
-      display: "flex",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-    formContainer: {
-      border: "1px solid #CFD8DC",
-      borderRadius: "12px",
-      padding: "1rem",
-    },
-    confirmButton: {
-      width: "160px",
-      height: "48px",
-      marginTop: "2rem",
-      color: "white",
-      display: "flex",
-      backgroundColor: "#FF9B0C",
-      "&:hover": {
-        backgroundColor: "#e98d0d"
-      }
-    }
-  };
-
   return (
     <PageLayout title="استخدام در پاناک">
       <Grid container alignItems="center">
@@ -69,7 +34,13 @@ function PanakEmployment() {
           </Typography>
         </Grid>
         <Grid item xs={6} display="flex" justifyContent="flex-end">
-          <Box sx={styles.vector}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "358px",
+              height: "205px",
+            }}
+          >
             <Image
               src={"/vectors/panak-employment.png"}
               alt="project-cooperation"
@@ -91,13 +62,25 @@ function PanakEmployment() {
                 <Grid
                   item
                   xs={4}
-                  textAlign="center"
-                  flexDirection="column"
-                  alignItems="center"
-                  display="flex"
-                  mt={item.topElement ? -9 : null}
+                  key={index}
+                  sx={{
+                    textAlign: "center",
+                    ...flexAlignCenter,
+                    flexDirection: "column",
+                    mt: item.topElement ? -9 : null,
+                  }}
                 >
-                  <Box sx={styles.iconBox} mb={2}>
+                  <Box
+                    sx={{
+                      width: "62px",
+                      height: "62px",
+                      backgroundColor: (theme) => theme.palette.primary.main,
+                      borderRadius: "8px",
+                      color: "white",
+                      ...flexCenter,
+                      mb: 2,
+                    }}
+                  >
                     <CustomIcon fontSize="large" />
                   </Box>
                   <Typography fontSize="15px" fontWeight="400" mb={1}>
@@ -109,19 +92,45 @@ function PanakEmployment() {
             })}
           </Grid>
         </Grid>
-        <Grid item xs={12} mt={15} sx={styles.formContainer}>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            border: "1px solid #CFD8DC",
+            borderRadius: "12px",
+            p: 2,
+            mt: 15,
+          }}
+        >
           <Typography fontSize="20px" fontWeight="400">
             اطلاعات زیر را تکمیل کنید. به زودی با شما تماس میگیریم.
           </Typography>
           <Grid container mt={6} columnSpacing={5}>
             {PANAK_EMPLOYMENT_INPUTS.map((item, index) => (
               <Grid item xs={4} key={index}>
-                <Typography mb={0.8} fontWeight="400">{item.label}</Typography>
+                <Typography mb={0.8} fontWeight="400">
+                  {item.label}
+                </Typography>
                 <TextField fullWidth variant="outlined" />
               </Grid>
             ))}
           </Grid>
-          <Button variant="contained" sx={styles.confirmButton}>ارسال فرم درخواست</Button>
+          <Button
+            variant="contained"
+            sx={{
+              width: "160px",
+              height: "48px",
+              mt: 4,
+              color: (theme) => theme.palette.secondary.contrastText,
+              display: "flex",
+              backgroundColor: (theme) => theme.palette.secondary.main,
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.secondary.dark,
+              },
+            }}
+          >
+            ارسال فرم درخواست
+          </Button>
         </Grid>
       </Grid>
     </PageLayout>

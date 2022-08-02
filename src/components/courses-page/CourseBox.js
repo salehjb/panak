@@ -1,53 +1,46 @@
-// MUI
-import { Box, Grid, IconButton, Typography } from "@mui/material";
+import { Grid, IconButton, Typography } from "@mui/material";
+// mui => theme
+import { flexAlignCenter } from "mui/theme/commonStyles";
 // icons
-import { ProfileIcon, ClockIcon, AddProductIcon } from "../../shared/Icons";
+import { ProfileIcon, ClockIcon, AddProductIcon } from "shared/Icons";
 // utils
-import { priceFormatter, timeFormatter, toPersianNumber } from "../../utils/functions";
+import { priceFormatter, timeFormatter } from "utils/functions";
 
 function CourseBox({ title, teacher, time, price, image }) {
-  // styles
-  const styles = {
-    courseContainer: {
-      width: "100%",
-      backgroundColor: "white",
-      borderRadius: "24px",
-      boxShadow: "0px 12px 50px rgba(0, 0, 0, 0.07)",
-    },
-    courseImage: {
-      width: "100%",
-      height: "250px",
-      borderRadius: "24px",
-      marginBottom: "0.5rem",
-    },
-    shopIcon: {
-      width: "40px",
-      height: "40px",
-      backgroundColor: "#FF9B0C",
-      "&:hover": {
-        backgroundColor: "#e98d0d"
-      }
-    },
-  };
-
   return (
-    <Grid container sx={styles.courseContainer}>
+    <Grid
+      container
+      sx={{
+        backgroundColor: "white",
+        borderRadius: "24px",
+        boxShadow: "0px 12px 50px rgba(0, 0, 0, 0.07)",
+      }}
+    >
       <Grid item xs={12}>
-        <img src={image} alt="course image" style={styles.courseImage} />
+        <img
+          src={image}
+          alt="course image"
+          style={{
+            width: "100%",
+            height: "250px",
+            borderRadius: "24px",
+            marginBottom: "0.5rem",
+          }}
+        />
       </Grid>
-      <Grid item xs={12} sx={{ padding: "0 1rem" }}>
+      <Grid item xs={12} sx={{ px: 2 }}>
         <Grid item xs={12} mb={2}>
           <Typography fontSize="18px" fontWeight="400">
             {title}
           </Typography>
         </Grid>
-        <Grid item xs={12} mb={2} display="flex" alignItems="center">
+        <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
           <ProfileIcon />
           <Typography fontSize="15px" fontWeight="300" mr={1}>
             {teacher}
           </Typography>
         </Grid>
-        <Grid item xs={12} mb={2} display="flex" alignItems="center">
+        <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
           <ClockIcon />
           <Typography fontSize="15px" fontWeight="300" mr={1}>
             {timeFormatter(20, 30)}
@@ -56,15 +49,25 @@ function CourseBox({ title, teacher, time, price, image }) {
         <Grid
           item
           xs={12}
-          mb={2}
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
+          sx={{
+            mb: 2,
+            ...flexAlignCenter,
+            justifyContent: "space-between",
+          }}
         >
           <Typography fontSize="18px" fontWeight="400">
             {priceFormatter(price)} تومان
           </Typography>
-          <IconButton sx={styles.shopIcon}>
+          <IconButton
+            sx={{
+              width: "40px",
+              height: "40px",
+              backgroundColor: (theme) => theme.palette.secondary.main,
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.secondary.dark,
+              },
+            }}  
+          >
             <AddProductIcon />
           </IconButton>
         </Grid>

@@ -7,43 +7,32 @@ import {
   InputAdornment,
   InputBase,
   Typography,
-  useTheme,
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 // components
-import Navbar from "../components/layout/Navbar";
-import Footer from "../components/layout/Footer";
-import CoursesGrouping from "../components/courses-page/CoursesGrouping";
-import CourseBox from "../components/courses-page/CourseBox";
+import Navbar from "components/layout/Navbar";
+import Footer from "components/layout/Footer";
+import CoursesGrouping from "components/courses-page/CoursesGrouping";
+import CourseBox from "components/courses-page/CourseBox";
 // datas
-import { COURSES, SORT_COURSES } from "../datas";
+import { COURSES } from "datas";
+// mui => theme
+import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function courses() {
-  // styles
-  const theme = useTheme();
-  const styles = {
-    header: {
-      backgroundColor: "#0E363F",
-      color: "white",
-      height: "80px",
-      display: "flex",
-      alignItems: "center",
-      marginBottom: "3rem"
-    },
-    searchInput: {
-      border: "1px solid #CFD8DC",
-      borderRadius: "8px",
-      backgroundColor: "white",
-      height: "48px",
-      pr: 2,
-    },
-  };
-
   return (
     <>
       <Navbar />
       <Box sx={{ color: "#37474F" }}>
-        <Box sx={styles.header}>
+        <Box
+          sx={{
+            backgroundColor: (theme) => theme.palette.primary.main,
+            color: "white",
+            mb: 6,
+            ...flexAlignCenter,
+            height: "80px",
+          }}
+        >
           <Container maxWidth="xl">
             <Typography fontSize="20px" fontWeight="300">
               دوره های آموزشی
@@ -56,7 +45,13 @@ function courses() {
               <InputBase
                 fullWidth
                 placeholder="عنوان مد نظر را جستجو کنید..."
-                sx={styles.searchInput}
+                sx={{
+                  border: "1px solid #CFD8DC",
+                  borderRadius: "8px",
+                  backgroundColor: "white",
+                  height: "48px",
+                  pr: 2,
+                }}
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton>

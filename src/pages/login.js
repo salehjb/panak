@@ -1,7 +1,7 @@
 // components
-import AuthComponent from "../components/AuthComponent";
+import AuthComponent from "components/AuthComponent";
 // datas
-import { LOGIN_INPUTS } from "../datas";
+import { LOGIN_INPUTS } from "datas";
 
 function login() {
   return (

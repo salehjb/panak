@@ -1,6 +1,7 @@
 import * as Icons from "@mui/icons-material";
 
 export const PAGES = [
+  { text: "", href: "/" },
   { text: "صفحه اصلی", href: "/" },
   { text: "دوره ها", href: "/courses" },
   { text: "درباره ما", href: "/about-us" },
@@ -186,4 +187,13 @@ export const CART_COURSES = [
 export const PAYMENT_GATEWAYS = [
   { name: "زرین پال", image: "/logos/zarinpal.png", value: "zarinpal" },
   { name: "بانک ملت", image: "/logos/melat.png", value: "melat" },
+]
+
+export const DASHBOARD_SIDEBAR_ITEMS = [
+  { text: "داشبورد", href: "/dashboard", icon: Icons.GridViewOutlined },
+  { text: "خرید های من", href: "/dashboard/my-purchases", icon: Icons.LocalMallOutlined },
+  { text: "علاقه مندیها", href: "/dashboard/favorites", icon: Icons.FavoriteBorderOutlined },
+  { text: "کیف پول", href: "/dashboard/wallet", icon: Icons.AccountBalanceWalletOutlined },
+  { text: "پروفایل", href: "/dashboard/profile", icon: Icons.PersonOutlineOutlined },
+  { text: "پشتیبانی", href: "/dashboard/support", icon: Icons.HeadsetMicOutlined },
 ]

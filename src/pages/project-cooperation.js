@@ -1,43 +1,12 @@
 import Image from "next/image";
 // components
-import PageLayout from "../components/layout/PageLayout";
+import PageLayout from "components/layout/PageLayout";
 // MUI
-import { Box, Button, Grid, InputBase, Typography, useTheme } from "@mui/material";
+import { Box, Button, Grid, InputBase, Typography } from "@mui/material";
 // datas
-import { PROJECT_COOPERATION_INPUTS } from "../datas";
+import { PROJECT_COOPERATION_INPUTS } from "datas";
 
 function ProjectCooperation() {
-  // styles
-  const theme = useTheme();
-  const styles = {
-    vector: {
-      position: "relative",
-      width: "472px",
-      height: "333px",
-    },
-    input: {
-      height: "48px",
-      borderRadius: "8px",
-      border: "1px solid #CFD8DC",
-      padding: "1rem"
-    },
-    descriptionInput: {
-      borderRadius: "8px",
-      border: "1px solid #CFD8DC",
-      padding: "1rem"
-    },
-    sendButton: {
-      width: "160x",
-      height: "48px",
-      backgroundColor: "#FF9B0C",
-      mt: 4,
-      color: "white",
-      "&:hover": {
-        backgroundColor: "#e98d0d",
-      },
-    },
-  };
-
   return (
     <PageLayout title="همکاری در پروژه">
       <Grid container alignItems="center">
@@ -64,7 +33,13 @@ function ProjectCooperation() {
           </Typography>
         </Grid>
         <Grid item xs={6} display="flex" justifyContent="flex-end">
-          <Box sx={styles.vector}>
+          <Box
+            sx={{
+              position: "relative",
+              width: "472px",
+              height: "333px",
+            }}
+          >
             <Image
               src={"/vectors/project-cooperation.png"}
               alt="project-cooperation"
@@ -84,7 +59,15 @@ function ProjectCooperation() {
               <Typography mb={0.8} fontWeight="400">
                 {item.label}
               </Typography>
-              <InputBase fullWidth sx={styles.input} />
+              <InputBase
+                fullWidth
+                sx={{
+                  height: "48px",
+                  borderRadius: "8px",
+                  border: "1px solid #CFD8DC",
+                  p: 2,
+                }}
+              />
             </Grid>
           ))}
           <Grid item xs={12}>
@@ -93,14 +76,32 @@ function ProjectCooperation() {
             </Typography>
             <InputBase
               fullWidth
-              sx={styles.descriptionInput}
+              sx={{
+                borderRadius: "8px",
+                border: "1px solid #CFD8DC",
+                p: 2,
+              }}
               multiline
               rows={4}
             />
           </Grid>
         </Grid>
         <Grid item>
-          <Button variant="contained" sx={styles.sendButton}>ارسال فرم درخواست</Button>
+          <Button
+            variant="contained"
+            sx={{
+              width: "160x",
+              height: "48px",
+              backgroundColor: (theme) => theme.palette.secondary.main,
+              mt: 4,
+              color: "white",
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.secondary.dark,
+              },
+            }}
+          >
+            ارسال فرم درخواست
+          </Button>
         </Grid>
       </Grid>
     </PageLayout>

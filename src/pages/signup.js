@@ -1,7 +1,7 @@
 // components
-import AuthComponent from "../components/AuthComponent";
+import AuthComponent from "components/AuthComponent";
 // datas
-import { SIGNUP_INPUTS } from "../datas";
+import { SIGNUP_INPUTS } from "datas";
 
 function signup() {
   return (

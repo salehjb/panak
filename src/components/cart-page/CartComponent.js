@@ -3,85 +3,44 @@ import Image from "next/image";
 import {
   Box,
   Button,
-  Container,
   Divider,
-  FormControl,
-  FormControlLabel,
-  Grid,
   IconButton,
   InputAdornment,
   InputBase,
   Radio,
   RadioGroup,
   Typography,
-  useTheme,
 } from "@mui/material";
 import { Clear } from "@mui/icons-material";
 // datas
-import { PAYMENT_GATEWAYS } from "../../datas";
+import { PAYMENT_GATEWAYS } from "datas";
 // utils
-import { priceFormatter } from "../../utils/functions";
+import { priceFormatter } from "utils/functions";
+// mui => theme
+import { flexBetween } from "mui/theme/commonStyles";
 
 function CartComponent({ courses }) {
   const rawAmount = courses.reduce(
     (prevValue, object) => prevValue + object.price,
     0
   );
-  const finalAmount = priceFormatter(rawAmount)
-
-  // styles
-  const theme = useTheme();
-  const styles = {
-    rightSide: {
-      width: { xs: "60%" },
-      border: "1px solid #CFD8DC",
-      borderRadius: "12px",
-    },
-    leftSide: {
-      width: { xs: "40%" },
-      height: "fit-content",
-      border: "1px solid #CFD8DC",
-      borderRadius: "24px",
-      mr: 3,
-      padding: "1rem 2rem",
-    },
-    input: {
-      width: "360px",
-      height: "57px",
-      backgroundColor: "#F2F6FE",
-      borderRadius: "8px",
-      padding: "0.5rem",
-      fontSize: "17px",
-    },
-    button: {
-      color: "white",
-    },
-    logoStyles: {
-      position: "relative",
-      width: "40px",
-      height: "40px",
-      marginRight: "0.5rem",
-    },
-    paymentButton: {
-      backgroundColor: "#FF9B0C",
-      color: "white",
-      height: "48px",
-      fontSize: "15px",
-      marginTop: "3rem",
-      "&:hover": {
-        backgroundColor: "#e98d0d"
-      }
-    },
-  };
+  const finalAmount = priceFormatter(rawAmount);
 
   return (
     <Box
       container
-      display="flex"
-      justifyContent="space-between"
-      color="#455A64"
+      sx={{
+        ...flexBetween,
+        color: (theme) => theme.palette.primary.contrastText,
+      }}
     >
-      <Box sx={styles.rightSide}>
+      <Box
+        sx={{
+          width: { xs: "60%" },
+          border: "1px solid #CFD8DC",
+          borderRadius: "12px",
+        }}
+      >
         <Box display="flex" sx={{ padding: "1rem" }}>
           <Typography
             sx={{ width: "40%", paddingRight: "1rem", fontWeight: "400" }}
@@ -153,11 +112,18 @@ function CartComponent({ courses }) {
             </Typography>
           </Box>
           <InputBase
-            sx={styles.input}
+            sx={{
+              width: "360px",
+              height: "57px",
+              backgroundColor: "#F2F6FE",
+              borderRadius: "8px",
+              p: 1,
+              fontSize: "17px",
+            }}
             placeholder="محل وارد کردن کد تخفیف"
             endAdornment={
               <InputAdornment>
-                <Button variant="contained" sx={styles.button}>
+                <Button variant="contained" sx={{ color: "white" }}>
                   اعمال
                 </Button>
               </InputAdornment>
@@ -165,7 +131,17 @@ function CartComponent({ courses }) {
           />
         </Box>
       </Box>
-      <Box sx={styles.leftSide}>
+      <Box
+        sx={{
+          width: { xs: "40%" },
+          height: "fit-content",
+          border: "1px solid #CFD8DC",
+          borderRadius: "24px",
+          mr: 3,
+          py: 2,
+          px: 4,
+        }}
+      >
         <Box display="flex" justifyContent="space-between" alignItems="center">
           <Typography fontSize="16px" fontWeight="400">
             مبلغ نهایی ( تومان )
@@ -181,18 +157,25 @@ function CartComponent({ courses }) {
           </Typography>
           <RadioGroup sx={{ width: "fit-content" }} defaultValue="zarinpal">
             {PAYMENT_GATEWAYS.map((item, index) => (
-              <Box mt={5} sx={{ display: "flex", alignItems: "center" }} key={index}>
+              <Box
+                mt={5}
+                sx={{ display: "flex", alignItems: "center" }}
+                key={index}
+              >
                 <Radio
                   value={item.value}
                   color="secondary"
                   sx={{ padding: "0 !important" }}
                 />
-                <Box sx={styles.logoStyles}>
-                  <Image
-                    src={item.image}
-                    objectFit="contain"
-                    layout="fill"
-                  />
+                <Box
+                  sx={{
+                    position: "relative",
+                    width: "40px",
+                    height: "40px",
+                    mr: 1,
+                  }}
+                >
+                  <Image src={item.image} objectFit="contain" layout="fill" />
                 </Box>
                 <Box mr={2}>
                   <Typography fontWeight="400">{item.name}</Typography>
@@ -201,7 +184,20 @@ function CartComponent({ courses }) {
               </Box>
             ))}
           </RadioGroup>
-          <Button fullWidth variant="contained" sx={styles.paymentButton}>
+          <Button
+            fullWidth
+            variant="contained"
+            sx={{
+              backgroundColor: (theme) => theme.palette.secondary.main,
+              color: "white",
+              height: "48px",
+              fontSize: "15px",
+              mt: 6,
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.secondary.dark,
+              },
+            }}
+          >
             پرداخت
           </Button>
         </Box>

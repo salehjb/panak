@@ -1,11 +1,11 @@
 import PropTypes from "prop-types";
 // styles
-import "../scss/globals.scss";
+import "scss/globals.scss";
 // MUI
 import { ThemeProvider, CssBaseline } from "@mui/material";
 import { CacheProvider } from "@emotion/react";
-import createEmotionCache from "../mui/createEmotionCache";
-import lightTheme from "../mui/theme/lightTheme";
+import createEmotionCache from "mui/createEmotionCache";
+import lightTheme from "mui/theme/lightTheme";
 
 const clientSideEmotionCache = createEmotionCache();
 

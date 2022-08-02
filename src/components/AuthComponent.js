@@ -1,8 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
-// components
-import AuthLayout from "./layout/AuthLayout";
-// MUI
 import {
   Box,
   Button,
@@ -11,11 +8,15 @@ import {
   InputAdornment,
   InputBase,
   Typography,
-  useTheme,
+  Link as MuiLink,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
+// components
+import AuthLayout from "./layout/AuthLayout";
 // icons
-import { GoogleIcon } from "../shared/Icons";
+import { GoogleIcon } from "shared/Icons";
+// mui => theme
+import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -23,41 +24,12 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const emailInput = useRef();
 
   useEffect(() => {
-    emailInput.current.focus()
-  }, [])
-
-  // styles
-  const theme = useTheme();
-  const styles = {
-    input: {
-      width: "318px",
-      height: "48px",
-      mb: 2,
-      border: "1px solid #CFD8DC",
-      borderRadius: "8px",
-      paddingRight: "0.9rem",
-    },
-    signupButton: {
-      width: "318px",
-      height: "48px",
-      backgroundColor: "#FF9B0C",
-      mt: 2,
-      color: "white",
-      "&:hover": {
-        backgroundColor: "#e98d0d",
-      },
-    },
-    signupGoogle: {
-      width: "318px",
-      height: "48px",
-      display: "flex",
-      alignItems: "center",
-    },
-  };
+    emailInput.current.focus();
+  }, []);
 
   return (
     <AuthLayout>
-      <Grid container color="#455A64">
+      <Grid container color="primary.contrastText">
         <Grid item xs={12} align="center">
           <Typography fontSize="24px" fontWeight="400" mb={3}>
             {headerText}
@@ -70,7 +42,14 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
                 {item.label}
               </Typography>
               <InputBase
-                sx={styles.input}
+                sx={{
+                  width: "318px",
+                  height: "48px",
+                  mb: 2,
+                  border: "1px solid #CFD8DC",
+                  borderRadius: "8px",
+                  pr: 1.5,
+                }}
                 type={isShowPassword ? "text" : item.type}
                 inputRef={item.email && emailInput}
                 endAdornment={
@@ -90,11 +69,23 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
           </Grid>
         ))}
         <Grid item xs={12} align="center">
-          <Button variant="contained" sx={styles.signupButton}>
+          <Button
+            variant="contained"
+            sx={{
+              width: "318px",
+              height: "48px",
+              backgroundColor: (theme) => theme.palette.secondary.main,
+              mt: 2,
+              color: (theme) => theme.palette.secondary.contrastText,
+              "&:hover": {
+                backgroundColor: (theme) => theme.palette.secondary.dark,
+              },
+            }}
+          >
             {buttonText}
           </Button>
         </Grid>
-        <Grid item xs={12} color="#566E7A" align="center">
+        <Grid item xs={12} align="center">
           <Box
             width="318px"
             mt={2}
@@ -107,12 +98,12 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
                 <Typography>
                   حسابی ندارید ؟{" "}
                   <Link href="/signup">
-                    <a style={{ color: "#566E7A" }}>ثبت نام</a>
+                    <MuiLink sx={{ color: "#566E7A" }}>ثبت نام</MuiLink>
                   </Link>
                 </Typography>
                 <Typography>
                   <Link href="/">
-                    <a style={{ color: "#566E7A" }}>فراموشی رمز عبور</a>
+                    <MuiLink sx={{ color: "#566E7A" }}>فراموشی رمز عبور</MuiLink>
                   </Link>
                 </Typography>
               </>
@@ -120,14 +111,21 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
               <Typography>
                 حساب دارید ؟{" "}
                 <Link href="/login">
-                  <a style={{ color: "#566E7A" }}>ورود</a>
+                  <MuiLink sx={{ color: "#566E7A" }}>ورود</MuiLink>
                 </Link>
               </Typography>
             )}
           </Box>
         </Grid>
         <Grid item xs={12} mt={2} align="center">
-          <Button variant="outlined" sx={styles.signupGoogle}>
+          <Button
+            variant="outlined"
+            sx={{
+              width: "318px",
+              height: "48px",
+              ...flexAlignCenter,
+            }}
+          >
             <Typography ml={1}>ورود با گوگل</Typography>
             <GoogleIcon />
           </Button>

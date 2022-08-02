@@ -4,7 +4,7 @@ const lightTheme = createTheme({
   mode: "light",
   direction: "rtl",
   typography: {
-    fontFamily: `"YekanBakh", "Roboto", "Arial"`,
+    fontFamily: '"YekanBakh", "Roboto", "Arial"',
     fontWeightLight: 100,
     fontWeightRegular: 200,
     fontWeightMedium: 300,
@@ -16,16 +16,60 @@ const lightTheme = createTheme({
       default: "#f1f1f1",
     },
     primary: {
-      light: "#0E363F",
       main: "#0E363F",
-      dark: "#0E363F",
-      contrastText: "#37474F",
+      contrastText: "#455A64",
     },
     secondary: {
-      light: "#FF9B0C",
       main: "#FF9B0C",
-      dark: "#FF9B0C",
+      dark: "#e98d0d",
       contrastText: "#fff",
+    },
+  },
+  components: {
+    MuiTypography: {
+      defaultProps: {
+        sx: {
+          px: 1,
+        },
+        variant: "subtitle2",
+      },
+    },
+    MuiStack: {
+      defaultProps: {
+        sx: {
+          px: 2,
+          py: 1,
+        },
+        spacing: 2,
+        direction: "row",
+      },
+    },
+    MuiPaper: {
+      defaultProps: {
+        elevation: 0,
+      },
+    },
+    MuiLink: {
+      defaultProps: {
+        sx: {
+          color: (theme) => theme.palette.primary.contrastText,
+          cursor: "pointer",
+        },
+        underline: "none",
+      },
+    },
+    MuiButton: {
+      defaultProps: {
+        size: "small",
+        p: 0,
+        disableRipple: false,
+      },
+      variant: "text",
+    },
+    MuiTab: {
+      defaultProps: {
+        disableRipple: true,
+      },
     },
   },
 });
