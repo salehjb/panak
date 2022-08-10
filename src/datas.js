@@ -91,57 +91,6 @@ export const LOGIN_INPUTS = [
   { label: "رمز عبور", type: "password" },
 ];
 
-export const COURSES = [
-  {
-    title: "دوره ری اکت",
-    teacher: "صالح جلیلی",
-    time: 20,
-    price: 1200000,
-    image:
-      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
-  },
-  {
-    title: "دوره جاوااسکریپت",
-    teacher: "صالح جلیلی",
-    time: 20,
-    price: 900000,
-    image:
-      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
-  },
-  {
-    title: "دوره جنگو",
-    teacher: "مهدی جلیلی",
-    time: 20,
-    price: 1100000,
-    image:
-      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
-  },
-  {
-    title: "دوره نکست جی اس",
-    teacher: "صالح جلیلی",
-    time: 20,
-    price: 500000,
-    image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
-  },
-  {
-    title: "دوره پایتون",
-    teacher: "مهدی جلیلی",
-    time: 20,
-    price: 900000,
-    image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
-  },
-  {
-    title: "دوره نود جی اس",
-    teacher: "صالح جلیلی",
-    time: 20,
-    price: 1300000,
-    image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
-  },
-];
-
 export const SORT_COURSES = [
   { text: "جدیدترین ها" },
   { text: "محبوب ترین ها" },

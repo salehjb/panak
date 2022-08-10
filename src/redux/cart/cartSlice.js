@@ -15,6 +15,8 @@ const cartSlice = createSlice({
       );
       if (itemIndex === -1) {
         state.cart.push(item);
+      } else {
+        state.cart[itemIndex].quantity += item.quantity;
       }
     },
     removeItem: (state, action) => {
@@ -23,10 +25,7 @@ const cartSlice = createSlice({
         (itemInState) => itemInState.id === item.id
       );
       if (itemIndex !== -1) {
-        state.cart[itemIndex].quantity -= item.quantity;
-        if (state.cart[itemIndex].quantity === 0) {
-          state.cart.splice(itemIndex, 1);
-        }
+        state.cart.splice(itemIndex, 1);
       }
     },
     clearCart: (state) => {

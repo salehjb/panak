@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import {
   Container,
@@ -34,16 +33,13 @@ function Navbar() {
           <Box
             ml={4}
             sx={{
-              position: "relative",
               width: "57px",
               height: "58px",
             }}
           >
-            <Image
+            <img
               src={"/logos/logo-red.png"}
               alt="logo"
-              objectFit="contain"
-              layout="fill"
             />
           </Box>
           <Stack direction="row" spacing={5} flexGrow={1}>

@@ -41,7 +41,6 @@ function CartItem({ item }) {
           }}
         >
           <IconButton
-            sx={{ padding: "0" }}
             onClick={() => dispatch(removeItem(item))}
           >
             <Clear />

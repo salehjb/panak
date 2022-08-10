@@ -16,19 +16,11 @@ import Navbar from "components/layout/Navbar";
 import Footer from "components/layout/Footer";
 import CoursesGrouping from "components/courses-page/CoursesGrouping";
 import CourseBox from "components/courses-page/CourseBox";
-// datas
-import { COURSES } from "datas";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function courses() {
-  const dispatch = useDispatch();
-
   const products = useSelector(getAllProducts);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, [products])
 
   return (
     <>

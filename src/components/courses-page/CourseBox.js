@@ -1,4 +1,5 @@
-import { Grid, IconButton, Typography } from "@mui/material";
+import Link from "next/link";
+import { Grid, IconButton, Typography, Link as MuiLink } from "@mui/material";
 import { useDispatch } from "react-redux";
 import { addItem } from "redux/cart/cartSlice";
 // mui => theme
@@ -21,22 +22,30 @@ function CourseBox({ product }) {
       }}
     >
       <Grid item xs={12}>
-        <img
-          src={product.image}
-          alt="course image"
-          style={{
-            width: "100%",
-            height: "250px",
-            borderRadius: "24px",
-            marginBottom: "0.5rem",
-          }}
-        />
+        <Link href={`/courses/${product.id}`}>
+          <MuiLink>
+            <img
+              src={product.image}
+              alt="course image"
+              style={{
+                width: "100%",
+                height: "250px",
+                borderRadius: "24px",
+                marginBottom: "0.5rem",
+              }}
+            />
+          </MuiLink>
+        </Link>
       </Grid>
       <Grid item xs={12} sx={{ px: 2 }}>
         <Grid item xs={12} mb={2}>
-          <Typography fontSize="18px" fontWeight="400">
-            {product.title}
-          </Typography>
+          <Link href={`/courses/${product.id}`}>
+            <MuiLink>
+              <Typography fontSize="18px" fontWeight="400">
+                {product.title}
+              </Typography>
+            </MuiLink>
+          </Link>
         </Grid>
         <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
           <ProfileIcon />
@@ -46,7 +55,12 @@ function CourseBox({ product }) {
         </Grid>
         <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
           <ClockIcon />
-          <Typography fontSize="15px" fontFamily="Yekan" fontWeight="500" mr={1}>
+          <Typography
+            fontSize="15px"
+            fontFamily="Yekan"
+            fontWeight="500"
+            mr={1}
+          >
             {timeFormatter(20, 30, 0)}
           </Typography>
         </Grid>

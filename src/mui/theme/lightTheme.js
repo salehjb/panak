@@ -54,6 +54,8 @@ const lightTheme = createTheme({
         sx: {
           color: (theme) => theme.palette.primary.contrastText,
           cursor: "pointer",
+          margin: 0,
+          padding: 0,
         },
         underline: "none",
       },
