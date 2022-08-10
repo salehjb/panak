@@ -1,4 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
+import { useSelector } from "react-redux";
+import { getAllCarts } from "redux/cart/cartSlice";
 // components
 import Navbar from "components/layout/Navbar";
 import CartComponent from "components/cart-page/CartComponent";
@@ -9,6 +11,8 @@ import { CART_COURSES } from "datas";
 import { flexCenter } from "mui/theme/commonStyles";
 
 function ShoppingCart() {
+  const carts = useSelector(getAllCarts);
+
   return (
     <>
       <Navbar />
@@ -32,8 +36,8 @@ function ShoppingCart() {
               </Typography>
             </Grid>
             <Grid item xs={12}>
-              {CART_COURSES.length > 0 ? (
-                <CartComponent courses={CART_COURSES} />
+              {carts.length > 0 ? (
+                <CartComponent carts={carts} />
               ) : (
                 <EmptyCart />
               )}

@@ -1,8 +1,7 @@
-// MUI
-import { Box } from "@mui/material";
-
-export default function Home() {
+function index() {
   return (
-    <div></div>
-  );
+    <div>index</div>
+  )
 }
+
+export default index

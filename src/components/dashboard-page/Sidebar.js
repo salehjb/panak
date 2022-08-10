@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 // MUI
 import {
-  Avatar,
   Box,
   Container,
   Grid,
@@ -30,39 +29,29 @@ function Sidebar() {
         top: "0",
         height: "100vh",
         backgroundColor: "white",
-        pt: 3,
         color: (theme) => theme.palette.primary.main,
       }}
     >
       <Container maxWidth="xl">
         <Grid container>
-          <Grid
-            item
-            xs={12}
-            sx={{ px: 2, ...flexAlignCenter }}
-          >
-            <Avatar src="https://assets-prd.ignimgs.com/2021/11/30/cq5dam-web-1200-675-1638302563149.jpg" />
-            <Typography fontSize="15px" fontWeight="400" mr={2}>
-              خوش اومدی، امیلیا عزیز
-            </Typography>
-          </Grid>
+          <Grid item xs={12} sx={{ px: 2, ...flexAlignCenter }}></Grid>
           <Grid item xs={12} mt={4}>
             <List component="nav">
               {DASHBOARD_SIDEBAR_ITEMS.map((item, index) => {
                 const CustomIcon = item.icon;
                 return (
-                  <ListItemButton
-                    key={index}
-                    sx={{
-                      mb: 1,
-                      borderRadius: "8px",
-                    }}
-                  >
-                    <Link href={item.href}>
-                      <MuiLink
+                  <Link href={item.href}>
+                    <MuiLink
+                      sx={{
+                        ...flexAlignCenter,
+                        color: (theme) => theme.palette.primary.contrastText,
+                      }}
+                    >
+                      <ListItemButton
+                        key={index}
                         sx={{
-                          ...flexAlignCenter,
-                          color: (theme) => theme.palette.primary.contrastText,
+                          mb: 1,
+                          borderRadius: "8px",
                         }}
                       >
                         <ListItemIcon
@@ -93,9 +82,9 @@ function Sidebar() {
                         >
                           {item.text}
                         </Typography>
-                      </MuiLink>
-                    </Link>
-                  </ListItemButton>
+                      </ListItemButton>
+                    </MuiLink>
+                  </Link>
                 );
               })}
             </List>

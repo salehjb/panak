@@ -8,14 +8,19 @@ import {
   InputBase,
   InputAdornment,
   IconButton,
+  Badge,
 } from "@mui/material";
 import { RiShoppingCartLine, RiSearchLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
+import { getAllCarts } from "../../redux/cart/cartSlice";
 // datas
 import { PAGES } from "datas";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 
 function Navbar() {
+  const carts = useSelector(getAllCarts);
+
   return (
     <Box
       sx={{
@@ -43,8 +48,8 @@ function Navbar() {
           </Box>
           <Stack direction="row" spacing={5} flexGrow={1}>
             {PAGES.map((page, index) => (
-              <Box>
-                <Link href={page.href} key={index}>
+              <Box key={index}>
+                <Link href={page.href}>
                   <MuiLink>{page.text}</MuiLink>
                 </Link>
               </Box>
@@ -71,7 +76,11 @@ function Navbar() {
                 }
               />
             </Box>
-            <Box>
+            <Badge
+              badgeContent={carts.length}
+              color="secondary"
+              showZero={true}
+            >
               <Link href="/shopping-cart">
                 <MuiLink
                   sx={{
@@ -85,7 +94,7 @@ function Navbar() {
                   <RiShoppingCartLine fontSize="1.3rem" />
                 </MuiLink>
               </Link>
-            </Box>
+            </Badge>
             <Box
               mr={3}
               sx={{

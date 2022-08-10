@@ -1,5 +1,3 @@
-import Image from "next/image";
-// MUI
 import {
   Box,
   Button,
@@ -7,23 +5,22 @@ import {
   IconButton,
   InputAdornment,
   InputBase,
-  Radio,
-  RadioGroup,
   Typography,
 } from "@mui/material";
-import { Clear } from "@mui/icons-material";
 // datas
 import { PAYMENT_GATEWAYS } from "datas";
 // utils
 import { priceFormatter } from "utils/functions";
 // mui => theme
 import { flexBetween } from "mui/theme/commonStyles";
+// components
+import PaymentMethod from "shared/PaymentMethod";
+import CartItem from "./CartItem";
 
-function CartComponent({ courses }) {
-  const rawAmount = courses.reduce(
-    (prevValue, object) => prevValue + object.price,
-    0
-  );
+function CartComponent({ carts }) {
+  const rawAmount = carts.reduce((acc, curr) => {
+    return acc + curr.price;
+  } , 0);
   const finalAmount = priceFormatter(rawAmount);
 
   return (
@@ -53,49 +50,8 @@ function CartComponent({ courses }) {
         </Box>
         <Divider variant="fullWidth" />
         <Box>
-          {courses.map((item, index) => (
-            <Box key={index}>
-              <Box
-                display="flex"
-                alignItems="center"
-                sx={{ padding: "1rem 2rem" }}
-              >
-                <Box
-                  sx={{
-                    width: "40%",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <img
-                    src={item.image}
-                    alt="course image"
-                    width="44px"
-                    height="44px"
-                    style={{ borderRadius: "8px" }}
-                  />
-                  <Box mr={2}>
-                    <Typography fontSize="16px" fontWeight="400">
-                      {item.title}
-                    </Typography>
-                    <Typography fontSize="14px">{item.teacher}</Typography>
-                  </Box>
-                </Box>
-                <Box sx={{ width: "50%" }}>{priceFormatter(item.price)}</Box>
-                <Box
-                  sx={{
-                    width: "10%",
-                    display: "flex",
-                    justifyContent: "flex-end",
-                  }}
-                >
-                  <IconButton sx={{ padding: "0" }}>
-                    <Clear />
-                  </IconButton>
-                </Box>
-              </Box>
-              <Divider variant="fullWidth" />
-            </Box>
+          {carts.map((item) => (
+            <CartItem item={item} key={item.id} />
           ))}
         </Box>
         <Box
@@ -155,41 +111,13 @@ function CartComponent({ courses }) {
           <Typography fontWeight="400" fontSize="16px">
             انتخاب روش پرداخت
           </Typography>
-          <RadioGroup sx={{ width: "fit-content" }} defaultValue="zarinpal">
-            {PAYMENT_GATEWAYS.map((item, index) => (
-              <Box
-                mt={5}
-                sx={{ display: "flex", alignItems: "center" }}
-                key={index}
-              >
-                <Radio
-                  value={item.value}
-                  color="secondary"
-                  sx={{ padding: "0 !important" }}
-                />
-                <Box
-                  sx={{
-                    position: "relative",
-                    width: "40px",
-                    height: "40px",
-                    mr: 1,
-                  }}
-                >
-                  <Image src={item.image} objectFit="contain" layout="fill" />
-                </Box>
-                <Box mr={2}>
-                  <Typography fontWeight="400">{item.name}</Typography>
-                  <Typography>پرداخت از طریق درگاه {item.name}</Typography>
-                </Box>
-              </Box>
-            ))}
-          </RadioGroup>
+          <PaymentMethod gatewaysArray={PAYMENT_GATEWAYS} />
           <Button
             fullWidth
             variant="contained"
             sx={{
               backgroundColor: (theme) => theme.palette.secondary.main,
-              color: "white",
+              color: (theme) => theme.palette.secondary.contrastText,
               height: "48px",
               fontSize: "15px",
               mt: 6,

@@ -1,4 +1,4 @@
-// MUI
+import { useEffect } from "react";
 import {
   Box,
   Container,
@@ -9,6 +9,8 @@ import {
   Typography,
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchProducts, getAllProducts } from "redux/products/productsSlice";
 // components
 import Navbar from "components/layout/Navbar";
 import Footer from "components/layout/Footer";
@@ -20,6 +22,14 @@ import { COURSES } from "datas";
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function courses() {
+  const dispatch = useDispatch();
+
+  const products = useSelector(getAllProducts);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [products])
+
   return (
     <>
       <Navbar />
@@ -64,9 +74,9 @@ function courses() {
             </Grid>
             <Grid item xs={9}>
               <Grid container spacing={3}>
-                {COURSES.map((item, index) => (
-                  <Grid item xs={4} key={index}>
-                    <CourseBox {...item} />
+                {products.map((product) => (
+                  <Grid item xs={4} key={product.id}>
+                    <CourseBox product={product} />
                   </Grid>
                 ))}
               </Grid>

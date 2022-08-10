@@ -1,4 +1,6 @@
 import { Grid, IconButton, Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { addItem } from "redux/cart/cartSlice";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 // icons
@@ -6,7 +8,9 @@ import { ProfileIcon, ClockIcon, AddProductIcon } from "shared/Icons";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 
-function CourseBox({ title, teacher, time, price, image }) {
+function CourseBox({ product }) {
+  const dispatch = useDispatch();
+
   return (
     <Grid
       container
@@ -18,7 +22,7 @@ function CourseBox({ title, teacher, time, price, image }) {
     >
       <Grid item xs={12}>
         <img
-          src={image}
+          src={product.image}
           alt="course image"
           style={{
             width: "100%",
@@ -31,19 +35,19 @@ function CourseBox({ title, teacher, time, price, image }) {
       <Grid item xs={12} sx={{ px: 2 }}>
         <Grid item xs={12} mb={2}>
           <Typography fontSize="18px" fontWeight="400">
-            {title}
+            {product.title}
           </Typography>
         </Grid>
         <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
           <ProfileIcon />
           <Typography fontSize="15px" fontWeight="300" mr={1}>
-            {teacher}
+            {product.teacher}
           </Typography>
         </Grid>
         <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
           <ClockIcon />
-          <Typography fontSize="15px" fontWeight="300" mr={1}>
-            {timeFormatter(20, 30)}
+          <Typography fontSize="15px" fontFamily="Yekan" fontWeight="500" mr={1}>
+            {timeFormatter(20, 30, 0)}
           </Typography>
         </Grid>
         <Grid
@@ -56,7 +60,7 @@ function CourseBox({ title, teacher, time, price, image }) {
           }}
         >
           <Typography fontSize="18px" fontWeight="400">
-            {priceFormatter(price)} تومان
+            {priceFormatter(product.price)} تومان
           </Typography>
           <IconButton
             sx={{
@@ -66,7 +70,8 @@ function CourseBox({ title, teacher, time, price, image }) {
               "&:hover": {
                 backgroundColor: (theme) => theme.palette.secondary.dark,
               },
-            }}  
+            }}
+            onClick={() => dispatch(addItem(product))}
           >
             <AddProductIcon />
           </IconButton>

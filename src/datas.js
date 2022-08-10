@@ -21,19 +21,19 @@ export const TEAM_MEMBERS = [
     name: "مهدی جلیلی",
     stack: "توسعه دهنده بک اند",
     image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
+      "https://www.trendsetterlive.com/wp-content/uploads/2022/04/1-17-740x431.jpg",
   },
   {
     name: "سعید جلیلی",
     stack: "توسعه دهنده نرم افزار",
     image:
-      "https://variety.com/wp-content/uploads/2020/08/peter-dinklage-2.jpg",
+      "https://www.trendsetterlive.com/wp-content/uploads/2022/04/1-17-740x431.jpg",
   },
   {
     name: "الناز علیپور",
     stack: "مدیریت کل مجموعه",
     image:
-      "https://c.files.bbci.co.uk/61FF/production/_125578052_emiliaclarke2.jpg",
+      "https://www.trendsetterlive.com/wp-content/uploads/2022/04/1-17-740x431.jpg",
   },
 ];
 
@@ -106,7 +106,7 @@ export const COURSES = [
     time: 20,
     price: 900000,
     image:
-      "https://media.newyorker.com/photos/5c929565301bde0a3b6216a1/4:3/w_1999,h_1499,c_limit/EmiliaClarke-PersonalEssay-Story.jpg",
+      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
   },
   {
     title: "دوره جنگو",
@@ -114,7 +114,7 @@ export const COURSES = [
     time: 20,
     price: 1100000,
     image:
-      "https://assets.televizier.nl/upload/m/t/Me_Before_You_1620314376.jpg",
+      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
   },
   {
     title: "دوره نکست جی اس",
@@ -130,7 +130,7 @@ export const COURSES = [
     time: 20,
     price: 900000,
     image:
-      "https://cdn.cnn.com/cnnnext/dam/assets/220617111229-game-of-thrones-kit-harington-s8e4-super-tease.jpg",
+      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
   },
   {
     title: "دوره نود جی اس",
@@ -138,7 +138,7 @@ export const COURSES = [
     time: 20,
     price: 1300000,
     image:
-      "https://images.indulgexpress.com/uploads/user/imagelibrary/2022/6/17/original/KitHaringtonwillstarasJonSnowinanewGameofThronesspin-offseries.jpg?w=400&dpr=2.6",
+      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
   },
 ];
 
@@ -156,7 +156,7 @@ export const CART_COURSES = [
     time: "20:33:00",
     price: 900000,
     image:
-      "https://cdn.cnn.com/cnnnext/dam/assets/220617111229-game-of-thrones-kit-harington-s8e4-super-tease.jpg",
+      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
   },
   {
     title: "دوره نکست جی اس",
@@ -172,7 +172,7 @@ export const CART_COURSES = [
     time: "20:33:00",
     price: 1200000,
     image:
-      "https://www.gannett-cdn.com/-mm-/a37e320ac2d4960cf53effc31c5ee0bdf7fd4308/c=0-3-1326-752/local/-/media/2015/10/13/USATODAY/USATODAY/635803254268223230-AP-Esquire-Emilia-Clarke.jpg?width=1200",
+      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
   },
   {
     title: "دوره نود جی اس",
@@ -180,7 +180,7 @@ export const CART_COURSES = [
     time: "20:33:00",
     price: 1300000,
     image:
-      "https://images.indulgexpress.com/uploads/user/imagelibrary/2022/6/17/original/KitHaringtonwillstarasJonSnowinanewGameofThronesspin-offseries.jpg?w=400&dpr=2.6",
+      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
   },
 ];
 
@@ -196,4 +196,15 @@ export const DASHBOARD_SIDEBAR_ITEMS = [
   { text: "کیف پول", href: "/dashboard/wallet", icon: Icons.AccountBalanceWalletOutlined },
   { text: "پروفایل", href: "/dashboard/profile", icon: Icons.PersonOutlineOutlined },
   { text: "پشتیبانی", href: "/dashboard/support", icon: Icons.HeadsetMicOutlined },
+]
+
+export const EDIT_PROFILE_INPUTS_DASHBOARD = [
+  { label: "نام و نام خانوادگی", type: "text" },
+  { label: "ایمیل", type: "text" },
+  { label: "شماره تماس", type: "text" },
+]
+
+export const CHANGE_PASSWORD_INPUTS_DASHBOARD = [
+  { label: "رمز عبور فعلی", type: "password" },
+  { label: "رمز عبور جدید", type: "password" },
 ]
