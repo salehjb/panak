@@ -2,7 +2,7 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Box, IconButton, InputAdornment, InputBase, Typography } from "@mui/material";
 import { useState } from "react";
 
-function Input({ item, fullWidth }) {
+function Input({ item }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
 
   return (

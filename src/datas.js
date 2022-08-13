@@ -157,3 +157,9 @@ export const CHANGE_PASSWORD_INPUTS_DASHBOARD = [
   { label: "رمز عبور فعلی", type: "password" },
   { label: "رمز عبور جدید", type: "password" },
 ]
+
+export const COMMENT_REGISTRATION_RULES = [
+  { text: "تنها دیدگاه های فارسی و مرتبط با محتوا تایید خواهد شد" },
+  { text: "برای نظر دادن یا پرسش سوال، نیازی نیست دوره را خریده باشید" },
+  { text: "با نهایت احترام، تمامی سعی خود را در انتشار نظرات شما خواهیم داشت" },
+]

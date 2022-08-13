@@ -7,7 +7,7 @@ export const flexBetween = {
 
 export const flexBetweenCenter = {
   display: "flex",
-  justifyContent: { xs: "center", md: "space-between" },
+  justifyContent: "space-between",
   alignItems: "center",
 };
 

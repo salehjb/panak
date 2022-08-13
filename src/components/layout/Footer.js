@@ -45,12 +45,7 @@ function Footer() {
                   top: "-10rem",
                 }}
               >
-                <Image
-                  src={"/vectors/mardak.png"}
-                  alt="mardak"
-                  objectFit="contain"
-                  layout="fill"
-                />
+                <img src={"/vectors/mardak.png"} alt="mardak" />
               </Box>
             </Grid>
             <Grid
@@ -213,18 +208,12 @@ function Footer() {
               </Box>
             </Grid>
             <Grid xs={4} display="flex" justifyContent="flex-end">
-              <Box
-                sx={{
-                  position: "relative",
-                  width: "170px",
-                  height: "170px",
-                }}
-              >
-                <Image
+              <Box>
+                <img
                   src={"/logos/etemad.png"}
                   alt="etemad"
-                  objectFit="contain"
-                  layout="fill"
+                  width="170px"
+                  height="170px"
                 />
               </Box>
             </Grid>
