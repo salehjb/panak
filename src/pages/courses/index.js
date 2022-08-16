@@ -9,75 +9,61 @@ import {
   Typography,
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
-import { useDispatch, useSelector } from "react-redux";
-import { fetchProducts, getAllProducts } from "redux/products/productsSlice";
 // components
-import Navbar from "components/layout/Navbar";
-import Footer from "components/layout/Footer";
 import CoursesGrouping from "components/courses-page/CoursesGrouping";
-import CourseBox from "components/courses-page/CourseBox";
+import Courses from "components/courses-page/Courses";
+import Layout from "components/layout/Layout";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function courses() {
-  const products = useSelector(getAllProducts);
-
   return (
-    <>
-      <Navbar />
-      <Box sx={{ color: "#37474F" }}>
-        <Box
-          sx={{
-            backgroundColor: (theme) => theme.palette.primary.main,
-            color: "white",
-            mb: 6,
-            ...flexAlignCenter,
-            height: "80px",
-          }}
-        >
-          <Container maxWidth="xl">
-            <Typography fontSize="20px" fontWeight="300">
-              دوره های آموزشی
-            </Typography>
-          </Container>
-        </Box>
+    <Layout>
+      <Box
+        sx={{
+          backgroundColor: (theme) => theme.palette.primary.main,
+          height: "80px",
+          mb: 5,
+          ...flexAlignCenter,
+        }}
+      >
         <Container maxWidth="xl">
-          <Grid container columnSpacing={3}>
-            <Grid item xs={3}>
-              <InputBase
-                fullWidth
-                placeholder="عنوان مد نظر را جستجو کنید..."
-                sx={{
-                  border: "1px solid #CFD8DC",
-                  borderRadius: "8px",
-                  backgroundColor: "white",
-                  height: "48px",
-                  pr: 2,
-                }}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton>
-                      <Search />
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
-              <CoursesGrouping />
-            </Grid>
-            <Grid item xs={9}>
-              <Grid container spacing={3}>
-                {products.map((product) => (
-                  <Grid item xs={4} key={product.id}>
-                    <CourseBox product={product} />
-                  </Grid>
-                ))}
-              </Grid>
-            </Grid>
-          </Grid>
+          <Typography
+            sx={{ color: "white", fontSize: "20px", fontWeight: "400" }}
+          >
+            دوره های آموزشی
+          </Typography>
         </Container>
       </Box>
-      <Footer />
-    </>
+      <Container maxWidth="xl">
+        <Grid container columnSpacing={3}>
+          <Grid item xs={3}>
+            <InputBase
+              fullWidth
+              placeholder="عنوان مد نظر را جستجو کنید..."
+              sx={{
+                border: "1px solid #CFD8DC",
+                borderRadius: "8px",
+                backgroundColor: "white",
+                height: "48px",
+                pr: 2,
+              }}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton>
+                    <Search />
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+            <CoursesGrouping />
+          </Grid>
+          <Grid item xs={9}>
+            <Courses />
+          </Grid>
+        </Grid>
+      </Container>
+    </Layout>
   );
 }
 

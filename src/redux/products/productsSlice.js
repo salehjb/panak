@@ -45,5 +45,6 @@ const productsSlice = createSlice({
 
 export const getAllProducts = (state) => state.products.items;
 export const getProductById = (state, id) => state.products.items.find((product) => product.id === id);
+export const getProductsWithSlice = (state, sliceNumber) => state.products.items.slice(0, sliceNumber);
 
 export default productsSlice.reducer;

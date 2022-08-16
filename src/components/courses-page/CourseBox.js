@@ -1,5 +1,13 @@
 import Link from "next/link";
-import { Grid, IconButton, Typography, Link as MuiLink } from "@mui/material";
+import {
+  IconButton,
+  Typography,
+  Link as MuiLink,
+  Box,
+  Card,
+  CardMedia,
+  CardContent,
+} from "@mui/material";
 import { useDispatch } from "react-redux";
 import { addItem } from "redux/cart/cartSlice";
 // mui => theme
@@ -13,70 +21,50 @@ function CourseBox({ product }) {
   const dispatch = useDispatch();
 
   return (
-    <Grid
-      container
+    <Card
       sx={{
-        backgroundColor: "white",
-        borderRadius: "24px",
-        boxShadow: "0px 12px 50px rgba(0, 0, 0, 0.07)",
+        borderRadius: "15px",
+        color: (theme) => theme.palette.primary.contrastText,
       }}
     >
-      <Grid item xs={12}>
+      <Link href={`/courses/${product.id}`}>
+        <MuiLink>
+          <CardMedia
+            component="img"
+            height="250"
+            src={product.image}
+            sx={{ borderRadius: "15px" }}
+          />
+        </MuiLink>
+      </Link>
+      <CardContent>
         <Link href={`/courses/${product.id}`}>
           <MuiLink>
-            <img
-              src={product.image}
-              alt="course image"
-              style={{
-                width: "100%",
-                height: "250px",
-                borderRadius: "24px",
-                marginBottom: "0.5rem",
-              }}
-            />
+            <Typography sx={{ fontSize: "17px", fontWeight: "400" }}>
+              {product.title}
+            </Typography>
           </MuiLink>
         </Link>
-      </Grid>
-      <Grid item xs={12} sx={{ px: 2 }}>
-        <Grid item xs={12} mb={2}>
-          <Link href={`/courses/${product.id}`}>
-            <MuiLink>
-              <Typography fontSize="18px" fontWeight="400">
-                {product.title}
-              </Typography>
-            </MuiLink>
-          </Link>
-        </Grid>
-        <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
+        <Box sx={{ ...flexAlignCenter, mt: 2 }}>
           <ProfileIcon />
-          <Typography fontSize="15px" fontWeight="300" mr={1}>
+          <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {product.teacher}
           </Typography>
-        </Grid>
-        <Grid item xs={12} mb={2} sx={{ ...flexAlignCenter }}>
+        </Box>
+        <Box sx={{ ...flexAlignCenter, mt: 1.5 }}>
           <ClockIcon />
-          <Typography
-            fontSize="15px"
-            fontFamily="Yekan"
-            fontWeight="500"
-            mr={1}
-          >
-            {timeFormatter(20, 30, 0)}
+          <Typography sx={{ fontSize: "15px", fontFamily: "Yekan", mr: 1 }}>
+            {timeFormatter(15, 33, 0)}
           </Typography>
-        </Grid>
-        <Grid
-          item
-          xs={12}
-          sx={{
-            mb: 2,
-            ...flexAlignCenter,
-            justifyContent: "space-between",
-          }}
+        </Box>
+        <Box
+          sx={{ ...flexAlignCenter, justifyContent: "space-between", mt: 2 }}
         >
-          <Typography fontSize="18px" fontWeight="400">
+          <Typography sx={{ fontSize: "17px", fontWeight: "400", mr: 1 }}>
             {priceFormatter(product.price)} تومان
           </Typography>
           <IconButton
+            onClick={() => dispatch(addItem(product))}
             sx={{
               width: "40px",
               height: "40px",
@@ -85,13 +73,12 @@ function CourseBox({ product }) {
                 backgroundColor: (theme) => theme.palette.secondary.dark,
               },
             }}
-            onClick={() => dispatch(addItem(product))}
           >
             <AddProductIcon />
           </IconButton>
-        </Grid>
-      </Grid>
-    </Grid>
+        </Box>
+      </CardContent>
+    </Card>
   );
 }
 

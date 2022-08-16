@@ -5,9 +5,9 @@ import createEmotionCache from "mui/createEmotionCache";
 import lightTheme from "mui/theme/lightTheme";
 import store from "redux/store";
 import { Provider } from "react-redux";
-import { fetchProducts } from "redux/products/productsSlice";
 // styles
 import "scss/globals.scss";
+import "video-react/dist/video-react.css";
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -16,8 +16,6 @@ function MyApp({
   emotionCache = clientSideEmotionCache,
   pageProps,
 }) {
-  store.dispatch(fetchProducts())
-
   return (
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={lightTheme}>

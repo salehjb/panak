@@ -6,7 +6,7 @@ export const PAGES = [
   { text: "دوره ها", href: "/courses" },
   { text: "درباره ما", href: "/about-us" },
   { text: "ارتباط با ما", href: "/contact-us" },
-  { text: "وبلاگ", href: "/weblog" },
+  { text: "وبلاگ", href: "/articles" },
   { text: "همکاری با پاناک", href: "/panak-cooperation" },
 ];
 
@@ -136,30 +136,109 @@ export const CART_COURSES = [
 export const PAYMENT_GATEWAYS = [
   { name: "زرین پال", image: "/logos/zarinpal.png", value: "zarinpal" },
   { name: "بانک ملت", image: "/logos/melat.png", value: "melat" },
-]
+];
 
 export const DASHBOARD_SIDEBAR_ITEMS = [
   { text: "داشبورد", href: "/dashboard", icon: Icons.GridViewOutlined },
-  { text: "خرید های من", href: "/dashboard/my-purchases", icon: Icons.LocalMallOutlined },
-  { text: "علاقه مندیها", href: "/dashboard/favorites", icon: Icons.FavoriteBorderOutlined },
-  { text: "کیف پول", href: "/dashboard/wallet", icon: Icons.AccountBalanceWalletOutlined },
-  { text: "پروفایل", href: "/dashboard/profile", icon: Icons.PersonOutlineOutlined },
-  { text: "پشتیبانی", href: "/dashboard/support", icon: Icons.HeadsetMicOutlined },
-]
+  {
+    text: "خرید های من",
+    href: "/dashboard/my-purchases",
+    icon: Icons.LocalMallOutlined,
+  },
+  {
+    text: "علاقه مندیها",
+    href: "/dashboard/favorites",
+    icon: Icons.FavoriteBorderOutlined,
+  },
+  {
+    text: "کیف پول",
+    href: "/dashboard/wallet",
+    icon: Icons.AccountBalanceWalletOutlined,
+  },
+  {
+    text: "پروفایل",
+    href: "/dashboard/profile",
+    icon: Icons.PersonOutlineOutlined,
+  },
+  {
+    text: "پشتیبانی",
+    href: "/dashboard/support",
+    icon: Icons.HeadsetMicOutlined,
+  },
+];
 
 export const EDIT_PROFILE_INPUTS_DASHBOARD = [
   { label: "نام و نام خانوادگی", type: "text" },
   { label: "ایمیل", type: "text" },
   { label: "شماره تماس", type: "text" },
-]
+];
 
 export const CHANGE_PASSWORD_INPUTS_DASHBOARD = [
   { label: "رمز عبور فعلی", type: "password" },
   { label: "رمز عبور جدید", type: "password" },
-]
+];
 
 export const COMMENT_REGISTRATION_RULES = [
   { text: "تنها دیدگاه های فارسی و مرتبط با محتوا تایید خواهد شد" },
   { text: "برای نظر دادن یا پرسش سوال، نیازی نیست دوره را خریده باشید" },
   { text: "با نهایت احترام، تمامی سعی خود را در انتشار نظرات شما خواهیم داشت" },
-]
+];
+
+export const TRANSACTIONS = [
+  {
+    transactionId: "123456789",
+    amount: "11,000,000",
+    date: "1396/12/12",
+    time: "12:12:12",
+    status: "موفق",
+  },
+  {
+    transactionId: "123456789",
+    amount: "11,000,000",
+    date: "1396/12/12",
+    time: "12:12:12",
+    status: "موفق",
+  },
+  {
+    transactionId: "123456789",
+    amount: "11,000,000",
+    date: "1396/12/12",
+    time: "12:12:12",
+    status: "نا موفق",
+  },
+  {
+    transactionId: "123456789",
+    amount: "11,000,000",
+    date: "1396/12/12",
+    time: "12:12:12",
+    status: "موفق",
+  },
+  {
+    transactionId: "123456789",
+    amount: "11,000,000",
+    date: "1396/12/12",
+    time: "12:12:12",
+    status: "نا موفق",
+  },
+  {
+    transactionId: "123456789",
+    amount: "11,000,000",
+    date: "1396/12/12",
+    time: "12:12:12",
+    status: "نا موفق",
+  },
+  {
+    transactionId: "123456789",
+    amount: "11,000,000",
+    date: "1396/12/12",
+    time: "12:12:12",
+    status: "موفق",
+  },
+];
+
+export const HOME_PAGE_BENEFITS = [
+  { text: "صرفه جویی در زمان", icon: Icons.AccessTimeFilled },
+  { text: "آموزش پروژه محور", icon: Icons.AccountTree },
+  { text: "پشتیبانی مدرس", icon: Icons.SupportAgent },
+  { text: "تضمین دوره ها", icon: Icons.Verified },
+]    
