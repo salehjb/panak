@@ -23,7 +23,6 @@ function Articles() {
     if (visible < articles.length) {
       setVisible((prev) => prev + 10);
     }
-    console.log(visible);
   }
 
   return (

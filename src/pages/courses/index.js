@@ -37,7 +37,7 @@ function courses() {
       </Box>
       <Container maxWidth="xl">
         <Grid container columnSpacing={3}>
-          <Grid item xs={3}>
+          <Grid item xs={12} sm={12} md={3}>
             <InputBase
               fullWidth
               placeholder="عنوان مد نظر را جستجو کنید..."
@@ -58,7 +58,7 @@ function courses() {
             />
             <CoursesGrouping />
           </Grid>
-          <Grid item xs={9}>
+          <Grid item sm={12} md={9}>
             <Courses />
           </Grid>
         </Grid>

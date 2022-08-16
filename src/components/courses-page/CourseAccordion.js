@@ -11,7 +11,6 @@ import { ExpandMore } from "@mui/icons-material";
 import {
   flexAlignCenter,
   flexBetweenCenter,
-  flexCenter,
 } from "mui/theme/commonStyles";
 
 function CourseAccordion() {
