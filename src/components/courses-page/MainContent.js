@@ -10,9 +10,9 @@ import { QuestionAnswerOutlined, AddCommentOutlined } from '@mui/icons-material'
 import Title from "shared/Title";
 import Description from "shared/Description";
 import CourseAccordion from "./CourseAccordion";
-import Comments from "./Comments";
-import CommentRules from "./CommentRules";
-import CommentForm from "./CommentForm";
+import Comments from "../../shared/Comments";
+import CommentRules from "../../shared/CommentRules";
+import CommentForm from "../../shared/CommentForm";
 
 function MainContent({ course }) {
   return (
@@ -114,11 +114,9 @@ function MainContent({ course }) {
         <CourseAccordion />
       </Box>
       <Box mb={4}>
-        <Title text="نظرات" icon={<QuestionAnswerOutlined />} />
         <Comments />
       </Box>
       <Box mb={4}>
-        <Title text="ثبت دیدگاه" icon={<AddCommentOutlined />} />
         <CommentRules />
       </Box>
       <Box mb={4}>

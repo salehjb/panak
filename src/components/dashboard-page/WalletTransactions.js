@@ -79,7 +79,6 @@ const styles = {
     color: "#B0BEC5",
   },
   tableCell: {
-    fontFamily: "Yekan",
     color: (theme) => theme.palette.primary.contrastText,
     fontSize: "15px",
   },

@@ -34,7 +34,7 @@ function CourseDetails({ course }) {
             مدت دوره
           </Typography>
         </Box>
-        <Typography fontFamily="Yekan">{timeFormatter(20, 30, 0)}</Typography>
+        <Typography>{timeFormatter(20, 30, 0)}</Typography>
       </Box>
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
         <Box sx={{ ...flexAlignCenter }}>
@@ -48,7 +48,7 @@ function CourseDetails({ course }) {
             تعداد دانلود ها
           </Typography>
         </Box>
-        <Typography fontFamily="Yekan">35486</Typography>
+        <Typography>35486</Typography>
       </Box>
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
         <Box sx={{ ...flexAlignCenter }}>
@@ -62,7 +62,7 @@ function CourseDetails({ course }) {
             آخرین به روز رسانی
           </Typography>
         </Box>
-        <Typography fontFamily="Yekan">1400/09/09</Typography>
+        <Typography>1400/09/09</Typography>
       </Box>
       <Divider variant="fullWidth" />
       <Box
@@ -85,7 +85,7 @@ function CourseDetails({ course }) {
       <Box>
         <Button
           variant="contained"
-          onClick = {() => dispatch(addItem(course))}
+          onClick={() => dispatch(addItem(course))}
           sx={{
             backgroundColor: (theme) => theme.palette.secondary.main,
             color: "white",

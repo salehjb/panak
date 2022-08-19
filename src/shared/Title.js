@@ -6,7 +6,16 @@ function Title({ text, icon }) {
   return (
     <Box sx={{ mb: 3 }}>
       <Box sx={{ ...flexAlignCenter }}>
-        <Box sx={{ fontSize: "1.5rem", ...flexAlignCenter, ml: 1 }}>{icon}</Box>
+        <Box
+          sx={{
+            fontSize: "1.5rem",
+            ...flexAlignCenter,
+            ml: 1,
+            color: (theme) => theme.palette.primary.main,
+          }}
+        >
+          {icon}
+        </Box>
         <Typography
           sx={{
             fontSize: "18px",
@@ -21,7 +30,7 @@ function Title({ text, icon }) {
         <Box
           sx={{
             backgroundColor: (theme) => theme.palette.secondary.main,
-            width: "161px",
+            width: "25%",
             height: "4px",
           }}
         ></Box>

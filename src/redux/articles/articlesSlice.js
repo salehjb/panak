@@ -32,6 +32,7 @@ const articlesSlice = createSlice({
           article.title = "سفر به دوران قبل از تکنولوژی";
           article.image =
             "https://api.time.com/wp-content/uploads/2016/05/rts8haa.jpg?quality=85&w=3500";
+          article.author = { name: "صالح جلیلی", image: "https://i0.wp.com/short-biography.com/wp-content/uploads/emilia-clarke/Emilia-Clarke.jpg?fit=1024%2C1024&ssl=1" };
           return article;
         });
         state.articles = loadedArticles;
@@ -44,9 +45,7 @@ const articlesSlice = createSlice({
 });
 
 export const getAllArticles = (state) => state.articles.articles;
-export const getArticleById = (state, id) =>
-  state.articles.articles.find((article) => article.id === id);
-export const getArticlesWithSlice = (state, sliceNumber) =>
-  state.articles.articles.slice(0, sliceNumber);
+export const getArticleById = (state, id) => state.articles.articles.find((article) => article.id === id);
+export const getArticlesWithSlice = (state, sliceNumber) => state.articles.articles.slice(0, sliceNumber);
 
 export default articlesSlice.reducer;

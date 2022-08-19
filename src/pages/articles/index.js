@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
-import { Box, Button, Container, Grid, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  Container,
+  Grid,
+  IconButton,
+  InputAdornment,
+  InputBase,
+  Typography,
+} from "@mui/material";
+import { Search } from "@mui/icons-material";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchArticles, getAllArticles } from "redux/articles/articlesSlice";
 // components
 import Layout from "components/layout/Layout";
 import ArticlesList from "components/articles-page/ArticlesList";
+import Grouping from "shared/Grouping";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function Articles() {
   const [visible, setVisible] = useState(10);
 
-  const dispatch = useDispatch();
-
   const articles = useSelector(getAllArticles);
-
-  useEffect(() => {
-    dispatch(fetchArticles());
-  }, [dispatch]);
 
   function showMoreArticles() {
     if (visible < articles.length) {
@@ -44,11 +49,32 @@ function Articles() {
         </Container>
       </Box>
       <Container maxWidth="xl">
-        <Grid container>
-          <Grid item xs={3}></Grid>
+        <Grid container columnSpacing={3}>
+          <Grid item xs={12} sm={12} md={3}>
+            <InputBase
+              fullWidth
+              placeholder="عنوان مد نظر را جستجو کنید..."
+              sx={{
+                border: "1px solid #CFD8DC",
+                borderRadius: "8px",
+                backgroundColor: "white",
+                height: "48px",
+                pr: 2,
+              }}
+              endAdornment={
+                <InputAdornment position="end">
+                  <IconButton>
+                    <Search />
+                  </IconButton>
+                </InputAdornment>
+              }
+            />
+            <Grouping />
+          </Grid>
           <Grid
             item
-            xs={9}
+            sm={12}
+            md={9}
             sx={{ ...flexAlignCenter, flexDirection: "column" }}
           >
             <ArticlesList articles={articles.slice(0, visible)} />

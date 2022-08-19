@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import { Search } from "@mui/icons-material";
 // components
-import CoursesGrouping from "components/courses-page/CoursesGrouping";
+import Grouping from "shared/Grouping";
 import Courses from "components/courses-page/Courses";
 import Layout from "components/layout/Layout";
 // mui => theme
@@ -56,7 +56,7 @@ function courses() {
                 </InputAdornment>
               }
             />
-            <CoursesGrouping />
+            <Grouping />
           </Grid>
           <Grid item sm={12} md={9}>
             <Courses />

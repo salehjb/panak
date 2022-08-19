@@ -7,13 +7,7 @@ import { fetchProducts, getAllProducts } from "redux/products/productsSlice";
 import CourseBox from "./CourseBox";
 
 function Courses() {
-  const dispatch = useDispatch();
-
   const products = useSelector(getAllProducts);
-
-  useEffect(() => {
-    dispatch(fetchProducts());
-  }, []);
 
   return (
     <Grid container spacing={3}>

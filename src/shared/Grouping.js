@@ -13,7 +13,7 @@ import { ExpandMore } from "@mui/icons-material";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
-function CoursesGrouping() {
+function Grouping() {
   const array = new Array(5).fill(0);
 
   return (
@@ -64,4 +64,4 @@ function CoursesGrouping() {
   );
 }
 
-export default CoursesGrouping;
+export default Grouping;

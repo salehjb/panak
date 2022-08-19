@@ -53,7 +53,7 @@ function CourseBox({ product }) {
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1.5 }}>
           <ClockIcon />
-          <Typography sx={{ fontSize: "15px", fontFamily: "Yekan", mr: 1 }}>
+          <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {timeFormatter(15, 33, 0)}
           </Typography>
         </Box>

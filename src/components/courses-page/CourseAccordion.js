@@ -63,7 +63,6 @@ function CourseAccordion() {
             <Typography
               sx={{
                 color: (theme) => theme.palette.primary.contrastText,
-                fontFamily: "Yekan",
                 fontSize: "15px",
               }}
             >

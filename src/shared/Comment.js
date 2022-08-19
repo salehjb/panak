@@ -5,7 +5,12 @@ import { flexAlignCenter } from "mui/theme/commonStyles";
 function Comment() {
   return (
     <Box sx={{ mb: 2, border: "1px solid #C7CED1", p: 2, borderRadius: "8px" }}>
-      <Box sx={{ ...flexAlignCenter }}>
+      <Box
+        sx={{
+          ...flexAlignCenter,
+          color: (theme) => theme.palette.primary.main,
+        }}
+      >
         <Avatar
           src="http://4kwallpapers.com/images/walls/thumbs_2t/4674.jpg"
           sx={{
@@ -26,9 +31,7 @@ function Comment() {
           >
             دانشجوی دوره
           </Typography>
-          <Typography sx={{ fontFamily: "Yekan", mr: 2 }}>
-            1400/05/25
-          </Typography>
+          <Typography sx={{ mr: 2 }}>1400/05/25</Typography>
         </Box>
       </Box>
       <Box mt={3}>

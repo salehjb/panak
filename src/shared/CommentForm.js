@@ -13,6 +13,7 @@ function CommentForm() {
         borderRadius: "12px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.04)",
         p: 3,
+        color: (theme) => theme.palette.primary.main
       }}
     >
       <Box sx={{ ...flexAlignCenter, width: "100%" }}>
