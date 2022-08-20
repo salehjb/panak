@@ -13,25 +13,24 @@ function CommentForm() {
         borderRadius: "12px",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.04)",
         p: 3,
-        color: (theme) => theme.palette.primary.main
       }}
     >
       <Box sx={{ ...flexAlignCenter, width: "100%" }}>
         <Box sx={{ width: "100%", ml: 2 }}>
-          <Typography mb={1} fontSize="15px" fontWeight="400">
+          <Typography color="primary" mb={1} fontSize="15px" fontWeight="400">
             نام و نام خانوادگی
           </Typography>
           <InputBase sx={styles.input} />
         </Box>
         <Box sx={{ width: "100%" }}>
-          <Typography mb={1} fontSize="15px" fontWeight="400">
+          <Typography color="primary" mb={1} fontSize="15px" fontWeight="400">
             ایمیل
           </Typography>
           <InputBase sx={styles.input} />
         </Box>
       </Box>
       <Box>
-        <Typography mb={1} fontSize="15px" fontWeight="400">
+        <Typography color="primary" mb={1} fontSize="15px" fontWeight="400">
           دیدگاه خود را بنویسید
         </Typography>
         <InputBase sx={styles.textarea} multiline minRows={8} maxRows={8} />

@@ -36,6 +36,7 @@ function Grouping() {
         >
           <AccordionSummary expandIcon={<ExpandMore />}>
             <Typography
+              color="primary"
               sx={{
                 borderRight: (theme) =>
                   `3px solid ${theme.palette.secondary.main}`,

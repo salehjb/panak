@@ -10,11 +10,11 @@ function CommentRules() {
   return (
     <>
       <Title text="ثبت دیدگاه" icon={<AddCommentOutlined />} />
-      <Box sx={{ color: (theme) => theme.palette.primary.main }}>
+      <Box>
         {COMMENT_REGISTRATION_RULES.map((rule, index) => (
           <Box key={index} sx={{ ...flexAlignCenter, mb: 1.5 }}>
             <Done sx={{ color: "#49B337" }} />
-            <Typography fontSize="16px">{rule.text}</Typography>
+            <Typography color="primary" fontSize="16px">{rule.text}</Typography>
           </Box>
         ))}
       </Box>

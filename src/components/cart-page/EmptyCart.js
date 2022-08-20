@@ -12,7 +12,7 @@ import { flexCenter } from "mui/theme/commonStyles";
 
 function EmptyCart() {
   return (
-    <Box sx={{ color: (theme) => theme.palette.primary.main }}>
+    <Box>
       <Container
         maxWidth="xl"
         sx={{ ...flexCenter, flexDirection: "column", mt: 6 }}
@@ -25,7 +25,7 @@ function EmptyCart() {
           />
         </Box>
         <Box mt={3}>
-          <Typography sx={{ fontSize: "18px", fontWeight: "400" }}>
+          <Typography color="primary" sx={{ fontSize: "18px", fontWeight: "400" }}>
             شما هنوز هیچ دوره ای را خریداری نکرده اید
           </Typography>
         </Box>
@@ -33,14 +33,14 @@ function EmptyCart() {
           <Link href="/courses">
             <MuiLink
               sx={{
-                backgroundColor: (theme) => theme.palette.secondary.main,
+                backgroundColor: "secondary.main",
                 ...flexCenter,
                 width: "130px",
                 height: "48px",
                 color: "white",
                 borderRadius: "8px",
                 "&:hover": {
-                  backgroundColor: (theme) => theme.palette.secondary.dark,
+                  backgroundColor: "secondary.dark",
                 },
               }}
             >

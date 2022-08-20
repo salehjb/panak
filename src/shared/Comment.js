@@ -8,7 +8,6 @@ function Comment() {
       <Box
         sx={{
           ...flexAlignCenter,
-          color: (theme) => theme.palette.primary.main,
         }}
       >
         <Avatar
@@ -19,7 +18,7 @@ function Comment() {
           }}
         />
         <Box mr={3} sx={{ ...flexAlignCenter }}>
-          <Typography sx={{ fontSize: "16px" }}>مهدی جلیلی</Typography>
+          <Typography color="primary" sx={{ fontSize: "16px" }}>مهدی جلیلی</Typography>
           <Typography
             sx={{
               backgroundColor: "#49B337",
@@ -31,7 +30,7 @@ function Comment() {
           >
             دانشجوی دوره
           </Typography>
-          <Typography sx={{ mr: 2 }}>1400/05/25</Typography>
+          <Typography color="primary" sx={{ mr: 2 }}>1400/05/25</Typography>
         </Box>
       </Box>
       <Box mt={3}>

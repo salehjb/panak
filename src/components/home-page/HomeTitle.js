@@ -18,7 +18,6 @@ function HomeTitle({ text }) {
         sx={{
           fontSize: "25px",
           fontWeight: "400",
-          color: (theme) => theme.palette.primary.main,
         }}
       >
         {text}

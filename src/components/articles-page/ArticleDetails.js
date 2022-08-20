@@ -1,5 +1,5 @@
 import { Avatar, Box, Divider, Typography } from "@mui/material";
-import { ClockIcon } from "shared/Icons";
+import { AccessTime, CalendarMonthOutlined, StarBorderOutlined } from '@mui/icons-material';
 // mui => theme
 import {
   dcFlex,
@@ -24,7 +24,7 @@ function ArticleDetails({ article }) {
           sx={{ width: "60px", height: "60px" }}
         />
         <Box sx={{ mr: 1, ...dcFlex, alignItems: "center" }}>
-          <Typography fontSize="18px">{article.author.name}</Typography>
+          <Typography color="primary" fontSize="18px">{article.author.name}</Typography>
           <Typography fontSize="14px" sx={{ color: "#667177" }}>
             کاربر وبسایت
           </Typography>
@@ -34,21 +34,21 @@ function ArticleDetails({ article }) {
       <Box sx={{ color: (theme) => theme.palette.primary.contrastText }}>
         <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
           <Box sx={{ ...flexAlignCenter }}>
-            <ClockIcon />
+            <AccessTime />
             <Typography>مدت زمان مطالعه</Typography>
           </Box>
           <Typography>15 دقیقه</Typography>
         </Box>
         <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
           <Box sx={{ ...flexAlignCenter }}>
-            <ClockIcon />
+            <CalendarMonthOutlined />
             <Typography>تاریخ انتشار</Typography>
           </Box>
           <Typography>1400/05/25</Typography>
         </Box>
         <Box sx={{ ...flexBetweenCenter }}>
           <Box sx={{ ...flexAlignCenter }}>
-            <ClockIcon />
+            <StarBorderOutlined />
             <Typography>امتیاز مقاله</Typography>
           </Box>
           <Typography>9/10</Typography>

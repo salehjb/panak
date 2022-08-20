@@ -29,7 +29,6 @@ function Sidebar() {
         top: "0",
         height: "100vh",
         backgroundColor: "white",
-        color: (theme) => theme.palette.primary.main,
       }}
     >
       <Container maxWidth="xl">

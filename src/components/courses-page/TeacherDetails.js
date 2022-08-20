@@ -28,7 +28,6 @@ function TeacherDetails({ course }) {
             fontSize: "16px",
             textAlign: "center",
             mt: 1,
-            color: (theme) => theme.palette.primary.main,
           }}
         >
           صالح جلیلی

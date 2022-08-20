@@ -50,7 +50,6 @@ function ArticleBox({ article }) {
                 sx={{
                   fontSize: "15px",
                   fontWeight: "400",
-                  color: (theme) => theme.palette.primary.main,
                 }}
               >
                 {article.title}

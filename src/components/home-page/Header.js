@@ -9,7 +9,7 @@ function Header() {
     <Container maxWidth="xl">
       <Grid
         container
-        sx={{ display: "flex", color: (theme) => theme.palette.primary.main }}
+        sx={{ display: "flex" }}
       >
         <Grid item xs={7} sx={{ ...flexAlignCenter }}>
           <Box sx={{ width: "100%", mr: 10 }}>

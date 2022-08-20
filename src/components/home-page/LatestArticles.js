@@ -20,8 +20,6 @@ function LatestArticles() {
     dispatch(fetchArticles());
   }, [dispatch]);
 
-  console.log(articles);
-
   return (
     <Grid container mt={9}>
       <Container maxWidth="xl">

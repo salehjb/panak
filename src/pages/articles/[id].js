@@ -24,6 +24,7 @@ import Comments from "shared/Comments";
 import CommentForm from "shared/CommentForm";
 import CommentRules from "shared/CommentRules";
 import MainContent from "components/articles-page/MainContent";
+import NewestArticles from "components/articles-page/NewestArticles";
 
 function ArticleSinglePage() {
   const router = useRouter();
@@ -66,6 +67,7 @@ function ArticleSinglePage() {
           </Grid>
           <Grid item xs={3}>
             <ArticleDetails article={article} />
+            <NewestArticles />
           </Grid>
         </Grid>
       </Container>

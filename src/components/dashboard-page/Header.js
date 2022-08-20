@@ -18,7 +18,6 @@ function Header() {
               <img src="/logos/logo-red.png" />
               <Typography
                 sx={{
-                  color: (theme) => theme.palette.primary.main,
                   mr: 2,
                   fontSize: "18px",
                   fontWeight: "400",
