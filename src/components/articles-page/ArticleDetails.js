@@ -31,7 +31,7 @@ function ArticleDetails({ article }) {
         </Box>
       </Box>
       <Divider variant="fullWidth" sx={{ my: 3 }} />
-      <Box sx={{ color: (theme) => theme.palette.primary.contrastText }}>
+      <Box sx={{ color: "primary.contrastText" }}>
         <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
           <Box sx={{ ...flexAlignCenter }}>
             <AccessTime />

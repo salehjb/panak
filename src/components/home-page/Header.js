@@ -26,7 +26,7 @@ function Header() {
                 fontSize: "16px",
                 width: "70%",
                 mt: 4.5,
-                color: (theme) => theme.palette.primary.contrastText,
+                color: "primary.contrastText",
               }}
             >
               لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
@@ -41,7 +41,7 @@ function Header() {
           item
           xs={5}
           sx={{
-            backgroundColor: (theme) => theme.palette.primary.main,
+            backgroundColor: "primary.main",
             width: "100%",
             height: "600px",
             borderRadius: "0px 0px 56px 56px",

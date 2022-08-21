@@ -16,7 +16,7 @@ function PageLayout({ title, children }) {
           "&::before": {
             position: "absolute",
             content: '""',
-            backgroundColor: (theme) => theme.palette.primary.main,
+            backgroundColor: "primary.main",
             width: "100%",
             height: "260px",
             top: "80px",
@@ -42,7 +42,7 @@ function PageLayout({ title, children }) {
               backgroundColor: "white",
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
               borderRadius: "32px",
-              color: (theme) => theme.palette.primary.contrastText,
+              color: "primary.contrastText",
               ...dcFlex,
               px: "4rem",
               pb: "2rem",

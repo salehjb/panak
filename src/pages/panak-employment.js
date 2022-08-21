@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Box, Button, Grid, TextField, Typography } from "@mui/material";
+import { Box, Grid, TextField, Typography } from "@mui/material";
 // components
 import PageLayout from "components/layout/PageLayout";
+import { ContainedButton } from "shared/Button";
 // datas
 import { COOPERATION_BENEFITS, PANAK_EMPLOYMENT_INPUTS } from "datas";
 // mui => theme
@@ -74,7 +75,7 @@ function PanakEmployment() {
                     sx={{
                       width: "62px",
                       height: "62px",
-                      backgroundColor: (theme) => theme.palette.primary.main,
+                      backgroundColor: "primary.main",
                       borderRadius: "8px",
                       color: "white",
                       ...flexCenter,
@@ -115,22 +116,7 @@ function PanakEmployment() {
               </Grid>
             ))}
           </Grid>
-          <Button
-            variant="contained"
-            sx={{
-              width: "160px",
-              height: "48px",
-              mt: 4,
-              color: (theme) => theme.palette.secondary.contrastText,
-              display: "flex",
-              backgroundColor: (theme) => theme.palette.secondary.main,
-              "&:hover": {
-                backgroundColor: (theme) => theme.palette.secondary.dark,
-              },
-            }}
-          >
-            ارسال فرم درخواست
-          </Button>
+          <ContainedButton width="160px" margin="2rem 0 0 0">ارسال فرم درخواست</ContainedButton>
         </Grid>
       </Grid>
     </PageLayout>

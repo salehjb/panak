@@ -24,7 +24,7 @@ function ShoppingCart() {
               xs={12}
               sx={{
                 height: "56px",
-                backgroundColor: (theme) => theme.palette.primary.main,
+                backgroundColor: "primary.main",
                 color: "white",
                 my: 3,
                 ...flexCenter,

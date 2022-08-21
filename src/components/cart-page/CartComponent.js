@@ -1,8 +1,6 @@
 import {
   Box,
-  Button,
   Divider,
-  IconButton,
   InputAdornment,
   InputBase,
   Typography,
@@ -16,11 +14,12 @@ import { flexBetween } from "mui/theme/commonStyles";
 // components
 import PaymentMethod from "shared/PaymentMethod";
 import CartItem from "./CartItem";
+import { ContainedButton } from "shared/Button";
 
 function CartComponent({ carts }) {
   const rawAmount = carts.reduce((acc, curr) => {
     return acc + curr.price;
-  } , 0);
+  }, 0);
   const finalAmount = priceFormatter(rawAmount);
 
   return (
@@ -28,7 +27,7 @@ function CartComponent({ carts }) {
       container
       sx={{
         ...flexBetween,
-        color: (theme) => theme.palette.primary.contrastText,
+        color: "primary.contrastText",
       }}
     >
       <Box
@@ -79,9 +78,9 @@ function CartComponent({ carts }) {
             placeholder="محل وارد کردن کد تخفیف"
             endAdornment={
               <InputAdornment>
-                <Button variant="contained" sx={{ color: "white" }}>
+                <ContainedButton bgColor="primary.main" height="40px">
                   اعمال
-                </Button>
+                </ContainedButton>
               </InputAdornment>
             }
           />
@@ -112,22 +111,7 @@ function CartComponent({ carts }) {
             انتخاب روش پرداخت
           </Typography>
           <PaymentMethod gatewaysArray={PAYMENT_GATEWAYS} />
-          <Button
-            fullWidth
-            variant="contained"
-            sx={{
-              backgroundColor: (theme) => theme.palette.secondary.main,
-              color: (theme) => theme.palette.secondary.contrastText,
-              height: "48px",
-              fontSize: "15px",
-              mt: 6,
-              "&:hover": {
-                backgroundColor: (theme) => theme.palette.secondary.dark,
-              },
-            }}
-          >
-            پرداخت
-          </Button>
+          <ContainedButton margin="2rem 0 0 0">پرداخت</ContainedButton>
         </Box>
       </Box>
     </Box>

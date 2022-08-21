@@ -1,5 +1,6 @@
-import { Box, Button, Divider, Typography } from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 import { addItem } from "redux/cart/cartSlice";
+import { addFavoriteCourse } from "redux/favorite-courses/favoriteCoursesSlice";
 import { useDispatch } from "react-redux";
 // mui => theme
 import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
@@ -7,6 +8,8 @@ import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
 import { ClockIcon, DownloadCountIcon, UpdateIcon } from "shared/Icons";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
+// components
+import { ContainedButton, OutlinedButton } from "shared/Button";
 
 function CourseDetails({ course }) {
   const dispatch = useDispatch();
@@ -19,7 +22,7 @@ function CourseDetails({ course }) {
         borderRadius: "24px",
         boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
         p: 3,
-        color: (theme) => theme.palette.primary.contrastText,
+        color: "primary.contrastText",
       }}
     >
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
@@ -83,23 +86,12 @@ function CourseDetails({ course }) {
         </Typography>
       </Box>
       <Box>
-        <Button
-          variant="contained"
-          onClick={() => dispatch(addItem(course))}
-          sx={{
-            backgroundColor: (theme) => theme.palette.secondary.main,
-            color: "white",
-            width: "100%",
-            height: "48px",
-            borderRadius: "8px",
-            cursor: "pointer",
-            "&:hover": {
-              backgroundColor: (theme) => theme.palette.secondary.main,
-            },
-          }}
-        >
+        <ContainedButton onClick={() => dispatch(addItem(course))}>
           اضافه کردن به سبد خرید
-        </Button>
+        </ContainedButton>
+        <OutlinedButton margin="0.5rem 0 0 0" onClick={() => dispatch(addFavoriteCourse(course))}>
+          افزودن به علاقه مندی ها
+        </OutlinedButton>
       </Box>
     </Box>
   );

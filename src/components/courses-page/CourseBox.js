@@ -24,7 +24,7 @@ function CourseBox({ product }) {
     <Card
       sx={{
         borderRadius: "15px",
-        color: (theme) => theme.palette.primary.contrastText,
+        color: "primary.contrastText",
       }}
     >
       <Link href={`/courses/${product.id}`}>
@@ -68,9 +68,9 @@ function CourseBox({ product }) {
             sx={{
               width: "40px",
               height: "40px",
-              backgroundColor: (theme) => theme.palette.secondary.main,
+              backgroundColor: "secondary.main",
               "&:hover": {
-                backgroundColor: (theme) => theme.palette.secondary.dark,
+                backgroundColor: "secondary.dark",
               },
             }}
           >

@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 // MUI
 import {
@@ -7,7 +6,6 @@ import {
   Grid,
   Typography,
   InputBase,
-  Button,
   Divider,
   Link as MuiLink,
 } from "@mui/material";
@@ -18,13 +16,15 @@ import EmailIcon from "@mui/icons-material/Email";
 import { SOCIAL_MEDIAS } from "datas";
 // mui => theme
 import { flexCenter, flexEnd } from "mui/theme/commonStyles";
+// components
+import { ContainedButton } from "shared/Button";
 
 function Footer() {
   return (
     <footer>
       <Box
         sx={{
-          backgroundColor: (theme) => theme.palette.primary.main,
+          backgroundColor: "primary.main",
           backgroundImage: `url(${"/vectors/education-cap.png"})`,
           backgroundPosition: "50px center",
           backgroundRepeat: "no-repeat",
@@ -111,20 +111,7 @@ function Footer() {
                       ml: 1,
                     }}
                   />
-                  <Button
-                    variant="contained"
-                    sx={{
-                      backgroundColor: (theme) => theme.palette.secondary.main,
-                      borderRadius: "8px",
-                      color: (theme) => theme.palette.secondary.contrastText,
-                      "&:hover": {
-                        backgroundColor: (theme) =>
-                          theme.palette.secondary.dark,
-                      },
-                    }}
-                  >
-                    تایید
-                  </Button>
+                  <ContainedButton width="50px">تایید</ContainedButton>
                 </Box>
               </Box>
             </Grid>

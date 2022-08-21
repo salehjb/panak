@@ -2,7 +2,6 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import {
   Box,
-  Button,
   Grid,
   IconButton,
   InputAdornment,
@@ -13,6 +12,7 @@ import {
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 // components
 import AuthLayout from "./layout/AuthLayout";
+import { ContainedButton, OutlinedButton } from "shared/Button";
 // icons
 import { GoogleIcon } from "shared/Icons";
 // mui => theme
@@ -69,21 +69,9 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
           </Grid>
         ))}
         <Grid item xs={12} align="center">
-          <Button
-            variant="contained"
-            sx={{
-              width: "318px",
-              height: "48px",
-              backgroundColor: (theme) => theme.palette.secondary.main,
-              mt: 2,
-              color: (theme) => theme.palette.secondary.contrastText,
-              "&:hover": {
-                backgroundColor: (theme) => theme.palette.secondary.dark,
-              },
-            }}
-          >
+          <ContainedButton width="318px">
             {buttonText}
-          </Button>
+          </ContainedButton>
         </Grid>
         <Grid item xs={12} align="center">
           <Box
@@ -118,17 +106,10 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
           </Box>
         </Grid>
         <Grid item xs={12} mt={2} align="center">
-          <Button
-            variant="outlined"
-            sx={{
-              width: "318px",
-              height: "48px",
-              ...flexAlignCenter,
-            }}
-          >
+          <OutlinedButton width="318px" color="primary.main" borderColor="primary.main">
             <Typography ml={1}>ورود با گوگل</Typography>
             <GoogleIcon />
-          </Button>
+          </OutlinedButton>
         </Grid>
       </Grid>
     </AuthLayout>

@@ -21,7 +21,7 @@ function ArticleBox({ article }) {
     <Card
       sx={{
         borderRadius: "15px",
-        color: (theme) => theme.palette.primary.contrastText,
+        color: "primary.contrastText",
         paddingBottom: "0.5rem",
       }}
     >

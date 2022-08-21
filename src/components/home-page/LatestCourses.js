@@ -47,7 +47,7 @@ function LatestCourses() {
         sx={{
           position: "relative",
           top: "-45px",
-          backgroundColor: (theme) => theme.palette.primary.main,
+          backgroundColor: "primary.main",
           height: "200px",
           zIndex: 5,
           ...flexJustifyCenter,

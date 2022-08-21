@@ -6,6 +6,20 @@ export function priceFormatter(price) {
 }
 
 export function timeFormatter(h, m, s) {
-  const time = `${s < 10 ? `0${s}` : s} : ${m < 10 ? `0${m}` : m} : ${h < 10 ? `0${h}` : h}`;
+  const time = `${s < 10 ? `0${s}` : s} : ${m < 10 ? `0${m}` : m} : ${
+    h < 10 ? `0${h}` : h
+  }`;
   return time;
+}
+
+export function getFromLocalStorage(key) {
+  if (typeof window !== "undefined") {
+    return localStorage.getItem(key);
+  }
+}
+
+export function setToLocalStorage(key, value) {
+  if (typeof window !== "undefined") {
+    localStorage.setItem(key, value);
+  }
 }

@@ -20,7 +20,7 @@ function AuthLayout({ children }) {
             boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
             borderRadius: "16px",
             ...dcFlex,
-            color: (theme) => theme.palette.primary.contrastText,
+            color: "primary.contrastText",
           }}
         >
           <Grid container height="100%">
@@ -37,7 +37,7 @@ function AuthLayout({ children }) {
               item
               xs={5}
               sx={{
-                backgroundColor: (theme) => theme.palette.primary.main,
+                backgroundColor: "primary.main",
                 borderRadius: "16px 0px 0px 16px",
                 ...flexCenter,
                 flexDirection: "column",

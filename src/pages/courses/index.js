@@ -21,7 +21,7 @@ function courses() {
     <Layout>
       <Box
         sx={{
-          backgroundColor: (theme) => theme.palette.primary.main,
+          backgroundColor: "primary.main",
           height: "80px",
           mb: 5,
           ...flexAlignCenter,

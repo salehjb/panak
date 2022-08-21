@@ -11,7 +11,7 @@ function Title({ text, icon }) {
             fontSize: "1.5rem",
             ...flexAlignCenter,
             ml: 1,
-            color: (theme) => theme.palette.primary.main,
+            color: "primary.main",
           }}
         >
           {icon}
@@ -20,7 +20,7 @@ function Title({ text, icon }) {
           sx={{
             fontSize: "18px",
             fontWeight: "400",
-            color: (theme) => theme.palette.primary.main,
+            color: "primary.main",
           }}
         >
           {text}

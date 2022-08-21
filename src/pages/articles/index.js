@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   Box,
-  Button,
   Container,
   Grid,
+  Button,
   IconButton,
   InputAdornment,
   InputBase,
@@ -34,7 +34,7 @@ function Articles() {
     <Layout>
       <Box
         sx={{
-          backgroundColor: (theme) => theme.palette.primary.main,
+          backgroundColor: "primary.main",
           height: "80px",
           mb: 5,
           ...flexAlignCenter,

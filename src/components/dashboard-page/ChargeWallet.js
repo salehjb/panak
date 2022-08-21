@@ -1,7 +1,8 @@
-import { Box, Button, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 // components
 import Input from "shared/Input";
 import PaymentMethod from "shared/PaymentMethod";
+import { ContainedButton } from "shared/Button";
 // datas
 import { PAYMENT_GATEWAYS } from "datas";
 
@@ -30,21 +31,7 @@ function ChargeWallet() {
         <PaymentMethod gatewaysArray={PAYMENT_GATEWAYS} />
       </Box>
       <Box sx={{ width: "100%" }}>
-        <Button
-          sx={{
-            width: "100%",
-            height: "48px",
-            backgroundColor: (theme) => theme.palette.secondary.main,
-            color: (theme) => theme.palette.secondary.contrastText,
-            fontSize: "15px",
-            mt: 6,
-            "&:hover": {
-              backgroundColor: (theme) => theme.palette.secondary.dark,
-            },
-          }}
-        >
-          پرداخت
-        </Button>
+        <ContainedButton margin="2rem 0 0 0">پرداخت</ContainedButton>
       </Box>
     </Grid>
   );

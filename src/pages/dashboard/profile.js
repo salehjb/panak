@@ -1,7 +1,8 @@
-import { Avatar, Box, Button, Divider, Grid, Typography } from "@mui/material";
+import { Avatar, Box, Grid, Typography } from "@mui/material";
 import { CameraAltOutlined } from "@mui/icons-material";
 // components
 import DashboardLayout from "components/dashboard-page/DashboardLayout";
+import { ContainedButton } from "shared/Button";
 // mui => theme
 import { flexCenter } from "mui/theme/commonStyles";
 // datas
@@ -37,13 +38,13 @@ function profile() {
               width: "30px",
               height: "30px",
               ...flexCenter,
-              border: (theme) => `2px solid ${theme.palette.primary.main}`,
+              border: "2px solid primary.main",
               cursor: "pointer",
             }}
           >
             <CameraAltOutlined
               sx={{
-                color: (theme) => theme.palette.primary.main,
+                color: "primary.main",
                 fontSize: "1rem",
               }}
             />
@@ -86,23 +87,9 @@ function profile() {
           </Grid>
         </Grid>
         <Grid item xs={12}>
-          <Box mt={5}>
-            <Button
-              variant="contained"
-              sx={{
-                width: "160px",
-                height: "50px",
-                backgroundColor: (theme) => theme.palette.secondary.main,
-                color: (theme) => theme.palette.secondary.contrastText,
-                fontSize: "14px",
-                "&:hover": {
-                  backgroundColor: (theme) => theme.palette.secondary.dark,
-                },
-              }}
-            >
-              ثبت تغییرات
-            </Button>
-          </Box>
+          <ContainedButton width="160px" margin="2rem 0 0 0">
+            ثبت تغییرات
+          </ContainedButton>
         </Grid>
       </Grid>
     </DashboardLayout>

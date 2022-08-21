@@ -1,8 +1,9 @@
-import { Box, Button, InputBase, Typography } from "@mui/material";
+import { Box, InputBase, Typography } from "@mui/material";
 // components
 import Input from "shared/Input";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
+import { ContainedButton } from "./Button";
 
 function CommentForm() {
   return (
@@ -36,22 +37,7 @@ function CommentForm() {
         <InputBase sx={styles.textarea} multiline minRows={8} maxRows={8} />
       </Box>
       <Box>
-        <Button
-          variant="contained"
-          sx={{
-            backgroundColor: (theme) => theme.palette.secondary.main,
-            width: "130px",
-            height: "48px",
-            borderRadius: "8px",
-            cursor: "pointer",
-            color: "white",
-            "&:hover": {
-              backgroundColor: (theme) => theme.palette.secondary.dark,
-            },
-          }}
-        >
-          ثبت
-        </Button>
+        <ContainedButton width="130px">ثبت</ContainedButton>
       </Box>
     </Box>
   );

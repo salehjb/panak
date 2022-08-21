@@ -39,11 +39,11 @@ function Sidebar() {
               {DASHBOARD_SIDEBAR_ITEMS.map((item, index) => {
                 const CustomIcon = item.icon;
                 return (
-                  <Link href={item.href}>
+                  <Link href={item.href} key={index}>
                     <MuiLink
                       sx={{
                         ...flexAlignCenter,
-                        color: (theme) => theme.palette.primary.contrastText,
+                        color: "primary.contrastText",
                       }}
                     >
                       <ListItemButton
@@ -77,7 +77,7 @@ function Sidebar() {
                         </ListItemIcon>
                         <Typography
                           mr={3}
-                          sx={activeLink === index && { fontWeight: "400" }}
+                          sx={activeLink === index ? { fontWeight: "400" } : {}}
                         >
                           {item.text}
                         </Typography>

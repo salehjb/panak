@@ -2,9 +2,10 @@ import Image from "next/image";
 // components
 import PageLayout from "components/layout/PageLayout";
 // MUI
-import { Box, Button, Grid, InputBase, Typography } from "@mui/material";
+import { Box, Grid, InputBase, Typography } from "@mui/material";
 // datas
 import { PROJECT_COOPERATION_INPUTS } from "datas";
+import { ContainedButton } from "shared/Button";
 
 function ProjectCooperation() {
   return (
@@ -87,21 +88,9 @@ function ProjectCooperation() {
           </Grid>
         </Grid>
         <Grid item>
-          <Button
-            variant="contained"
-            sx={{
-              width: "160x",
-              height: "48px",
-              backgroundColor: (theme) => theme.palette.secondary.main,
-              mt: 4,
-              color: "white",
-              "&:hover": {
-                backgroundColor: (theme) => theme.palette.secondary.dark,
-              },
-            }}
-          >
+          <ContainedButton width="160px" margin="2rem 0 0 0">
             ارسال فرم درخواست
-          </Button>
+          </ContainedButton>
         </Grid>
       </Grid>
     </PageLayout>

@@ -11,7 +11,7 @@ function WalletBalance() {
         sx={{
           width: "40%",
           height: "129px",
-          backgroundColor: (theme) => theme.palette.primary.main,
+          backgroundColor: "primary.main",
           borderRadius: "12px",
           color: "white",
           p: 2,

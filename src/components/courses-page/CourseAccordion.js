@@ -62,7 +62,7 @@ function CourseAccordion() {
           <Box>
             <Typography
               sx={{
-                color: (theme) => theme.palette.primary.contrastText,
+                color: "primary.contrastText",
                 fontSize: "15px",
               }}
             >

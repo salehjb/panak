@@ -1,7 +1,6 @@
 import Link from "next/link";
 import {
   Box,
-  Button,
   Container,
   Typography,
   Link as MuiLink,
@@ -9,6 +8,8 @@ import {
 import Image from "next/image";
 // mui => theme
 import { flexCenter } from "mui/theme/commonStyles";
+// components
+import { ContainedButton } from "shared/Button";
 
 function EmptyCart() {
   return (
@@ -31,20 +32,10 @@ function EmptyCart() {
         </Box>
         <Box mt={3}>
           <Link href="/courses">
-            <MuiLink
-              sx={{
-                backgroundColor: "secondary.main",
-                ...flexCenter,
-                width: "130px",
-                height: "48px",
-                color: "white",
-                borderRadius: "8px",
-                "&:hover": {
-                  backgroundColor: "secondary.dark",
-                },
-              }}
-            >
-              دوره ها
+            <MuiLink>
+              <ContainedButton width="138px">
+                دوره ها
+              </ContainedButton>
             </MuiLink>
           </Link>
         </Box>

@@ -28,9 +28,6 @@ const lightTheme = createTheme({
   components: {
     MuiTypography: {
       defaultProps: {
-        sx: {
-          px: 1,
-        },
         variant: "subtitle2",
       },
     },
@@ -52,7 +49,7 @@ const lightTheme = createTheme({
     MuiLink: {
       defaultProps: {
         sx: {
-          color: (theme) => theme.palette.primary.contrastText,
+          color: "primary.contrastText",
           cursor: "pointer",
           margin: 0,
           padding: 0,

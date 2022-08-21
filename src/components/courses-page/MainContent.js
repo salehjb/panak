@@ -19,7 +19,7 @@ function MainContent({ course }) {
     <Box
       sx={{
         width: "100%",
-        color: (theme) => theme.palette.primary.contrastText,
+        color: "primary.contrastText",
       }}
     >
       <Box sx={{ width: "100%", height: "564px", mb: 4 }}>
