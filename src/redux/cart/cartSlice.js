@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { toast } from "react-toastify";
 
 const initialState = {
   cart: [],
@@ -15,6 +16,10 @@ const cartSlice = createSlice({
       if (itemIndex === -1) {
         state.cart.push(action.payload);
       }
+      toast.success(`${action.payload.title} به سبد خرید اضافه شد`, {
+        position: "top-right",
+        className: "my-toast",
+      });
     },
     removeItem(state, action) {
       const itemIndex = state.cart.findIndex(
@@ -23,6 +28,10 @@ const cartSlice = createSlice({
       if (itemIndex !== -1) {
         state.cart.splice(itemIndex, 1);
       }
+      toast.error(`${action.payload.title} از سبد خرید حذف شد`, {
+        position: "top-right",
+        className: "my-toast",
+      });
     },
   },
 });
