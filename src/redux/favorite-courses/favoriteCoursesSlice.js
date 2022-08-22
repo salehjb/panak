@@ -1,10 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getFromLocalStorage, setToLocalStorage } from "utils/functions";
 
 const initialState = {
-  favoriteCourses: getFromLocalStorage("favorite_courses")
-    ? JSON.parse(getFromLocalStorage("favorite_courses"))
-    : [],
+  favoriteCourses: [],
 };
 
 const favoriteCoursesSlice = createSlice({
@@ -18,10 +15,6 @@ const favoriteCoursesSlice = createSlice({
       if (itemIndex === -1) {
         state.favoriteCourses.push(action.payload);
       }
-      setToLocalStorage(
-        "favorite_courses",
-        JSON.stringify(state.favoriteCourses)
-      );
     },
     removeFavoriteCourse(state, action) {
       const itemIndex = state.favoriteCourses.findIndex(
@@ -30,10 +23,6 @@ const favoriteCoursesSlice = createSlice({
       if (itemIndex !== -1) {
         state.favoriteCourses.splice(itemIndex, 1);
       }
-      setToLocalStorage(
-        "favorite_courses",
-        JSON.stringify(state.favoriteCourses)
-      );
     },
   },
 });

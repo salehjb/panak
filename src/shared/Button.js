@@ -22,6 +22,7 @@ export function OutlinedButton({
         cursor: "pointer",
         fontSize: "15px",
         margin: margin,
+        p: 1,
         "&:hover": {
           borderColor: borderColor ? borderColor : "secondary.main",
         },
@@ -46,6 +47,7 @@ export function ContainedButton({ children, width, height, onClick, bgColor, mar
         cursor: "pointer",
         fontSize: "15px",
         margin: margin,
+        p: 1,
         "&:hover": {
           backgroundColor: bgColor ? bgColor : "secondary.dark",
         },

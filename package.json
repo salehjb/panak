@@ -26,6 +26,7 @@
     "react-icons": "^4.4.0",
     "react-redux": "^8.0.2",
     "react-video-js-player": "^1.1.1",
+    "redux-persist": "^6.0.0",
     "sass": "^1.52.3",
     "video-react": "^0.15.0",
     "video.js": "^7.20.2"

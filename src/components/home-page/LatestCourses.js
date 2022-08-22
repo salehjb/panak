@@ -11,6 +11,7 @@ import HomeTitle from "./HomeTitle";
 import CourseBox from "components/courses-page/CourseBox";
 // mui => theme
 import { flexCenter, flexJustifyCenter } from "mui/theme/commonStyles";
+import { ContainedButton } from "shared/Button";
 
 function LatestCourses() {
   const dispatch = useDispatch();
@@ -55,19 +56,10 @@ function LatestCourses() {
         }}
       >
         <Link href="/courses">
-          <MuiLink
-            sx={{
-              ...flexCenter,
-              backgroundColor: (theme) => theme.palette.secondary.main,
-              height: "48px",
-              borderRadius: "8px",
-              cursor: "pointer",
-              color: "white",
-              mb: 5,
-              cursor: "pointer",
-            }}
-          >
-            مشاهده همه دوره ها
+          <MuiLink>
+            <ContainedButton width="150px" margin="0 0 2rem 0">
+              مشاهده همه دوره ها
+            </ContainedButton>
           </MuiLink>
         </Link>
       </Grid>

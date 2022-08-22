@@ -3,7 +3,8 @@ import { ThemeProvider, CssBaseline } from "@mui/material";
 import { CacheProvider } from "@emotion/react";
 import createEmotionCache from "mui/createEmotionCache";
 import lightTheme from "mui/theme/lightTheme";
-import store from "redux/store";
+import { store, persistor } from "redux/store";
+import { PersistGate } from 'redux-persist/integration/react';
 import { Provider } from "react-redux";
 import { fetchArticles } from "redux/articles/articlesSlice";
 import { fetchProducts } from "redux/products/productsSlice";
@@ -26,7 +27,9 @@ function MyApp({
       <ThemeProvider theme={lightTheme}>
         <CssBaseline />
         <Provider store={store}>
-          <Component {...pageProps} />
+          <PersistGate loading={null} persistor={persistor}>
+            <Component {...pageProps} />
+          </PersistGate>
         </Provider>
       </ThemeProvider>
     </CacheProvider>

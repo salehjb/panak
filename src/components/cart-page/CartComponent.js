@@ -77,7 +77,7 @@ function CartComponent({ carts }) {
             }}
             placeholder="محل وارد کردن کد تخفیف"
             endAdornment={
-              <InputAdornment>
+              <InputAdornment position="end">
                 <ContainedButton bgColor="primary.main" height="40px">
                   اعمال
                 </ContainedButton>
