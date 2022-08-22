@@ -1,7 +1,8 @@
-import { Box, Divider, Typography } from "@mui/material";
-import { addItem } from "redux/cart/cartSlice";
+import Link from "next/link";
+import { Box, Divider, Typography, Link as MuiLink } from "@mui/material";
+import { addItem, getAllCarts } from "redux/cart/cartSlice";
 import { addFavoriteCourse } from "redux/favorite-courses/favoriteCoursesSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 // mui => theme
 import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
 // icons
@@ -13,6 +14,11 @@ import { ContainedButton, OutlinedButton } from "shared/Button";
 
 function CourseDetails({ course }) {
   const dispatch = useDispatch();
+
+  const cart = useSelector(getAllCarts);
+
+  const courseExistInCart =
+    cart.findIndex((item) => item.id === course.id) !== -1;
 
   return (
     <Box
@@ -86,10 +92,23 @@ function CourseDetails({ course }) {
         </Typography>
       </Box>
       <Box>
-        <ContainedButton onClick={() => dispatch(addItem(course))}>
-          اضافه کردن به سبد خرید
-        </ContainedButton>
-        <OutlinedButton margin="0.5rem 0 0 0" onClick={() => dispatch(addFavoriteCourse(course))}>
+        {courseExistInCart ? (
+          <Link href="/shopping-cart">
+            <MuiLink>
+              <ContainedButton bgColor="success.light">
+                مشاهده سبد خرید
+              </ContainedButton>
+            </MuiLink>
+          </Link>
+        ) : (
+          <ContainedButton onClick={() => dispatch(addItem(course))}>
+            اضافه کردن به سبد خرید
+          </ContainedButton>
+        )}
+        <OutlinedButton
+          margin="0.5rem 0 0 0"
+          onClick={() => dispatch(addFavoriteCourse(course))}
+        >
           افزودن به علاقه مندی ها
         </OutlinedButton>
       </Box>

@@ -7,13 +7,13 @@ import { fetchProducts, getAllProducts } from "redux/products/productsSlice";
 import CourseBox from "./CourseBox";
 
 function Courses() {
-  const products = useSelector(getAllProducts);
+  const courses = useSelector(getAllProducts);
 
   return (
     <Grid container spacing={3}>
-      {products.map((product) => (
-        <Grid item xs={12} sm={6} md={4} key={product.id}>
-          <CourseBox product={product} />
+      {courses.map((course) => (
+        <Grid item xs={12} sm={6} md={4} key={course.id}>
+          <CourseBox course={course} />
         </Grid>
       ))}
     </Grid>

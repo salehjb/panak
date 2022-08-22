@@ -8,17 +8,23 @@ import {
   CardMedia,
   CardContent,
 } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { addItem } from "redux/cart/cartSlice";
+import DoneIcon from "@mui/icons-material/Done";
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, getAllCarts } from "redux/cart/cartSlice";
 // mui => theme
-import { flexAlignCenter } from "mui/theme/commonStyles";
+import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 // icons
 import { ProfileIcon, ClockIcon, AddProductIcon } from "shared/Icons";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 
-function CourseBox({ product }) {
+function CourseBox({ course }) {
   const dispatch = useDispatch();
+
+  const cart = useSelector(getAllCarts);
+
+  const courseExistInCart =
+    cart.findIndex((item) => item.id === course.id) !== -1;
 
   return (
     <Card
@@ -27,28 +33,28 @@ function CourseBox({ product }) {
         color: "primary.contrastText",
       }}
     >
-      <Link href={`/courses/${product.id}`}>
+      <Link href={`/courses/${course.id}`}>
         <MuiLink>
           <CardMedia
             component="img"
             height="250"
-            src={product.image}
+            src={course.image}
             sx={{ borderRadius: "15px" }}
           />
         </MuiLink>
       </Link>
       <CardContent>
-        <Link href={`/courses/${product.id}`}>
+        <Link href={`/courses/${course.id}`}>
           <MuiLink>
             <Typography sx={{ fontSize: "17px", fontWeight: "400" }}>
-              {product.title}
+              {course.title}
             </Typography>
           </MuiLink>
         </Link>
         <Box sx={{ ...flexAlignCenter, mt: 2 }}>
           <ProfileIcon />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
-            {product.teacher}
+            {course.teacher}
           </Typography>
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1.5 }}>
@@ -61,20 +67,32 @@ function CourseBox({ product }) {
           sx={{ ...flexAlignCenter, justifyContent: "space-between", mt: 2 }}
         >
           <Typography sx={{ fontSize: "17px", fontWeight: "400", mr: 1 }}>
-            {priceFormatter(product.price)} تومان
+            {priceFormatter(course.price)} تومان
           </Typography>
           <IconButton
-            onClick={() => dispatch(addItem(product))}
+            onClick={courseExistInCart ? null : () => dispatch(addItem(course))}
             sx={{
               width: "40px",
               height: "40px",
-              backgroundColor: "secondary.main",
+              backgroundColor: courseExistInCart
+                ? "success.light"
+                : "secondary.main",
               "&:hover": {
-                backgroundColor: "secondary.dark",
+                backgroundColor: courseExistInCart
+                  ? "success.main"
+                  : "secondary.dark",
               },
             }}
           >
-            <AddProductIcon />
+            {courseExistInCart ? (
+              <Link href="/shopping-cart">
+                <MuiLink sx={{ ...flexCenter }}>
+                  <DoneIcon sx={{ color: "white" }} />
+                </MuiLink>
+              </Link>
+            ) : (
+              <AddProductIcon />
+            )}
           </IconButton>
         </Box>
       </CardContent>
