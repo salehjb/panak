@@ -14,12 +14,7 @@ function HomeTitle({ text }) {
           borderRadius: "8px",
         }}
       ></Box>
-      <Typography
-        sx={{
-          fontSize: "25px",
-          fontWeight: "400",
-        }}
-      >
+      <Typography fontSize="25px" fontWeight="400" color="primary.main">
         {text}
       </Typography>
     </Box>

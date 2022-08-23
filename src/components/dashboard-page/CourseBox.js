@@ -11,7 +11,7 @@ import { ProfileIcon, ClockIcon, AddProductIcon } from "shared/Icons";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 
-function FavoriteCourseBox({ course }) {
+function CourseBox({ course, isDeleteIcon }) {
   const dispatch = useDispatch();
 
   return (
@@ -20,17 +20,18 @@ function FavoriteCourseBox({ course }) {
         width: "100%",
         boxShadow: "0px 12px 50px rgba(0, 0, 0, 0.09)",
         borderRadius: "12px",
+        backgroundColor: "white",
         p: 2,
         ...flexAlignCenter,
       }}
     >
       <Link href={`/courses/${course.id}`}>
-        <MuiLink sx={{ width: "40%" }}>
+        <MuiLink sx={{ width: "40%", height: "150px" }}>
           <img
             src={course.image}
             alt="course image"
             width="100%"
-            height="150px"
+            height="100%"
             style={{ borderRadius: "12px" }}
           />
         </MuiLink>
@@ -44,9 +45,11 @@ function FavoriteCourseBox({ course }) {
               </Typography>
             </MuiLink>
           </Link>
-          <IconButton onClick={() => dispatch(removeFavoriteCourse(course))}>
-            <Close />
-          </IconButton>
+          {isDeleteIcon && (
+            <IconButton onClick={() => dispatch(removeFavoriteCourse(course))}>
+              <Close />
+            </IconButton>
+          )}
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1 }}>
           <ProfileIcon />
@@ -86,4 +89,4 @@ function FavoriteCourseBox({ course }) {
   );
 }
 
-export default FavoriteCourseBox;
+export default CourseBox;

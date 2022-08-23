@@ -7,18 +7,10 @@ import Benefits from "./Benefits";
 function Header() {
   return (
     <Container maxWidth="xl">
-      <Grid
-        container
-        sx={{ display: "flex" }}
-      >
+      <Grid container sx={{ display: "flex" }}>
         <Grid item xs={7} sx={{ ...flexAlignCenter }}>
           <Box sx={{ width: "100%", mr: 10 }}>
-            <Typography
-              sx={{
-                fontSize: "35px",
-                fontWeight: "400",
-              }}
-            >
+            <Typography fontSize="35px" fontWeight="400" color="primary.main">
               داستان برنامه نویس شدنت <br /> از اینجا شروع میشه!
             </Typography>
             <Typography

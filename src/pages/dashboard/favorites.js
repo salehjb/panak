@@ -4,8 +4,8 @@ import { useSelector } from "react-redux";
 import { getAllFavoriteCourses } from "redux/favorite-courses/favoriteCoursesSlice";
 // components
 import DashboardLayout from "components/dashboard-page/DashboardLayout";
-import FavoriteCourseBox from "components/dashboard-page/FavoriteCourseBox";
 import FavoriteCoursesEmpty from "components/dashboard-page/FavoriteCoursesEmpty";
+import CourseBox from "components/courses-page/CourseBox";
 
 function favorites() {
   const [favoriteCourses, setFavoriteCourses] = useState([]);
@@ -24,7 +24,7 @@ function favorites() {
         <Grid container spacing={3}>
           {favoriteCourses?.map((course) => (
             <Grid item xs={12} md={6} key={course.id}>
-              <FavoriteCourseBox course={course} />
+              <CourseBox course={course} isDeleteIcon />
             </Grid>
           ))}
         </Grid>

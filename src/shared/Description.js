@@ -1,8 +1,14 @@
 import { Typography } from "@mui/material";
 
-function Description({ children }) {
+function Description({ children, color, fontSize }) {
   return (
-    <Typography sx={{ color: "#546E7A", fontSize: "16px", lineHeight: "2" }}>
+    <Typography
+      sx={{
+        color: color ? color : "#546E7A",
+        fontSize: fontSize ? fontSize : "16px",
+        lineHeight: "2",
+      }}
+    >
       {children}
     </Typography>
   );

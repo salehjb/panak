@@ -26,9 +26,6 @@ function DashboardLayout({ children }) {
           <Container maxWidth="xl">
             <Box
               sx={{
-                backgroundColor: "white",
-                width: "100%",
-                borderRadius: "12px",
                 my: 3,
                 p: 2,
               }}

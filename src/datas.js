@@ -92,7 +92,7 @@ export const LOGIN_INPUTS = [
 ];
 
 export const SORT_COURSES = [
-  { text: "جدیدترین ها" },
+  { text: "جدید ترین ها" },
   { text: "محبوب ترین ها" },
   { text: "گرانترین ها" },
   { text: "ارزانترین ها" },
