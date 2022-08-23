@@ -5,7 +5,6 @@ export const PAGES = [
   { text: "صفحه اصلی", href: "/" },
   { text: "دوره ها", href: "/courses" },
   { text: "درباره ما", href: "/about-us" },
-  { text: "ارتباط با ما", href: "/contact-us" },
   { text: "وبلاگ", href: "/articles" },
   { text: "همکاری با پاناک", href: "/panak-cooperation" },
 ];
@@ -96,41 +95,6 @@ export const SORT_COURSES = [
   { text: "محبوب ترین ها" },
   { text: "گرانترین ها" },
   { text: "ارزانترین ها" },
-];
-
-export const CART_COURSES = [
-  {
-    title: "دوره پایتون",
-    teacher: "مهدی جلیلی",
-    time: "20:33:00",
-    price: 900000,
-    image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
-  },
-  {
-    title: "دوره نکست جی اس",
-    teacher: "صالح جلیلی",
-    time: "20:33:00",
-    price: 500000,
-    image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
-  },
-  {
-    title: "دوره ری اکت",
-    teacher: "صالح جلیلی",
-    time: "20:33:00",
-    price: 1200000,
-    image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
-  },
-  {
-    title: "دوره نود جی اس",
-    teacher: "صالح جلیلی",
-    time: "20:33:00",
-    price: 1300000,
-    image:
-      "https://cloudfront-us-east-2.images.arcpublishing.com/reuters/EX7HMH5HERIYJHJAMW7EB6QLHY.jpg",
-  },
 ];
 
 export const PAYMENT_GATEWAYS = [

@@ -13,8 +13,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItem, getAllCarts } from "redux/cart/cartSlice";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
-// icons
-import { ProfileIcon, ClockIcon, AddProductIcon } from "shared/Icons";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 
@@ -52,13 +50,13 @@ function CourseBox({ course }) {
           </MuiLink>
         </Link>
         <Box sx={{ ...flexAlignCenter, mt: 2 }}>
-          <ProfileIcon />
+          <img src="icons/profile-icon.svg" alt="profile icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {course.teacher}
           </Typography>
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1.5 }}>
-          <ClockIcon />
+          <img src="icons/clock-icon.svg" alt="clock icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {timeFormatter(15, 33, 0)}
           </Typography>
@@ -91,7 +89,7 @@ function CourseBox({ course }) {
                 </MuiLink>
               </Link>
             ) : (
-              <AddProductIcon />
+              <img src="/icons/add-product-icon.svg" alt="add product icon" />
             )}
           </IconButton>
         </Box>

@@ -1,16 +1,20 @@
 // components
 import AuthComponent from "components/AuthComponent";
+import Meta from "components/Meta";
 // datas
 import { LOGIN_INPUTS } from "datas";
 
 function login() {
   return (
-    <AuthComponent
-      type="login"
-      headerText="ورود"
-      inputsArray={LOGIN_INPUTS}
-      buttonText="ورود"
-    />
+    <>
+      <Meta title="پاناک | ورود" />
+      <AuthComponent
+        type="login"
+        headerText="ورود"
+        inputsArray={LOGIN_INPUTS}
+        buttonText="ورود"
+      />
+    </>
   );
 }
 

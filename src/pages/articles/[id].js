@@ -20,11 +20,13 @@ import {
   flexBetweenCenter,
   dcFlex,
 } from "mui/theme/commonStyles";
+// components
 import Comments from "shared/Comments";
 import CommentForm from "shared/CommentForm";
 import CommentRules from "shared/CommentRules";
 import MainContent from "components/articles-page/MainContent";
 import NewestArticles from "components/articles-page/NewestArticles";
+import Meta from "components/Meta";
 
 function ArticleSinglePage() {
   const router = useRouter();
@@ -37,41 +39,44 @@ function ArticleSinglePage() {
   }
 
   return (
-    <Layout>
-      <Box
-        sx={{
-          backgroundColor: "primary.main",
-          height: "100px",
-          ...flexAlignCenter,
-        }}
-      >
+    <>
+      <Meta title={`پاناک | مقاله ${article.title}`} />
+      <Layout>
+        <Box
+          sx={{
+            backgroundColor: "primary.main",
+            height: "100px",
+            ...flexAlignCenter,
+          }}
+        >
+          <Container maxWidth="xl">
+            <Typography fontSize="25px" sx={{ color: "white" }}>
+              {article.title}
+            </Typography>
+          </Container>
+        </Box>
         <Container maxWidth="xl">
-          <Typography fontSize="25px" sx={{ color: "white" }}>
-            {article.title}
-          </Typography>
+          <Grid container mt={2} spacing={3}>
+            <Grid item xs={9}>
+              <MainContent article={article} />
+              <Box mt={7}>
+                <Comments />
+              </Box>
+              <Box mt={7}>
+                <CommentRules />
+              </Box>
+              <Box mt={7}>
+                <CommentForm />
+              </Box>
+            </Grid>
+            <Grid item xs={3}>
+              <ArticleDetails article={article} />
+              <NewestArticles />
+            </Grid>
+          </Grid>
         </Container>
-      </Box>
-      <Container maxWidth="xl">
-        <Grid container mt={3} columnSpacing={1}>
-          <Grid item xs={9}>
-            <MainContent article={article} />
-            <Box mt={7}>
-              <Comments />
-            </Box>
-            <Box mt={7}>
-              <CommentRules />
-            </Box>
-            <Box mt={7}>
-              <CommentForm />
-            </Box>
-          </Grid>
-          <Grid item xs={3}>
-            <ArticleDetails article={article} />
-            <NewestArticles />
-          </Grid>
-        </Grid>
-      </Container>
-    </Layout>
+      </Layout>
+    </>
   );
 }
 

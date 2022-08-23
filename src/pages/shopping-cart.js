@@ -5,6 +5,7 @@ import { getAllCarts } from "redux/cart/cartSlice";
 import Navbar from "components/layout/Navbar";
 import CartComponent from "components/cart-page/CartComponent";
 import EmptyCart from "components/cart-page/EmptyCart";
+import Meta from "components/Meta";
 // mui => theme
 import { flexCenter } from "mui/theme/commonStyles";
 
@@ -13,6 +14,7 @@ function ShoppingCart() {
 
   return (
     <>
+      <Meta title="پاناک | سبد خرید" />
       <Navbar />
       <Box>
         <Container maxWidth="xl">

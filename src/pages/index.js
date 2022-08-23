@@ -1,23 +1,19 @@
 // components
-import { Box } from "@mui/material";
-import FriendlyConversation from "components/home-page/FriendlyConversation";
 import Header from "components/home-page/Header";
 import LatestArticles from "components/home-page/LatestArticles";
 import LatestCourses from "components/home-page/LatestCourses";
-import PanakDescription from "components/home-page/PanakDescription";
-import Footer from "components/layout/Footer";
-import Navbar from "components/layout/Navbar";
+import Layout from "components/layout/Layout";
+import Meta from "components/Meta";
 
 function index() {
   return (
     <>
-      <Navbar />
-      <Box>
+      <Meta title="آکادمی آنلاین پاناک" />
+      <Layout>
         <Header />
         <LatestCourses />
         <LatestArticles />
-      </Box>
-      <Footer />
+      </Layout>
     </>
   );
 }

@@ -5,8 +5,6 @@ import { addFavoriteCourse } from "redux/favorite-courses/favoriteCoursesSlice";
 import { useDispatch, useSelector } from "react-redux";
 // mui => theme
 import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
-// icons
-import { ClockIcon, DownloadCountIcon, UpdateIcon } from "shared/Icons";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 // components
@@ -33,7 +31,10 @@ function CourseDetails({ course }) {
     >
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
         <Box sx={{ ...flexAlignCenter }}>
-          <ClockIcon />
+          <img
+            src="/icons/clock-icon-course-single-page.svg"
+            alt="clock icon"
+          />
           <Typography
             sx={{
               fontSize: "15px",
@@ -47,7 +48,10 @@ function CourseDetails({ course }) {
       </Box>
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
         <Box sx={{ ...flexAlignCenter }}>
-          <DownloadCountIcon />
+          <img
+            src="/icons/document-download-icon.svg"
+            alt="document download icon"
+          />
           <Typography
             sx={{
               fontSize: "15px",
@@ -61,7 +65,7 @@ function CourseDetails({ course }) {
       </Box>
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
         <Box sx={{ ...flexAlignCenter }}>
-          <UpdateIcon />
+          <img src="/icons/update-icon.svg" alt="update icon" />
           <Typography
             sx={{
               fontSize: "15px",

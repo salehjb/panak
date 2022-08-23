@@ -6,6 +6,7 @@ import { getAllFavoriteCourses } from "redux/favorite-courses/favoriteCoursesSli
 import DashboardLayout from "components/dashboard-page/DashboardLayout";
 import FavoriteCoursesEmpty from "components/dashboard-page/FavoriteCoursesEmpty";
 import CourseBox from "components/courses-page/CourseBox";
+import Meta from "components/Meta";
 
 function favorites() {
   const [favoriteCourses, setFavoriteCourses] = useState([]);
@@ -16,22 +17,23 @@ function favorites() {
     setFavoriteCourses(favoriteCoursesFromStore);
   }, [favoriteCoursesFromStore]);
 
-  console.log(favoriteCourses);
-
   return (
-    <DashboardLayout>
-      {favoriteCourses.length > 0 ? (
-        <Grid container spacing={3}>
-          {favoriteCourses?.map((course) => (
-            <Grid item xs={12} md={6} key={course.id}>
-              <CourseBox course={course} isDeleteIcon />
-            </Grid>
-          ))}
-        </Grid>
-      ) : (
-        <FavoriteCoursesEmpty />
-      )}
-    </DashboardLayout>
+    <>
+      <Meta title="داشبورد | علاقه مندی ها" disableAnother />
+      <DashboardLayout>
+        {favoriteCourses.length > 0 ? (
+          <Grid container spacing={3}>
+            {favoriteCourses?.map((course) => (
+              <Grid item xs={12} md={6} key={course.id}>
+                <CourseBox course={course} isDeleteIcon />
+              </Grid>
+            ))}
+          </Grid>
+        ) : (
+          <FavoriteCoursesEmpty />
+        )}
+      </DashboardLayout>
+    </>
   );
 }
 

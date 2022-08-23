@@ -13,8 +13,6 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 // components
 import AuthLayout from "./layout/AuthLayout";
 import { ContainedButton, OutlinedButton } from "shared/Button";
-// icons
-import { GoogleIcon } from "shared/Icons";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
@@ -108,7 +106,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
         <Grid item xs={12} mt={2} align="center">
           <OutlinedButton width="318px" color="primary.main" borderColor="primary.main">
             <Typography ml={1}>ورود با گوگل</Typography>
-            <GoogleIcon />
+            <img src="/icons/google-icon.svg" alt="google icon" />
           </OutlinedButton>
         </Grid>
       </Grid>

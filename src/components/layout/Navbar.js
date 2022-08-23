@@ -37,10 +37,7 @@ function Navbar() {
               height: "58px",
             }}
           >
-            <img
-              src={"/logos/logo-red.png"}
-              alt="logo"
-            />
+            <img src={"/logos/logo-red.png"} alt="logo" />
           </Box>
           <Stack direction="row" spacing={5} flexGrow={1}>
             {PAGES.map((page, index) => (
@@ -66,7 +63,7 @@ function Navbar() {
                 endAdornment={
                   <InputAdornment position="end">
                     <IconButton>
-                      <RiSearchLine />
+                      <img src="/icons/search-icon.svg" alt="search icon" />
                     </IconButton>
                   </InputAdornment>
                 }
@@ -87,7 +84,10 @@ function Navbar() {
                     borderRadius: "8px",
                   }}
                 >
-                  <RiShoppingCartLine fontSize="1.3rem" />
+                  <img
+                    src="/icons/shopping-cart-icon.svg"
+                    alt="shopping cart icon"
+                  />
                 </MuiLink>
               </Link>
             </Badge>

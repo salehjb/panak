@@ -6,8 +6,6 @@ import { useDispatch } from "react-redux";
 import { removeFavoriteCourse } from "redux/favorite-courses/favoriteCoursesSlice";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
-// icons
-import { ProfileIcon, ClockIcon, AddProductIcon } from "shared/Icons";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 
@@ -52,13 +50,13 @@ function CourseBox({ course, isDeleteIcon }) {
           )}
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1 }}>
-          <ProfileIcon />
+          <img src="/icons/profile-icon.svg" alt="profile icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {course.teacher}
           </Typography>
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1 }}>
-          <ClockIcon />
+          <img src="/icons/clock-icon.svg" alt="clock icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {timeFormatter(15, 33, 0)}
           </Typography>
@@ -81,7 +79,7 @@ function CourseBox({ course, isDeleteIcon }) {
               },
             }}
           >
-            <AddProductIcon />
+            <img src="/icons/add-product-icon.svg" alt="add product icon" />
           </IconButton>
         </Box>
       </Box>
