@@ -7,12 +7,14 @@ export function OutlinedButton({
   onClick,
   borderColor,
   color,
-  margin
+  margin,
+  type,
 }) {
   return (
     <Button
       variant="outlined"
       onClick={onClick}
+      type={type ? type : ""}
       sx={{
         borderColor: borderColor ? borderColor : "secondary.main",
         color: color ? color : "secondary.main",
@@ -33,11 +35,20 @@ export function OutlinedButton({
   );
 }
 
-export function ContainedButton({ children, width, height, onClick, bgColor, margin }) {
+export function ContainedButton({
+  children,
+  width,
+  height,
+  onClick,
+  bgColor,
+  margin,
+  type,
+}) {
   return (
     <Button
       variant="contained"
       onClick={onClick}
+      type={type ? type : ""}
       sx={{
         backgroundColor: bgColor ? bgColor : "secondary.main",
         color: "white",

@@ -80,14 +80,14 @@ export const COOPERATION_BENEFITS = [
 ];
 
 export const SIGNUP_INPUTS = [
-  { label: "ایمیل", type: "text", email: true },
-  { label: "رمز عبور", type: "password" },
-  { label: "شماره موبایل", type: "text" },
+  { label: "ایمیل", type: "text", name: "email", email: true },
+  { label: "رمز عبور", type: "password", name: "password",  },
+  { label: "شماره موبایل", type: "text", name: "phoneNumber",  },
 ];
 
 export const LOGIN_INPUTS = [
-  { label: "ایمیل", type: "text", email: true },
-  { label: "رمز عبور", type: "password" },
+  { label: "ایمیل", type: "text", name: "email", email: true },
+  { label: "رمز عبور", type: "password", name: "password" },
 ];
 
 export const SORT_COURSES = [
