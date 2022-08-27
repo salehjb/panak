@@ -1,5 +1,5 @@
 // components
-import AuthComponent from "components/AuthComponent";
+import AuthComponent from "components/auth-page/AuthComponent";
 import Meta from "components/Meta";
 // datas
 import { SIGNUP_INPUTS } from "datas";

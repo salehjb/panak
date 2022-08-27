@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { Box, Container, Grid, Typography } from "@mui/material";
 // mui => theme
 import { dcFlex, flexCenter } from "mui/theme/commonStyles";
@@ -44,18 +43,12 @@ function AuthLayout({ children }) {
                 color: "white",
               }}
             >
-              <Box
-                sx={{
-                  position: "relative",
-                  width: "108px",
-                  height: "112px",
-                }}
-              >
-                <Image
+              <Box>
+                <img
                   src={"/logos/logo.png"}
                   alt="logo"
-                  objectFit="contain"
-                  layout="fill"
+                  width="108px"
+                  height="112px"
                 />
               </Box>
               <Typography fontSize="20px" fontWeight="400">

@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { fetchArticles } from "redux/articles/articlesSlice";
 import { fetchProducts } from "redux/products/productsSlice";
 import { ToastContainer } from "react-toastify";
+import { SessionProvider } from "next-auth/react";
 // styles
 import "scss/globals.scss";
 import "video-react/dist/video-react.css";
@@ -30,7 +31,9 @@ function MyApp({
         <CssBaseline />
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <Component {...pageProps} />
+            <SessionProvider session={pageProps.session}>
+              <Component {...pageProps} />
+            </SessionProvider>
             <ToastContainer />
           </PersistGate>
         </Provider>

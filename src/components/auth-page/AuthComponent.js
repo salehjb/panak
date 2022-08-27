@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { signIn } from "next-auth/react";
 import Link from "next/link";
 import {
   Box,
@@ -8,18 +9,16 @@ import {
   InputBase,
   Typography,
   Link as MuiLink,
-  FormControl,
 } from "@mui/material";
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 // components
-import AuthLayout from "./layout/AuthLayout";
+import AuthLayout from "./AuthLayout";
 import { ContainedButton, OutlinedButton } from "shared/Button";
 // mui => theme
-import { flexAlignCenter, flexJustifyCenter } from "mui/theme/commonStyles";
+import { flexJustifyCenter } from "mui/theme/commonStyles";
 
 function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
-
   const [form, setForm] = useState(
     type === "signup"
       ? {
@@ -37,11 +36,6 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  function submitHandler(e) {
-    e.preventDefault();
-    console.log("submitted");
-  }
-
   return (
     <AuthLayout>
       <Grid container color="primary.contrastText">
@@ -52,7 +46,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
         </Grid>
         <Grid item xs={12}>
           <form onSubmit={(e) => submitHandler(e)}>
-            <Grid contianer>
+            <Grid container>
               {inputsArray.map((item, index) => (
                 <Grid item xs={12} key={index} sx={{ ...flexJustifyCenter }}>
                   <Box>
@@ -112,7 +106,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
               <>
                 <Typography>
                   حسابی ندارید ؟{" "}
-                  <Link href="/signup">
+                  <Link href="/auth/signup">
                     <MuiLink sx={{ color: "#566E7A" }}>ثبت نام</MuiLink>
                   </Link>
                 </Typography>
@@ -127,7 +121,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
             ) : (
               <Typography>
                 حساب دارید ؟{" "}
-                <Link href="/login">
+                <Link href="/auth/login">
                   <MuiLink sx={{ color: "#566E7A" }}>ورود</MuiLink>
                 </Link>
               </Typography>
@@ -135,14 +129,19 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
           </Box>
         </Grid>
         <Grid item xs={12} mt={2} align="center">
-          <OutlinedButton
-            width="318px"
-            color="primary.main"
-            borderColor="primary.main"
-          >
-            <Typography ml={1}>ورود با گوگل</Typography>
-            <img src="/icons/google-icon.svg" alt="google icon" />
-          </OutlinedButton>
+          <Link href="/api/auth/signin?callbackUrl=http://localhost:3000">
+            <MuiLink>
+              <OutlinedButton
+                width="318px"
+                color="primary.main"
+                borderColor="primary.main"
+                onClick={() => signIn()}
+              >
+                <Typography ml={1}>ورود با گوگل</Typography>
+                <img src="/icons/google-icon.svg" alt="google icon" />
+              </OutlinedButton>
+            </MuiLink>
+          </Link>
         </Grid>
       </Grid>
     </AuthLayout>

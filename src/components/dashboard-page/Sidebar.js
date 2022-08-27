@@ -11,10 +11,12 @@ import {
   Typography,
   Link as MuiLink,
 } from "@mui/material";
+import { ExitToApp } from "@mui/icons-material";
 // datas
 import { DASHBOARD_SIDEBAR_ITEMS } from "datas";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
+import { signOut } from "next-auth/react";
 
 function Sidebar() {
   const pathname = useRouter().pathname;
@@ -86,6 +88,32 @@ function Sidebar() {
                   </Link>
                 );
               })}
+              <Link href="/api/auth/signout?callbackUrl=http://localhost:3000/login">
+                <MuiLink
+                  sx={{
+                    ...flexAlignCenter,
+                  }}
+                  onClick={() => signOut()}
+                >
+                  <ListItemButton>
+                    <ListItemIcon
+                      sx={{
+                        ...flexCenter,
+                        width: "30px",
+                        height: "50px",
+                        backgroundColor: "error.main",
+                        color: "white",
+                        borderRadius: "8px",
+                      }}
+                    >
+                      <ExitToApp sx={{ fontSize: "1.6rem", color: "white" }} />
+                    </ListItemIcon>
+                    <Typography sx={{ mr: 2, color: "error.main" }}>
+                      خروج از حساب
+                    </Typography>
+                  </ListItemButton>
+                </MuiLink>
+              </Link>
             </List>
           </Grid>
         </Grid>

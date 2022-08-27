@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Link from "next/link";
 import {
   Container,
@@ -8,18 +9,40 @@ import {
   InputAdornment,
   IconButton,
   Badge,
+  Avatar,
+  Menu,
+  MenuItem,
+  Typography,
+  Divider,
 } from "@mui/material";
-import { RiShoppingCartLine, RiSearchLine } from "react-icons/ri";
+import { Leaderboard } from "@mui/icons-material";
 import { useSelector } from "react-redux";
 import { getAllCarts } from "../../redux/cart/cartSlice";
+import { useSession } from "next-auth/react";
 // datas
 import { PAGES } from "datas";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
+// components
+import { ContainedButton } from "shared/Button";
+
+const menuItems = [
+  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
+  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
+  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
+  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
+];
 
 function Navbar() {
+  const [open, setOpen] = useState(false);
+
   const carts = useSelector(getAllCarts);
 
+  const { data: session, status } = useSession();
+
+  function handleMenu(e) {
+    setOpen(!open);
+  }
   return (
     <Box
       sx={{
@@ -91,20 +114,61 @@ function Navbar() {
                 </MuiLink>
               </Link>
             </Badge>
-            <Box
-              mr={3}
-              sx={{
-                ...flexCenter,
-                backgroundColor: (theme) => theme.palette.secondary.main,
-                width: "130px",
-                height: "48px",
-                borderRadius: "8px",
-                cursor: "pointer",
-              }}
-            >
-              <Link href="/signup">
-                <MuiLink sx={{ color: "white" }}>ثبت نام / ورود</MuiLink>
-              </Link>
+            <Box mr={3}>
+              {!session && status === "unauthenticated" && (
+                <Link href="/signup">
+                  <MuiLink>
+                    <ContainedButton width="130px">
+                      ثبت نام / ورود
+                    </ContainedButton>
+                  </MuiLink>
+                </Link>
+              )}
+              {session && status === "authenticated" && (
+                <Box>
+                  <Avatar
+                    src={session.user.image}
+                    onClick={handleMenu}
+                    sx={{ cursor: "pointer" }}
+                  />
+                  <Menu
+                    open={open}
+                    onClose={handleMenu}
+                    sx={{ mt: "3rem", p: 0 }}
+                    id="menu-appbar"
+                    anchorOrigin={{
+                      vertical: "top",
+                      horizontal: "left",
+                    }}
+                    keepMounted
+                  >
+                    {menuItems.map((item, index) => {
+                      const CustomIcon = item.icon;
+                      return (
+                        <>
+                          <Link href={item.href}>
+                            <MuiLink>
+                              <MenuItem
+                                sx={{
+                                  color: "primary.main",
+                                  ...flexAlignCenter,
+                                  py: 1
+                                }}
+                              >
+                                <CustomIcon sx={{ ml: 2 }} />
+                                <Typography>{item.text}</Typography>
+                              </MenuItem>
+                            </MuiLink>
+                          </Link>
+                          {index + 1 !== menuItems.length && (
+                            <Divider variant="fullWidth" />
+                          )}
+                        </>
+                      );
+                    })}
+                  </Menu>
+                </Box>
+              )}
             </Box>
           </Box>
         </Box>

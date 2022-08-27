@@ -1,4 +1,5 @@
-import { Avatar, Box, Container, Grid, Typography } from "@mui/material";
+import Link from "next/link";
+import { Avatar, Box, Container, Grid, Typography, Link as MuiLink } from "@mui/material";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
@@ -15,16 +16,20 @@ function Header() {
         <Grid container sx={{ ...flexAlignCenter }}>
           <Grid item flexGrow={1}>
             <Box sx={{ ...flexAlignCenter }}>
-              <img src="/logos/logo-red.png" />
-              <Typography
-                sx={{
-                  mr: 2,
-                  fontSize: "18px",
-                  fontWeight: "400",
-                }}
-              >
-                پاناک
-              </Typography>
+              <Link href="/">
+                <MuiLink sx={{ ...flexAlignCenter }}>
+                  <img src="/logos/logo-red.png" />
+                  <Typography
+                    sx={{
+                      mr: 1,
+                      fontSize: "18px",
+                      fontWeight: "400",
+                    }}
+                  >
+                    پاناک
+                  </Typography>
+                </MuiLink>
+              </Link>
             </Box>
           </Grid>
           <Grid item sx={{ ...flexAlignCenter }}>

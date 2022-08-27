@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useSelector } from "react-redux";
 import { getProductsWithSlice } from "redux/products/productsSlice";
+import { useSession } from "next-auth/react";
 import { getAllPurchases } from "redux/purchases/purchasesSlice";
 import { Box, Grid, Typography, Link as MuiLink } from "@mui/material";
 // components
@@ -11,17 +12,15 @@ import CourseBox from "components/dashboard-page/CourseBox";
 import PurchasesBox from "components/dashboard-page/PurchasesBox";
 import Meta from "components/Meta";
 // mui => theme
-import {
-  flexCenter,
-  flexBetweenCenter,
-  flexAlignCenter,
-} from "mui/theme/commonStyles";
+import { flexCenter } from "mui/theme/commonStyles";
 // utils
 import { priceFormatter } from "utils/functions";
 
 function index() {
   const courses = useSelector((state) => getProductsWithSlice(state, 3));
   const purchases = useSelector(getAllPurchases);
+
+  const { data: session, status } = useSession();
 
   return (
     <>
@@ -46,7 +45,7 @@ function index() {
                   mb={1}
                   color="white"
                 >
-                  سلام عمو حسن جوجو!
+                  سلام {session?.user.name} عزیز!
                 </Typography>
                 <Description color="white" fontSize="14px">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
@@ -97,7 +96,7 @@ function index() {
                 جدید ترین دوره ها
               </Typography>
               {courses.map((course) => (
-                <Box mb={1.5}>
+                <Box mb={1.5} key={course.id}>
                   <CourseBox course={course} />
                 </Box>
               ))}
