@@ -1,9 +1,7 @@
 import Link from "next/link";
 import { Box, Container, Grid, Link as MuiLink } from "@mui/material";
 import { useSelector } from "react-redux";
-import {
-  getProductsWithSlice,
-} from "redux/products/productsSlice";
+import { getProductsWithSlice } from "redux/products/productsSlice";
 // components
 import HomeTitle from "./HomeTitle";
 import CourseBox from "components/courses-page/CourseBox";
@@ -34,26 +32,26 @@ function LatestCourses() {
           </Grid>
         </Grid>
       </Container>
-      <Grid
-        item
-        xs={12}
-        sx={{
-          position: "relative",
-          top: "-45px",
-          backgroundColor: "primary.main",
-          height: "200px",
-          zIndex: 5,
-          ...flexJustifyCenter,
-          alignItems: "flex-end",
-        }}
-      >
-        <Link href="/courses">
-          <MuiLink>
-            <ContainedButton width="150px" margin="0 0 2rem 0">
-              مشاهده همه دوره ها
-            </ContainedButton>
-          </MuiLink>
-        </Link>
+      <Grid item xs={12}>
+        <Box
+          sx={{
+            position: "relative",
+            top: "-45px",
+            backgroundColor: "primary.main",
+            height: "200px",
+            zIndex: 5,
+            ...flexJustifyCenter,
+            alignItems: "flex-end",
+          }}
+        >
+          <Link href="/courses">
+            <MuiLink>
+              <ContainedButton width="150px" margin="0 0 2rem 0">
+                مشاهده همه دوره ها
+              </ContainedButton>
+            </MuiLink>
+          </Link>
+        </Box>
       </Grid>
     </Grid>
   );

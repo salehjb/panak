@@ -6,6 +6,6 @@ export default NextAuth({
     GithubProvider({
       clientId: "c559c7e0ff24be64cfa2",
       clientSecret: "0051fd24cfc403e518e354019fd1ac44ac42ca1c",
-    })
-  ]  
+    }),
+  ],
 })

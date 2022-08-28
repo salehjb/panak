@@ -50,8 +50,8 @@ function courses() {
           </Container>
         </Box>
         <Container maxWidth="xl">
-          <Grid container columnSpacing={3}>
-            <Grid item xs={12} sm={12} md={3}>
+          <Grid container spacing={{ xs: 0, md: 3 }}>
+            <Grid item xs={12} md={3}>
               <InputBase
                 fullWidth
                 placeholder="عنوان مد نظر را جستجو کنید..."

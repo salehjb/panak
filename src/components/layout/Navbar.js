@@ -43,7 +43,7 @@ function Navbar() {
   function handleMenu(e) {
     setOpen(!open);
   }
-  
+
   return (
     <Box
       sx={{
@@ -53,17 +53,34 @@ function Navbar() {
       }}
     >
       <Container maxWidth="xl">
-        <Box sx={{ ...flexAlignCenter, minHeight: 80 }}>
-          <Box
-            ml={4}
-            sx={{
-              width: "57px",
-              height: "58px",
-            }}
-          >
-            <img src={"/logos/logo-red.png"} alt="logo" />
+        <Box
+          sx={{
+            minHeight: 80,
+            ...flexAlignCenter,
+            justifyContent: "space-between",
+          }}
+        >
+          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+            <img src="/icons/menu-icon.svg" width="30px" height="30px" />
           </Box>
-          <Stack direction="row" spacing={5} flexGrow={1}>
+          <Link href="/">
+            <MuiLink
+              sx={{ ml: { xs: 0, md: 4 }, width: "57px", height: "57px" }}
+            >
+              <img
+                src={"/logos/logo-red.png"}
+                alt="logo"
+                width="100%"
+                height="100%"
+              />
+            </MuiLink>
+          </Link>
+          <Stack
+            direction="row"
+            spacing={5}
+            flexGrow={1}
+            sx={{ display: { xs: "none", md: "flex" } }}
+          >
             {PAGES.map((page, index) => (
               <Box key={index}>
                 <Link href={page.href}>
@@ -72,7 +89,7 @@ function Navbar() {
               </Box>
             ))}
           </Stack>
-          <Box sx={{ ...flexAlignCenter }}>
+          <Box sx={{ ...flexAlignCenter, display: { xs: "none", md: "flex" } }}>
             <Box ml={2}>
               <InputBase
                 type="text"
@@ -115,62 +132,54 @@ function Navbar() {
                 </MuiLink>
               </Link>
             </Badge>
-            <Box mr={3}>
-              {!session && status === "unauthenticated" && (
-                <Link href="/signup">
-                  <MuiLink>
-                    <ContainedButton width="130px">
-                      ثبت نام / ورود
-                    </ContainedButton>
-                  </MuiLink>
-                </Link>
-              )}
-              {session && status === "authenticated" && (
-                <Box>
-                  <Avatar
-                    src={session.user.image}
-                    onClick={handleMenu}
-                    sx={{ cursor: "pointer" }}
-                  />
-                  <Menu
-                    open={open}
-                    onClose={handleMenu}
-                    sx={{ mt: "3rem", p: 0 }}
-                    id="menu-appbar"
-                    anchorOrigin={{
-                      vertical: "top",
-                      horizontal: "left",
-                    }}
-                    keepMounted
-                  >
-                    {menuItems.map((item, index) => {
-                      const CustomIcon = item.icon;
-                      return (
-                        <>
-                          <Link href={item.href}>
-                            <MuiLink>
-                              <MenuItem
-                                sx={{
-                                  color: "primary.main",
-                                  ...flexAlignCenter,
-                                  py: 1
-                                }}
-                              >
-                                <CustomIcon sx={{ ml: 2 }} />
-                                <Typography>{item.text}</Typography>
-                              </MenuItem>
-                            </MuiLink>
-                          </Link>
-                          {index + 1 !== menuItems.length && (
-                            <Divider variant="fullWidth" />
-                          )}
-                        </>
-                      );
-                    })}
-                  </Menu>
-                </Box>
-              )}
-            </Box>
+          </Box>
+          <Box mr={{ xs: 0, md: 3 }}>
+            {!session && status === "unauthenticated" && (
+              <Link href="/signup">
+                <MuiLink>
+                  <ContainedButton width="130px">
+                    ثبت نام / ورود
+                  </ContainedButton>
+                </MuiLink>
+              </Link>
+            )}
+            {session && status === "authenticated" && (
+              <Box>
+                <Avatar
+                  src={session.user.image}
+                  onClick={handleMenu}
+                  sx={{ cursor: "pointer" }}
+                />
+                <Menu
+                  open={open}
+                  onClose={handleMenu}
+                  sx={{ mt: "3rem", p: 0 }}
+                  id="menu-appbar"
+                  anchorOrigin={{
+                    vertical: "top",
+                    horizontal: "left",
+                  }}
+                  keepMounted
+                >
+                  {menuItems.map((item, index) => {
+                    const CustomIcon = item.icon;
+                    return (
+                      <MenuItem key={index}>
+                        <Link href={item.href}>
+                          <MuiLink sx={{ ...flexAlignCenter }}>
+                            <CustomIcon sx={{ ml: 2 }} />
+                            <Typography>{item.text}</Typography>
+                          </MuiLink>
+                        </Link>
+                        {index + 1 !== menuItems.length && (
+                          <Divider variant="fullWidth" />
+                        )}
+                      </MenuItem>
+                    );
+                  })}
+                </Menu>
+              </Box>
+            )}
           </Box>
         </Box>
       </Container>

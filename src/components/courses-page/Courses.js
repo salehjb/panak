@@ -10,9 +10,9 @@ function Courses() {
   const courses = useSelector(getAllProducts);
 
   return (
-    <Grid container spacing={3}>
-      {courses.map((course) => (
-        <Grid item xs={12} sm={6} md={4} key={course.id}>
+    <Grid container spacing={{ xs: 0, md: 2 }}>
+      {courses.map((course, index) => (
+        <Grid item xs={12} sm={6} md={4} mt={{ xs: index !== 0 && 2, md: 0 }} key={course.id}>
           <CourseBox course={course} />
         </Grid>
       ))}
