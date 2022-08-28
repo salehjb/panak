@@ -17,6 +17,8 @@ import { DASHBOARD_SIDEBAR_ITEMS } from "datas";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 import { signOut } from "next-auth/react";
+// utils
+import { getURL } from "utils/functions";
 
 function Sidebar() {
   const pathname = useRouter().pathname;
@@ -88,7 +90,7 @@ function Sidebar() {
                   </Link>
                 );
               })}
-              <Link href="/api/auth/signout?callbackUrl=http://localhost:3000/login">
+              <Link href={`/api/auth/signout?callbackUrl=${getURL()}/login`}>
                 <MuiLink
                   sx={{
                     ...flexAlignCenter,

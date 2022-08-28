@@ -24,8 +24,11 @@ export function setToLocalStorage(key, value) {
   }
 }
 
-export function getHost() {
-  if (typeof window !== "undefined") {
-    return window.location.host
-  }
+export function getURL() {
+  const baseURL =
+    process.env.NODE_ENV !== "production"
+      ? "http://localhost:3000"
+      : "https://panak.vercel.app";
+      
+  return baseURL;
 }

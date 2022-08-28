@@ -16,6 +16,8 @@ import AuthLayout from "./AuthLayout";
 import { ContainedButton, OutlinedButton } from "shared/Button";
 // mui => theme
 import { flexJustifyCenter } from "mui/theme/commonStyles";
+// utils
+import { getURL } from "utils/functions";
 
 function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -129,7 +131,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
           </Box>
         </Grid>
         <Grid item xs={12} mt={2} align="center">
-          <Link href="/api/auth/signin?callbackUrl=http://localhost:3000">
+          <Link href={`/api/auth/signin?callbackUrl=${getURL()}`}>
             <MuiLink>
               <OutlinedButton
                 width="318px"
