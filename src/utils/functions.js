@@ -23,3 +23,9 @@ export function setToLocalStorage(key, value) {
     localStorage.setItem(key, value);
   }
 }
+
+export function getHost() {
+  if (typeof window !== "undefined") {
+    return window.location.host
+  }
+}

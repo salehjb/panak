@@ -43,6 +43,7 @@ function Navbar() {
   function handleMenu(e) {
     setOpen(!open);
   }
+  
   return (
     <Box
       sx={{
