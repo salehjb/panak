@@ -8,22 +8,13 @@ import {
   CardMedia,
   CardContent,
 } from "@mui/material";
-import DoneIcon from "@mui/icons-material/Done";
-import { useDispatch, useSelector } from "react-redux";
-import { addItem, getAllCarts } from "redux/cart/cartSlice";
+import { ArrowCircleLeftOutlined } from "@mui/icons-material";
 // mui => theme
-import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
+import { flexAlignCenter } from "mui/theme/commonStyles";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 
 function CourseBox({ course }) {
-  const dispatch = useDispatch();
-
-  const cart = useSelector(getAllCarts);
-
-  const courseExistInCart =
-    cart.findIndex((item) => item.id === course.id) !== -1;
-
   return (
     <Card
       sx={{
@@ -31,24 +22,16 @@ function CourseBox({ course }) {
         color: "primary.contrastText",
       }}
     >
-      <Link href={`/courses/${course.id}`}>
-        <MuiLink>
-          <CardMedia
-            component="img"
-            height="250"
-            src={course.image}
-            sx={{ borderRadius: "15px" }}
-          />
-        </MuiLink>
-      </Link>
+      <CardMedia
+        component="img"
+        height="250"
+        src={course.image}
+        sx={{ borderRadius: "15px" }}
+      />
       <CardContent>
-        <Link href={`/courses/${course.id}`}>
-          <MuiLink>
-            <Typography sx={{ fontSize: "17px", fontWeight: "400" }}>
-              {course.title}
-            </Typography>
-          </MuiLink>
-        </Link>
+        <Typography sx={{ fontSize: "17px", fontWeight: "400" }}>
+          {course.title}
+        </Typography>
         <Box sx={{ ...flexAlignCenter, mt: 2 }}>
           <img src="icons/profile-icon.svg" alt="profile icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
@@ -67,31 +50,14 @@ function CourseBox({ course }) {
           <Typography sx={{ fontSize: "17px", fontWeight: "400", mr: 1 }}>
             {priceFormatter(course.price)} تومان
           </Typography>
-          <IconButton
-            onClick={courseExistInCart ? null : () => dispatch(addItem(course))}
-            sx={{
-              width: "40px",
-              height: "40px",
-              backgroundColor: courseExistInCart
-                ? "success.light"
-                : "secondary.main",
-              "&:hover": {
-                backgroundColor: courseExistInCart
-                  ? "success.main"
-                  : "secondary.dark",
-              },
-            }}
-          >
-            {courseExistInCart ? (
-              <Link href="/shopping-cart">
-                <MuiLink sx={{ ...flexCenter }}>
-                  <DoneIcon sx={{ color: "white" }} />
-                </MuiLink>
-              </Link>
-            ) : (
-              <img src="/icons/add-product-icon.svg" alt="add product icon" />
-            )}
-          </IconButton>
+          <Link href={`/courses/${course.id}`}>
+            <MuiLink sx={{ color: "secondary.main", ...flexAlignCenter }}>
+              <Typography sx={{ ml: 1, fontWeight: "400", fontSize: "15px" }}>
+                مشاهده دوره
+              </Typography>
+              <ArrowCircleLeftOutlined />
+            </MuiLink>
+          </Link>
         </Box>
       </CardContent>
     </Card>

@@ -1,6 +1,7 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 // mui => theme
 import { flexAlignCenter, flexCenter, flexEnd } from "mui/theme/commonStyles";
+import Description from "shared/Description";
 // components
 import Benefits from "./Benefits";
 
@@ -9,23 +10,18 @@ function Header() {
     <Container maxWidth="xl">
       <Grid container sx={{ display: "flex" }}>
         <Grid item xs={7} sx={{ ...flexAlignCenter }}>
-          <Box sx={{ width: "100%", mr: 10 }}>
-            <Typography fontSize="35px" fontWeight="400" color="primary.main">
+          <Box sx={{ width: "100%" }}>
+            <Typography fontSize="45px" fontWeight="500" color="primary.main">
               داستان برنامه نویس شدنت <br /> از اینجا شروع میشه!
             </Typography>
-            <Typography
-              sx={{
-                fontSize: "16px",
-                width: "70%",
-                mt: 4.5,
-                color: "primary.contrastText",
-              }}
-            >
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-              استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-              نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
-            </Typography>
+            <Box sx={{ width: "80%", my: 2 }}>
+              <Description>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
+                نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+              </Description>
+            </Box>
             <Benefits />
           </Box>
         </Grid>

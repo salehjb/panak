@@ -6,13 +6,13 @@ import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 
 function Benefits() {
   return (
-    <Box mt={4.5} sx={{ display: "flex" }}>
+    <Box mt={3} sx={{ display: "flex" }}>
       {HOME_PAGE_BENEFITS.map((benefit, index) => {
         const CustomIcon = benefit.icon;
         return (
           <Box
             key={index}
-            ml={3}
+            ml={5}
             sx={{ ...flexAlignCenter, flexDirection: "column" }}
           >
             <Box

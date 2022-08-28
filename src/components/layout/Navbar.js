@@ -26,23 +26,10 @@ import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 // components
 import { ContainedButton } from "shared/Button";
 
-const menuItems = [
-  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
-  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
-  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
-  { text: "داشبورد", href: "/dashboard", icon: Leaderboard },
-];
-
 function Navbar() {
-  const [open, setOpen] = useState(false);
-
   const carts = useSelector(getAllCarts);
 
   const { data: session, status } = useSession();
-
-  function handleMenu(e) {
-    setOpen(!open);
-  }
 
   return (
     <Box
@@ -144,41 +131,11 @@ function Navbar() {
               </Link>
             )}
             {session && status === "authenticated" && (
-              <Box>
-                <Avatar
-                  src={session.user.image}
-                  onClick={handleMenu}
-                  sx={{ cursor: "pointer" }}
-                />
-                <Menu
-                  open={open}
-                  onClose={handleMenu}
-                  sx={{ mt: "3rem", p: 0 }}
-                  id="menu-appbar"
-                  anchorOrigin={{
-                    vertical: "top",
-                    horizontal: "left",
-                  }}
-                  keepMounted
-                >
-                  {menuItems.map((item, index) => {
-                    const CustomIcon = item.icon;
-                    return (
-                      <MenuItem key={index}>
-                        <Link href={item.href}>
-                          <MuiLink sx={{ ...flexAlignCenter }}>
-                            <CustomIcon sx={{ ml: 2 }} />
-                            <Typography>{item.text}</Typography>
-                          </MuiLink>
-                        </Link>
-                        {index + 1 !== menuItems.length && (
-                          <Divider variant="fullWidth" />
-                        )}
-                      </MenuItem>
-                    );
-                  })}
-                </Menu>
-              </Box>
+              <Link href="/dashboard">
+                <MuiLink>
+                  <Avatar src={session.user.image} />
+                </MuiLink>
+              </Link>
             )}
           </Box>
         </Box>

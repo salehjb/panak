@@ -1,10 +1,22 @@
+import { useState } from "react";
 import Link from "next/link";
-import { Box, Divider, Typography, Link as MuiLink } from "@mui/material";
+import {
+  Box,
+  Divider,
+  Typography,
+  Link as MuiLink,
+  Snackbar,
+  Alert,
+} from "@mui/material";
 import { addItem, getAllCarts } from "redux/cart/cartSlice";
 import { addFavoriteCourse } from "redux/favorite-courses/favoriteCoursesSlice";
 import { useDispatch, useSelector } from "react-redux";
 // mui => theme
-import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
+import {
+  flexAlignCenter,
+  flexBetweenCenter,
+  flexCenter,
+} from "mui/theme/commonStyles";
 // utils
 import { priceFormatter, timeFormatter } from "utils/functions";
 // components
@@ -99,13 +111,18 @@ function CourseDetails({ course }) {
         {courseExistInCart ? (
           <Link href="/shopping-cart">
             <MuiLink>
-              <ContainedButton bgColor="success.light">
+              <ContainedButton bgColor="success.main">
                 مشاهده سبد خرید
               </ContainedButton>
             </MuiLink>
           </Link>
         ) : (
-          <ContainedButton onClick={() => dispatch(addItem(course))}>
+          <ContainedButton
+            onClick={() => {
+              dispatch(addItem(course));
+              handleOpenSnack();
+            }}
+          >
             اضافه کردن به سبد خرید
           </ContainedButton>
         )}

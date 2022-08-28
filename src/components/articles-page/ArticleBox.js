@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import Link from "next/link";
-import { ArrowCircleLeft } from "@mui/icons-material";
+import { ArrowCircleLeftOutlined } from "@mui/icons-material";
 // mui => theme
 import {
   flexAlignCenter,
@@ -78,10 +78,10 @@ function ArticleBox({ article }) {
               color: (theme) => theme.palette.secondary.main,
             }}
           >
-            <Typography sx={{ fontSize: "15px", ml: 1.5 }}>
+            <Typography sx={{ fontSize: "15px", fontWeight: "400", ml: 1.5 }}>
               مطالعه بیشتر
             </Typography>
-            <ArrowCircleLeft />
+            <ArrowCircleLeftOutlined />
           </MuiLink>
         </Link>
       </CardActions>

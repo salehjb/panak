@@ -10,7 +10,7 @@ function AuthLayout({ children }) {
         ...flexCenter,
       }}
     >
-      <Container maxWidth="lg">
+      <Container maxWidth="xl">
         <Box
           sx={{
             width: "100%",

@@ -34,7 +34,6 @@ function MyApp({
             <SessionProvider session={pageProps.session}>
               <Component {...pageProps} />
             </SessionProvider>
-            <ToastContainer />
           </PersistGate>
         </Provider>
       </ThemeProvider>
