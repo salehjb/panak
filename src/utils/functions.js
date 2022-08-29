@@ -24,11 +24,13 @@ export function setToLocalStorage(key, value) {
   }
 }
 
-export function getURL() {
-  const baseURL =
-    process.env.NODE_ENV !== "production"
-      ? "http://localhost:3000"
-      : "https://panak.vercel.app";
-      
-  return baseURL;
+export function handleSnack(variant, enqueueSnackbar, text) {
+  enqueueSnackbar(text, {
+    variant,
+    autoHideDuration: 3000,
+    anchorOrigin: {
+      vertical: "top",
+      horizontal: "center",
+    },
+  });
 }

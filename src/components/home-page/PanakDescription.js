@@ -40,6 +40,7 @@ function PanakDescription() {
               width="100%"
               controlsList="nodownload"
               poster="/images/mehdi-saleh-fateme-behind-their-own-laptop.JPG"
+              style={{ borderRadius: "16px" }}
             />
           </Box>
         </Grid>

@@ -7,7 +7,6 @@ import Benefits from "./Benefits";
 
 function Header() {
   return (
-    <Container maxWidth="xl">
       <Grid container sx={{ display: "flex" }}>
         <Grid item xs={7} sx={{ ...flexAlignCenter }}>
           <Box sx={{ width: "100%" }}>
@@ -32,7 +31,7 @@ function Header() {
             backgroundColor: "primary.main",
             width: "100%",
             height: "600px",
-            borderRadius: "0px 0px 56px 56px",
+            borderRadius: "0 0 56px 0",
             display: "flex",
             alignItems: "flex-end",
             backgroundImage: `url("/vectors/zohal.png"), url("/vectors/breaked-line.png")`,
@@ -44,7 +43,6 @@ function Header() {
           <img src="/images/home-header-image.png" alt="header" width="300px" />
         </Grid>
       </Grid>
-    </Container>
   );
 }
 

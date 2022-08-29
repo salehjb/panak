@@ -4,7 +4,7 @@ import ArticleBox from "./ArticleBox";
 
 function ArticlesList({ articles }) {
   return (
-    <Grid container spacing={3}>
+    <Grid container spacing={2}>
       {articles.map((article) => (
         <Grid item xs={12} sm={6} md={4} key={article.id}>
           <ArticleBox article={article} />

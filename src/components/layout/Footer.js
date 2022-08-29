@@ -18,6 +18,7 @@ import { SOCIAL_MEDIAS } from "datas";
 import { flexCenter, flexEnd } from "mui/theme/commonStyles";
 // components
 import { ContainedButton } from "shared/Button";
+import Description from "shared/Description";
 
 function Footer() {
   return (
@@ -25,8 +26,8 @@ function Footer() {
       <Box
         sx={{
           backgroundColor: "primary.main",
-          backgroundImage: `url(${"/vectors/education-cap.png"})`,
-          backgroundPosition: "50px center",
+          backgroundImage: "url(/vectors/education-cap.png)",
+          backgroundPosition: { xs: "center", md: "50px center" },
           backgroundRepeat: "no-repeat",
           borderRadius: "56px 56px 0px 0px",
           mt: "15rem",
@@ -75,28 +76,41 @@ function Footer() {
                 );
               })}
             </Grid>
-            <Grid item xs={8}>
-              <Typography fontSize="19px" fontWeight="400">
+            <Grid item xs={12} md={8}>
+              <Typography
+                sx={{
+                  fontSize: "19px",
+                  fontWeight: "400",
+                }}
+              >
                 پاناک
               </Typography>
-              <Typography fontSize="15px" lineHeight="25px">
+              <Description>
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
                 در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
                 نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
                 کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
                 جامعه و متخصصان را می طلبد
-              </Typography>
+              </Description>
             </Grid>
             <Grid
               item
-              xs={4}
+              xs={12}
+              md={4}
               sx={{
                 ...flexEnd,
+                mt: { xs: 2, md: 0 },
               }}
             >
               <Box>
-                <Typography mb={1} fontSize="15px">
+                <Typography
+                  mb={1}
+                  sx={{
+                    fontSize: "15px",
+                    textAlign: { xs: "center", md: "right" },
+                  }}
+                >
                   برای اطلاع از جدیدترین دوره ها و تخفیفها ایمیل خود را وارد
                   کنید
                 </Typography>
@@ -121,7 +135,7 @@ function Footer() {
                 sx={{ backgroundColor: "white", margin: "1rem 0" }}
               />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={12} md={4} sx={{ mb: { xs: 3, md: 0 } }}>
               <Box display="flex" mb={2.5}>
                 <LocationOnIcon />
                 <Typography mr={1}>
@@ -137,7 +151,7 @@ function Footer() {
                 <Typography mr={1}>ایمیل: salehjalili36@gmail.com</Typography>
               </Box>
             </Grid>
-            <Grid xs={4}>
+            <Grid xs={4} sx={{ display: { xs: "none", md: "block" } }}>
               <Typography fontSize="16px" fontWeight="400" mb={2}>
                 لینک های مهم
               </Typography>
@@ -194,8 +208,13 @@ function Footer() {
                 </Box>
               </Box>
             </Grid>
-            <Grid xs={4} display="flex" justifyContent="flex-end">
-              <Box>
+            <Grid xs={12} md={4}>
+              <Box
+                sx={{
+                  display: "flex",
+                  justifyContent: { xs: "center", md: "flex-end" },
+                }}
+              >
                 <img
                   src={"/logos/etemad.png"}
                   alt="etemad"

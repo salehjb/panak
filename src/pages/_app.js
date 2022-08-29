@@ -8,8 +8,8 @@ import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { fetchArticles } from "redux/articles/articlesSlice";
 import { fetchProducts } from "redux/products/productsSlice";
-import { ToastContainer } from "react-toastify";
 import { SessionProvider } from "next-auth/react";
+import { SnackbarProvider } from "notistack";
 // styles
 import "scss/globals.scss";
 import "video-react/dist/video-react.css";
@@ -32,7 +32,9 @@ function MyApp({
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <SessionProvider session={pageProps.session}>
-              <Component {...pageProps} />
+              <SnackbarProvider maxSnack={3}>
+                <Component {...pageProps} />
+              </SnackbarProvider>
             </SessionProvider>
           </PersistGate>
         </Provider>

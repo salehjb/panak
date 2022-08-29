@@ -49,8 +49,8 @@ function CartComponent({ carts }) {
         </Box>
         <Divider variant="fullWidth" />
         <Box>
-          {carts.map((item) => (
-            <CartItem item={item} key={item.id} />
+          {carts.map((course) => (
+            <CartItem course={course} key={course.id} />
           ))}
         </Box>
         <Box

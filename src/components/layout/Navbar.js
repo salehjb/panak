@@ -1,21 +1,5 @@
-import { useState } from "react";
 import Link from "next/link";
-import {
-  Container,
-  Box,
-  Stack,
-  Link as MuiLink,
-  InputBase,
-  InputAdornment,
-  IconButton,
-  Badge,
-  Avatar,
-  Menu,
-  MenuItem,
-  Typography,
-  Divider,
-} from "@mui/material";
-import { Leaderboard } from "@mui/icons-material";
+import { Container, Box, Link as MuiLink, Badge, Avatar } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getAllCarts } from "../../redux/cart/cartSlice";
 import { useSession } from "next-auth/react";
@@ -25,6 +9,7 @@ import { PAGES } from "datas";
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 // components
 import { ContainedButton } from "shared/Button";
+import NavDrawer from "./NavDrawer";
 
 function Navbar() {
   const carts = useSelector(getAllCarts);
@@ -48,7 +33,7 @@ function Navbar() {
           }}
         >
           <Box sx={{ display: { xs: "flex", md: "none" } }}>
-            <img src="/icons/menu-icon.svg" width="30px" height="30px" />
+            <NavDrawer />
           </Box>
           <Link href="/">
             <MuiLink
@@ -62,41 +47,16 @@ function Navbar() {
               />
             </MuiLink>
           </Link>
-          <Stack
-            direction="row"
-            spacing={5}
-            flexGrow={1}
-            sx={{ display: { xs: "none", md: "flex" } }}
-          >
+          <Box flexGrow={1} sx={{ display: { xs: "none", md: "flex" } }}>
             {PAGES.map((page, index) => (
-              <Box key={index}>
+              <Box key={index} sx={{ ml: 4 }}>
                 <Link href={page.href}>
                   <MuiLink>{page.text}</MuiLink>
                 </Link>
               </Box>
             ))}
-          </Stack>
+          </Box>
           <Box sx={{ ...flexAlignCenter, display: { xs: "none", md: "flex" } }}>
-            <Box ml={2}>
-              <InputBase
-                type="text"
-                placeholder="دنبال چی میگردی ؟"
-                sx={{
-                  width: "250px",
-                  height: "48px",
-                  pr: 2,
-                  backgroundColor: "#dbddde",
-                  borderRadius: "8px",
-                }}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <IconButton>
-                      <img src="/icons/search-icon.svg" alt="search icon" />
-                    </IconButton>
-                  </InputAdornment>
-                }
-              />
-            </Box>
             <Badge
               badgeContent={carts.length}
               color="secondary"

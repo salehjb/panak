@@ -1,12 +1,11 @@
 import * as Icons from "@mui/icons-material";
 
 export const PAGES = [
-  { text: "", href: "/" },
-  { text: "صفحه اصلی", href: "/" },
-  { text: "دوره ها", href: "/courses" },
-  { text: "درباره ما", href: "/about-us" },
-  { text: "وبلاگ", href: "/articles" },
-  { text: "همکاری با پاناک", href: "/panak-cooperation" },
+  { text: "صفحه اصلی", href: "/", icon: Icons.Home },
+  { text: "دوره ها", href: "/courses", icon: Icons.School },
+  { text: "درباره ما", href: "/about-us", icon: Icons.Groups },
+  { text: "وبلاگ", href: "/articles", icon: Icons.LibraryBooks },
+  { text: "همکاری با پاناک", href: "/panak-cooperation", icon: Icons.Handshake },
 ];
 
 export const TEAM_MEMBERS = [

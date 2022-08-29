@@ -5,20 +5,16 @@ import {
   Divider,
   Typography,
   Link as MuiLink,
-  Snackbar,
-  Alert,
 } from "@mui/material";
+import { TaskAltOutlined } from "@mui/icons-material";
 import { addItem, getAllCarts } from "redux/cart/cartSlice";
 import { addFavoriteCourse } from "redux/favorite-courses/favoriteCoursesSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useSnackbar } from "notistack";
 // mui => theme
-import {
-  flexAlignCenter,
-  flexBetweenCenter,
-  flexCenter,
-} from "mui/theme/commonStyles";
+import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
 // utils
-import { priceFormatter, timeFormatter } from "utils/functions";
+import { priceFormatter, timeFormatter, handleSnack } from "utils/functions";
 // components
 import { ContainedButton, OutlinedButton } from "shared/Button";
 
@@ -29,6 +25,8 @@ function CourseDetails({ course }) {
 
   const courseExistInCart =
     cart.findIndex((item) => item.id === course.id) !== -1;
+
+  const { enqueueSnackbar } = useSnackbar();
 
   return (
     <Box
@@ -112,7 +110,8 @@ function CourseDetails({ course }) {
           <Link href="/shopping-cart">
             <MuiLink>
               <ContainedButton bgColor="success.main">
-                مشاهده سبد خرید
+                <TaskAltOutlined />
+                <Typography sx={{ mr: 1 }}>مشاهده سبد خرید</Typography>
               </ContainedButton>
             </MuiLink>
           </Link>
@@ -120,7 +119,11 @@ function CourseDetails({ course }) {
           <ContainedButton
             onClick={() => {
               dispatch(addItem(course));
-              handleOpenSnack();
+              handleSnack(
+                "success",
+                enqueueSnackbar,
+                `${course.title} به سبد خرید اضافه شد`
+              );
             }}
           >
             اضافه کردن به سبد خرید

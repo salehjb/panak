@@ -3,11 +3,14 @@ import { Clear } from "@mui/icons-material";
 import { Box, Divider, IconButton, Typography } from "@mui/material";
 import { removeItem } from "redux/cart/cartSlice";
 import { useDispatch } from "react-redux";
+import { useSnackbar } from "notistack";
 // utils
-import { priceFormatter } from "utils/functions";
+import { priceFormatter, handleSnack } from "utils/functions";
 
-function CartItem({ item }) {
+function CartItem({ course }) {
   const dispatch = useDispatch();
+
+  const { enqueueSnackbar } = useSnackbar();
 
   return (
     <>
@@ -21,7 +24,7 @@ function CartItem({ item }) {
             }}
           >
             <img
-              src={item.image}
+              src={course.image}
               alt="course image"
               width="44px"
               height="44px"
@@ -29,12 +32,12 @@ function CartItem({ item }) {
             />
             <Box mr={2}>
               <Typography fontSize="16px" fontWeight="400">
-                {item.title}
+                {course.title}
               </Typography>
-              <Typography fontSize="14px">{item.teacher}</Typography>
+              <Typography fontSize="14px">{course.teacher}</Typography>
             </Box>
           </Box>
-          <Box sx={{ width: "50%" }}>{priceFormatter(item.price)}</Box>
+          <Box sx={{ width: "50%" }}>{priceFormatter(course.price)}</Box>
           <Box
             sx={{
               width: "10%",
@@ -44,8 +47,8 @@ function CartItem({ item }) {
           >
             <IconButton
               onClick={() => {
-                dispatch(removeItem(item));
-                handleOpenSnack();
+                dispatch(removeItem(course));
+                handleSnack("error", enqueueSnackbar, `${course.title} از سبد خرید حذف شد`);
               }}
             >
               <Clear />
