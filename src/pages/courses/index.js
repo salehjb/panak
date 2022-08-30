@@ -14,6 +14,7 @@ import Grouping from "shared/Grouping";
 import Courses from "components/courses-page/Courses";
 import Layout from "components/layout/Layout";
 import Meta from "components/Meta";
+import HeadTitle from "shared/HeadTitle";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
 
@@ -33,22 +34,7 @@ function courses() {
         keywords={metaInfo.keywords}
       />
       <Layout>
-        <Box
-          sx={{
-            backgroundColor: "primary.main",
-            height: "80px",
-            mb: 5,
-            ...flexAlignCenter,
-          }}
-        >
-          <Container maxWidth="xl">
-            <Typography
-              sx={{ color: "white", fontSize: "20px", fontWeight: "400" }}
-            >
-              دوره های آموزشی
-            </Typography>
-          </Container>
-        </Box>
+        <HeadTitle title="دوره های آموزشی" />
         <Container maxWidth="xl">
           <Grid container spacing={{ xs: 0, md: 3 }}>
             <Grid item xs={12} md={3}>

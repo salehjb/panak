@@ -1,6 +1,7 @@
 import {
   Box,
   Divider,
+  Grid,
   InputAdornment,
   InputBase,
   Typography,
@@ -10,9 +11,8 @@ import { PAYMENT_GATEWAYS } from "datas";
 // utils
 import { priceFormatter } from "utils/functions";
 // mui => theme
-import { flexBetween } from "mui/theme/commonStyles";
+import { flexBetween, flexBetweenCenter } from "mui/theme/commonStyles";
 // components
-import PaymentMethod from "shared/PaymentMethod";
 import CartItem from "./CartItem";
 import { ContainedButton } from "shared/Button";
 
@@ -23,98 +23,85 @@ function CartComponent({ carts }) {
   const finalAmount = priceFormatter(rawAmount);
 
   return (
-    <Box
-      container
-      sx={{
-        ...flexBetween,
-        color: "primary.contrastText",
-      }}
-    >
-      <Box
+    <>
+      <Grid
+        container
+        spacing={{ xs: 0, md: 3 }}
         sx={{
-          width: { xs: "60%" },
-          border: "1px solid #CFD8DC",
-          borderRadius: "12px",
+          ...flexBetween,
+          color: "primary.contrastText",
         }}
       >
-        <Box display="flex" sx={{ padding: "1rem" }}>
-          <Typography
-            sx={{ width: "40%", paddingRight: "1rem", fontWeight: "400" }}
-          >
-            نام محصول
-          </Typography>
-          <Typography sx={{ width: "60%", fontWeight: "400" }}>
-            قیمت ( تومان )
-          </Typography>
-        </Box>
-        <Divider variant="fullWidth" />
-        <Box>
-          {carts.map((course) => (
-            <CartItem course={course} key={course.id} />
-          ))}
-        </Box>
-        <Box
-          sx={{
-            padding: "1rem",
-            display: "flex",
-            justifyContent: "space-between",
-          }}
-        >
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Typography fontSize="17px">جمع مبلغ ( تومان )</Typography>
-            <Typography mr={5} fontSize="20px" fontWeight="400">
-              {finalAmount}
-            </Typography>
+        <Grid item xs={12} md={8}>
+          <Box>
+            <Box>
+              {carts.map((course, index) => (
+                <Box sx={{ mb: index + 1 !== carts.length ? 2 : 0 }} key={course.id}>
+                  <CartItem
+                    course={course}
+                    key={course.id}
+                  />
+                </Box>
+              ))}
+            </Box>
           </Box>
-          <InputBase
+        </Grid>
+        <Grid item xs={12} md={4} sx={{ mt: { xs: 3, md: 0 } }}>
+          <Box
             sx={{
-              width: "360px",
-              height: "57px",
-              backgroundColor: "#F2F6FE",
-              borderRadius: "8px",
-              p: 1,
-              fontSize: "17px",
+              backgroundColor: "white",
+              borderRadius: "12px",
+              p: 2,
             }}
-            placeholder="محل وارد کردن کد تخفیف"
-            endAdornment={
-              <InputAdornment position="end">
-                <ContainedButton bgColor="primary.main" height="40px">
-                  اعمال
-                </ContainedButton>
-              </InputAdornment>
-            }
-          />
-        </Box>
-      </Box>
-      <Box
-        sx={{
-          width: { xs: "40%" },
-          height: "fit-content",
-          border: "1px solid #CFD8DC",
-          borderRadius: "24px",
-          mr: 3,
-          py: 2,
-          px: 4,
-        }}
-      >
-        <Box display="flex" justifyContent="space-between" alignItems="center">
-          <Typography fontSize="16px" fontWeight="400">
-            مبلغ نهایی ( تومان )
-          </Typography>
-          <Typography fontSize="20px" fontWeight="400">
-            {finalAmount}
-          </Typography>
-        </Box>
-        <Divider variant="fullWidth" sx={{ margin: "1rem 0" }} />
-        <Box>
-          <Typography fontWeight="400" fontSize="16px">
-            انتخاب روش پرداخت
-          </Typography>
-          <PaymentMethod gatewaysArray={PAYMENT_GATEWAYS} />
-          <ContainedButton margin="2rem 0 0 0">پرداخت</ContainedButton>
-        </Box>
-      </Box>
-    </Box>
+          >
+            <Box sx={{ ...flexBetweenCenter }}>
+              <Typography fontSize="17px" fontWeight="400">
+                جمع مبلغ :
+              </Typography>
+              <Typography fontSize="18px" fontWeight="400">
+                {finalAmount} تومان
+              </Typography>
+            </Box>
+            <Divider variant="fullWidth" sx={{ mt: 1, mb: 2 }} />
+            <InputBase
+              sx={{
+                width: "100%",
+                height: "57px",
+                border: "1px solid #CFD8DC",
+                borderRadius: "8px",
+                p: 1,
+                pl: 0,
+                fontSize: "17px",
+                mb: 4,
+              }}
+              placeholder="محل وارد کردن کد تخفیف"
+              endAdornment={
+                <InputAdornment position="end">
+                  <ContainedButton bgColor="primary.main" height="40px">
+                    اعمال
+                  </ContainedButton>
+                </InputAdornment>
+              }
+            />
+            <Box sx={{ ...flexBetweenCenter, mb: 1 }}>
+              <Typography sx={{ fontSize: "16px" }}>میزان تخفیف :</Typography>
+              <Typography sx={{ fontSize: "15px" }}>
+                {priceFormatter(0)} تومان
+              </Typography>
+            </Box>
+            <Box sx={{ ...flexBetweenCenter }}>
+              <Typography sx={{ fontSize: "16px" }}>مبلغ نهایی :</Typography>
+              <Typography sx={{ fontSize: "15px" }}>
+                {finalAmount} تومان
+              </Typography>
+            </Box>
+            <Box sx={{ mt: 3 }}>
+              <ContainedButton>تکمیل سفارش</ContainedButton>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
+    </>
   );
 }
 
