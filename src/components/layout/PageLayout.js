@@ -28,8 +28,8 @@ function PageLayout({ title, children }) {
         <Container maxWidth="xl">
           <Typography
             sx={{
-              color: (theme) => theme.palette.common.white,
-              fontSize: "40px",
+              color: "white",
+              fontSize: { xs: "30px", md: "40px" },
               my: "1rem",
               textAlign: "center",
             }}
@@ -44,8 +44,8 @@ function PageLayout({ title, children }) {
               borderRadius: "32px",
               color: "primary.contrastText",
               ...dcFlex,
-              px: "4rem",
-              pb: "2rem",
+              px: { xs: 2, md: 6 },
+              pb: 4,
             }}
           >
             {children}

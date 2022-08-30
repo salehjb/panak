@@ -1,6 +1,5 @@
 // components
 import Header from "components/home-page/Header";
-import LatestArticles from "components/home-page/LatestArticles";
 import LatestCourses from "components/home-page/LatestCourses";
 import PanakDescription from "components/home-page/PanakDescription";
 import Layout from "components/layout/Layout";
@@ -14,7 +13,6 @@ function index() {
         <Header />
         <LatestCourses />
         <PanakDescription />
-        <LatestArticles />
       </Layout>
     </>
   );

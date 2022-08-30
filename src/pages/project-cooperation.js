@@ -1,7 +1,8 @@
-import Image from "next/image";
 // components
 import PageLayout from "components/layout/PageLayout";
 import Meta from "components/Meta";
+import Description from "shared/Description";
+import Input from "shared/Input";
 // MUI
 import { Box, Grid, InputBase, Typography } from "@mui/material";
 // datas
@@ -10,8 +11,10 @@ import { ContainedButton } from "shared/Button";
 
 const metaInfo = {
   title: "پاناک | همکاری در پروژه",
-  description: "تیم پاناک علاوه بر آموزش در بخش انجام پروژه های برنامه نویسی و طراحی فعالیت دارد، و این اطمینان را از طرف ما داشته باشید که پروژه های شما در بهترین نحو ممکن به عمل می آیند",
-  keywords: "پروژه برنامه نویسی، همکاری با پاناک، پروژه، وبسایت،اپلیکیشن، طراحی",
+  description:
+    "تیم پاناک علاوه بر آموزش در بخش انجام پروژه های برنامه نویسی و طراحی فعالیت دارد، و این اطمینان را از طرف ما داشته باشید که پروژه های شما در بهترین نحو ممکن به عمل می آیند",
+  keywords:
+    "پروژه برنامه نویسی، همکاری با پاناک، پروژه، وبسایت،اپلیکیشن، طراحی",
 };
 
 function ProjectCooperation() {
@@ -24,64 +27,80 @@ function ProjectCooperation() {
       />
       <PageLayout title="همکاری در پروژه">
         <Grid container alignItems="center">
-          <Grid item xs={6}>
-            <Typography mt={3} mb={1} fontSize="32px" fontWeight="400">
-              همکاری با پاناک
-            </Typography>
-            <Typography fontSize="17px">
-              لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-              استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-              در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-              نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
-              کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
-              جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای
-              طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان
-              فارسی ایجاد کرد لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
-              صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه
-              روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی
-              تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای
-              کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته حال و آینده،
-              شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت
-              بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ
-              پیشرو در زبان فارسی ایجاد کرد
-            </Typography>
+          <Grid
+            item
+            xs={12}
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column-reverse", md: "row" },
+            }}
+          >
+            <Grid item xs={12} md={6}>
+              <Typography
+                sx={{
+                  fontSize: { xs: "25px", md: "32px" },
+                  fontWeight: "400",
+                  mt: 3,
+                  mb: 1,
+                }}
+              >
+                همکاری با پاناک
+              </Typography>
+              <Description>
+                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
+                در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
+                نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد،
+                کتابهای زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان
+                جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را
+                برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در
+                زبان فارسی ایجاد کرد لورم ایپسوم متن ساختگی با تولید سادگی
+                نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها
+                و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و
+                برای شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف
+                بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد
+                گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا
+                با نرم افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص
+                طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد
+              </Description>
+            </Grid>
+            <Grid item xs={12} md={6} display="flex" justifyContent="flex-end">
+              <Box
+                sx={{
+                  width: { xs: "100%", md: "472px" },
+                  height: { xs: "100%", md: "333px" },
+                }}
+              >
+                <img
+                  src={"/vectors/project-cooperation.png"}
+                  alt="project-cooperation"
+                  width="100%"
+                  height="100%"
+                />
+              </Box>
+            </Grid>
           </Grid>
-          <Grid item xs={6} display="flex" justifyContent="flex-end">
-            <Box
+          <Grid item xs={12} sx={{ mt: 10, mb: { xs: 2, md: 5 } }}>
+            <Typography
               sx={{
-                position: "relative",
-                width: "472px",
-                height: "333px",
+                fontSize: { xs: "16px", md: "19px" },
+                fontWeight: "400",
+                textAlign: { xs: "center", md: "right" },
               }}
             >
-              <Image
-                src={"/vectors/project-cooperation.png"}
-                alt="project-cooperation"
-                objectFit="contain"
-                layout="fill"
-              />
-            </Box>
-          </Grid>
-          <Grid item xs={12} mt={9} mb={5}>
-            <Typography fontSize="20px" fontWeight="400">
               اطلاعات زیر را تکمیل کنید. به زودی با شما تماس میگیریم
             </Typography>
           </Grid>
-          <Grid container columnSpacing={5} rowSpacing={5}>
+          <Grid container spacing={{ xs: 0, md: 2 }}>
             {PROJECT_COOPERATION_INPUTS.map((item, index) => (
-              <Grid item xs={4} key={index}>
-                <Typography mb={0.8} fontWeight="400">
-                  {item.label}
-                </Typography>
-                <InputBase
-                  fullWidth
-                  sx={{
-                    height: "48px",
-                    borderRadius: "8px",
-                    border: "1px solid #CFD8DC",
-                    p: 2,
-                  }}
-                />
+              <Grid
+                item
+                xs={12}
+                md={4}
+                sx={{ mt: { xs: 2, md: 0 } }}
+                key={index}
+              >
+                <Input item={item} />
               </Grid>
             ))}
             <Grid item xs={12}>
@@ -100,10 +119,10 @@ function ProjectCooperation() {
               />
             </Grid>
           </Grid>
-          <Grid item>
-            <ContainedButton width="160px" margin="2rem 0 0 0">
-              ارسال فرم درخواست
-            </ContainedButton>
+          <Grid item xs={12} sx={{ mt: 3 }}>
+            <Box sx={{ width: { xs: "100%", md: "160px" } }}>
+              <ContainedButton width="100%">ارسال فرم درخواست</ContainedButton>
+            </Box>
           </Grid>
         </Grid>
       </PageLayout>

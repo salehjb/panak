@@ -27,7 +27,7 @@ function NavDrawer() {
       </IconButton>
       <Box
         sx={{
-          width: "200px",
+          width: "50%",
           position: "fixed",
           top: "0",
           bottom: "0",
