@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
 import {
   Box,
   Divider,
@@ -7,7 +8,7 @@ import {
   Link as MuiLink,
   Typography,
 } from "@mui/material";
-import { Close } from "@mui/icons-material";
+import { Close, ExitToApp } from "@mui/icons-material";
 // mui => theme
 import {
   dcFlex,
@@ -52,6 +53,7 @@ function SidebarDrawer() {
         <Box>
           {DASHBOARD_SIDEBAR_ITEMS.map((item, index) => {
             const CustomIcon = item.icon;
+
             return (
               <Link href={item.href} key={index}>
                 <MuiLink
@@ -64,6 +66,20 @@ function SidebarDrawer() {
               </Link>
             );
           })}
+          <Link href={`/api/auth/signout`}>
+            <MuiLink
+              sx={{ ...flexAlignCenter, mt: 3 }}
+              onClick={() => {
+                setIsOpenDrawer(false);
+                signOut();
+              }}
+            >
+              <ExitToApp sx={{ fontSize: "1.6rem", color: "error.main" }} />
+              <Typography sx={{ mr: 1, color: "error.main" }}>
+                خروج از حساب
+              </Typography>
+            </MuiLink>
+          </Link>
         </Box>
       </Box>
     </>

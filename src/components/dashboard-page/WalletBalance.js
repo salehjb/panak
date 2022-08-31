@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 // utils
 import { priceFormatter } from "utils/functions";
 // mui => theme
-import { flexAlignCenter, flexCenter, flexEnd } from "mui/theme/commonStyles";
+import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 
 function WalletBalance() {
   return (
@@ -13,7 +13,8 @@ function WalletBalance() {
           borderRadius: "8px",
           ...flexCenter,
           flexDirection: "column",
-          p: 2
+          p: 2,
+          height: { xs: "auto", md: "400px" },
         }}
       >
         <Box
@@ -41,7 +42,7 @@ function WalletBalance() {
             width: "100%",
             border: "1px solid #ECEFF1",
             borderRadius: "12px",
-            mt: 12,
+            mt: 6,
             px: 3,
             pb: { xs: 2, md: 0 },
             ...flexAlignCenter,

@@ -14,11 +14,11 @@ function ChargeWallet() {
       <Box
         sx={{
           p: 2,
-          mb: { xs: 4, md: 0 },
           backgroundColor: "white",
           display: "flex",
           flexDirection: "column",
           borderRadius: "8px",
+          height: { xs: "auto", md: "400px" },
         }}
       >
         <Typography
@@ -26,17 +26,19 @@ function ChargeWallet() {
         >
           شارژ کیف پول
         </Typography>
-        <Box sx={{ width: "100%", mt: 4 }}>
+        <Box sx={{ mt: 4 }}>
           <Input item={{ type: "text", label: "مبلغ ( تومان )" }} />
         </Box>
-        <Box mt={4}>
-          <Typography sx={{ fontSize: "16px", fontWeight: "400" }}>
-            انتخاب روش پرداخت
-          </Typography>
-          <PaymentMethod gatewaysArray={PAYMENT_GATEWAYS} />
+        <Box>
+          <ContainedButton>پرداخت</ContainedButton>
         </Box>
-        <Box sx={{ width: "100%" }}>
-          <ContainedButton margin="2rem 0 0 0">پرداخت</ContainedButton>
+        <Box sx={{ mt: 4 }}>
+          <Typography>
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
+            استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
+            ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز،
+            و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد
+          </Typography>
         </Box>
       </Box>
     </Grid>

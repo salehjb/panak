@@ -123,11 +123,6 @@ export const DASHBOARD_SIDEBAR_ITEMS = [
     href: "/dashboard/profile",
     icon: Icons.PersonOutlineOutlined,
   },
-  {
-    text: "پشتیبانی",
-    href: "/dashboard/support",
-    icon: Icons.HeadsetMicOutlined,
-  },
 ];
 
 export const EDIT_PROFILE_INPUTS_DASHBOARD = [
