@@ -90,7 +90,7 @@ function Sidebar() {
                   </Link>
                 );
               })}
-              <Link href={`/api/auth/signout?callbackUrl=${getURL()}/login`}>
+              <Link href={`/api/auth/signout`}>
                 <MuiLink
                   sx={{
                     ...flexAlignCenter,

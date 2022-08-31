@@ -16,8 +16,6 @@ import AuthLayout from "./AuthLayout";
 import { ContainedButton, OutlinedButton } from "shared/Button";
 // mui => theme
 import { flexJustifyCenter } from "mui/theme/commonStyles";
-// utils
-import { getURL } from "utils/functions";
 
 function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
@@ -108,7 +106,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
               <>
                 <Typography>
                   حسابی ندارید ؟{" "}
-                  <Link href="/auth/signup">
+                  <Link href="/signup">
                     <MuiLink sx={{ color: "#566E7A" }}>ثبت نام</MuiLink>
                   </Link>
                 </Typography>
@@ -123,7 +121,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
             ) : (
               <Typography>
                 حساب دارید ؟{" "}
-                <Link href="/auth/login">
+                <Link href="/login">
                   <MuiLink sx={{ color: "#566E7A" }}>ورود</MuiLink>
                 </Link>
               </Typography>
@@ -131,7 +129,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
           </Box>
         </Grid>
         <Grid item xs={12} mt={2} align="center">
-          <Link href={`/api/auth/signin?callbackUrl=${getURL()}`}>
+          <Link href={`/api/auth/signin`}>
             <MuiLink>
               <OutlinedButton
                 width="318px"
