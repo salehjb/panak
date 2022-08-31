@@ -2,8 +2,6 @@ import { Box, Container, Grid } from "@mui/material";
 // components
 import Sidebar from "./Sidebar";
 import Header from "./Header";
-// mui => theme
-import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function DashboardLayout({ children }) {
   return (
@@ -11,10 +9,10 @@ function DashboardLayout({ children }) {
       container
       sx={{ color: "primary.contrastText" }}
     >
-      <Grid item xs={2.5}>
+      <Grid item md={2.5} sx={{ display: { xs: "none", md: "block" } }}>
         <Sidebar />
       </Grid>
-      <Grid item xs={9.5}>
+      <Grid item xs={12} md={9.5}>
         <Grid item xs={12} sx={{
           position: "sticky",
           top: "0",
@@ -27,7 +25,6 @@ function DashboardLayout({ children }) {
             <Box
               sx={{
                 my: 3,
-                p: 2,
               }}
             >
               {children}

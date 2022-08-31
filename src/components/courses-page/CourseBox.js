@@ -33,13 +33,13 @@ function CourseBox({ course }) {
           {course.title}
         </Typography>
         <Box sx={{ ...flexAlignCenter, mt: 2 }}>
-          <img src="icons/profile-icon.svg" alt="profile icon" />
+          <img src="/icons/profile-icon.svg" alt="profile icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {course.teacher}
           </Typography>
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1.5 }}>
-          <img src="icons/clock-icon.svg" alt="clock icon" />
+          <img src="/icons/clock-icon.svg" alt="clock icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
             {timeFormatter(15, 33, 0)}
           </Typography>

@@ -36,11 +36,11 @@ function CartComponent({ carts }) {
           <Box>
             <Box>
               {carts.map((course, index) => (
-                <Box sx={{ mb: index + 1 !== carts.length ? 2 : 0 }} key={course.id}>
-                  <CartItem
-                    course={course}
-                    key={course.id}
-                  />
+                <Box
+                  sx={{ mb: index + 1 !== carts.length ? 2 : 0 }}
+                  key={course.id}
+                >
+                  <CartItem course={course} key={course.id} />
                 </Box>
               ))}
             </Box>

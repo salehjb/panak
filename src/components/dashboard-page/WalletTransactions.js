@@ -1,6 +1,6 @@
 import {
+  Box,
   Grid,
-  Paper,
   Table,
   TableBody,
   TableCell,
@@ -11,17 +11,14 @@ import {
 } from "@mui/material";
 // datas
 import { TRANSACTIONS } from "datas";
-import { flexJustifyCenter } from "mui/theme/commonStyles";
 
 function WalletTransactions() {
   return (
-    <Grid item xs={12} mt={7}>
+    <Grid item xs={12}>
       <Typography sx={{ fontSize: "16px", fontWeight: "400" }}>
         تراکنش ها
       </Typography>
-      <TableContainer
-        sx={{ border: "1px solid #ECEFF1", borderRadius: "8px", mt: 4 }}
-      >
+      <TableContainer sx={{ mt: 2, backgroundColor: "white", borderRadius: "8px" }}>
         <Table>
           <TableHead>
             <TableRow>
@@ -60,7 +57,8 @@ function WalletTransactions() {
                 <TableCell
                   align="right"
                   sx={{
-                    color: transaction.status === "موفق" ? "green" : "red",
+                    color:
+                      transaction.status === "موفق" ? "green" : "error.light",
                   }}
                 >
                   {transaction.status}

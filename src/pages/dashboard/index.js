@@ -12,7 +12,7 @@ import CourseBox from "components/dashboard-page/CourseBox";
 import PurchasesBox from "components/dashboard-page/PurchasesBox";
 import Meta from "components/Meta";
 // mui => theme
-import { flexCenter } from "mui/theme/commonStyles";
+import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 // utils
 import { priceFormatter } from "utils/functions";
 
@@ -26,24 +26,30 @@ function index() {
     <>
       <Meta title="داشبورد کاربری" disableAnother />
       <DashboardLayout>
-        <Grid container spacing={2}>
-          <Grid item xs={8}>
+        <Grid
+          container
+          spacing={{ xs: 0, md: 2 }}
+          rowSpacing={{ xs: 3, md: 2 }}
+        >
+          <Grid item xs={12} md={8}>
             <Box
               sx={{
                 backgroundColor: "primary.main",
-                height: "220px",
                 borderRadius: "8px",
+                ...flexCenter,
+                flexWrap: { xs: "wrap", md: "nowrap" },
                 p: 2,
-                display: "flex",
               }}
             >
               <img src="/vectors/dashboard-vector.svg" alt="dashboard vector" />
-              <Box sx={{ mr: 3 }}>
+              <Box sx={{ mr: { xs: 0, md: 3 }, mt: { xs: 4, md: 0 } }}>
                 <Typography
-                  fontSize="20px"
-                  fontWeight="400"
-                  mb={1}
-                  color="white"
+                  sx={{
+                    fontSize: "20px",
+                    fontWeight: "400",
+                    mb: 1,
+                    color: "white",
+                  }}
                 >
                   سلام {session?.user.name} عزیز!
                 </Typography>
@@ -66,7 +72,7 @@ function index() {
               </Box>
             </Box>
           </Grid>
-          <Grid item xs={4}>
+          <Grid item xs={12} md={4}>
             <Box
               sx={{
                 backgroundColor: "secondary.main",
@@ -90,7 +96,7 @@ function index() {
               </Typography>
             </Box>
           </Grid>
-          <Grid item xs={5}>
+          <Grid item xs={12} md={5}>
             <Box>
               <Typography fontSize="19px" fontWeight="400" mb={2}>
                 جدید ترین دوره ها
@@ -102,7 +108,7 @@ function index() {
               ))}
             </Box>
           </Grid>
-          <Grid item xs={7}>
+          <Grid item xs={12} md={7}>
             <Box sx={{ width: "100%" }}>
               <Typography fontSize="19px" fontWeight="400" mb={2}>
                 جدید ترین خرید های من

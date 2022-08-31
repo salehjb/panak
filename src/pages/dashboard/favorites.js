@@ -22,9 +22,9 @@ function favorites() {
       <Meta title="داشبورد | علاقه مندی ها" disableAnother />
       <DashboardLayout>
         {favoriteCourses.length > 0 ? (
-          <Grid container spacing={3}>
+          <Grid container spacing={{ xs: 0, md: 3 }} rowSpacing={3}>
             {favoriteCourses?.map((course) => (
-              <Grid item xs={12} md={6} key={course.id}>
+              <Grid item xs={12} md={6} lg={4} key={course.id}>
                 <CourseBox course={course} isDeleteIcon />
               </Grid>
             ))}

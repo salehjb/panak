@@ -12,7 +12,7 @@ function wallet() {
     <>
       <Meta title="داشبورد | کیف پول" disableAnother />
       <DashboardLayout>
-        <Grid container>
+        <Grid container spacing={2} rowSpacing={4}>
           <ChargeWallet />
           <WalletBalance />
           <WalletTransactions />

@@ -6,8 +6,7 @@ function PurchasesBox({ item }) {
   return (
     <Box
       sx={{
-        backgroundColor: "white",
-        boxShadow: "0px 12px 50px rgba(0, 0, 0, 0.07)",
+        border: "1px solid #CFD8DC",
         height: "70px",
         ...flexBetweenCenter,
         p: 2,
