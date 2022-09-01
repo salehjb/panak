@@ -12,8 +12,11 @@ function Benefits() {
         return (
           <Box
             key={index}
-            ml={5}
-            sx={{ ...flexAlignCenter, flexDirection: "column" }}
+            sx={{
+              ...flexAlignCenter,
+              flexDirection: "column",
+              ml: index + 1 !== HOME_PAGE_BENEFITS.length ? 3 : 0,
+            }}
           >
             <Box
               sx={{
@@ -28,7 +31,9 @@ function Benefits() {
             >
               <CustomIcon sx={{ fontSize: "1.8rem" }} />
             </Box>
-            <Typography>{benefit.text}</Typography>
+            <Typography sx={{ textAlign: { xs: "center", md: "right" } }}>
+              {benefit.text}
+            </Typography>
           </Box>
         );
       })}

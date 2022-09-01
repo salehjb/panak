@@ -7,13 +7,18 @@ import Description from "shared/Description";
 function PanakDescription() {
   return (
     <Container maxWidth="xl">
-      <Grid container spacing={3}>
-        <Grid item xs={7} sx={{ ...flexAlignCenter, color: "primary.main" }}>
+      <Grid container spacing={{ xs: 0, md: 3 }}>
+        <Grid
+          item
+          xs={12}
+          md={7}
+          sx={{ ...flexAlignCenter, color: "primary.main" }}
+        >
           <Box>
             <Typography sx={{ fontSize: "25px", fontWeight: "400", mb: 1 }}>
               پاناک
             </Typography>
-            <Box sx={{ width: "90%" }}> 
+            <Box sx={{ width: { xs: "100%", md: "90%" } }}>
               <Description>
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
@@ -32,7 +37,7 @@ function PanakDescription() {
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={5}>
+        <Grid item xs={12} md={5} sx={{ mt: { xs: 3, md: 0 } }}>
           <Box sx={{ ...flexEnd }}>
             <video
               src="/bache-mamani.mp4"

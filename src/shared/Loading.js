@@ -13,7 +13,7 @@ function Loading() {
         flexDirection: "column",
       }}
     >
-      <RingLoader color={"#FF9B0C"} loading={true} size={150} />
+      <RingLoader color={"#FF9B0C"} loading={true} size={100} />
       <Typography
         sx={{ mt: 4, fontSize: "20px", color: "primary.contrastText" }}
       >

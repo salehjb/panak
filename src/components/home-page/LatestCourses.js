@@ -25,7 +25,7 @@ function LatestCourses() {
         >
           <Grid container spacing={2}>
             {courses.map((course) => (
-              <Grid item xs={3} key={course.id}>
+              <Grid item xs={12} md={3} key={course.id}>
                 <CourseBox course={course} />
               </Grid>
             ))}
@@ -36,7 +36,7 @@ function LatestCourses() {
         <Box
           sx={{
             position: "relative",
-            top: "-45px",
+            top: "-60px",
             backgroundColor: "primary.main",
             height: "200px",
             zIndex: 5,
