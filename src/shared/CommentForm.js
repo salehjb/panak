@@ -1,4 +1,4 @@
-import { Box, InputBase, Typography } from "@mui/material";
+import { Box, Grid, InputBase, Typography } from "@mui/material";
 // components
 import Input from "shared/Input";
 // mui => theme
@@ -16,29 +16,23 @@ function CommentForm() {
         p: 3,
       }}
     >
-      <Box sx={{ ...flexAlignCenter, width: "100%" }}>
-        <Box sx={{ width: "100%", ml: 2 }}>
-          <Typography color="primary" mb={1} fontSize="15px" fontWeight="400">
-            نام و نام خانوادگی
-          </Typography>
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={6}>
+          <Typography sx={styles.label}>نام و نام خانوادگی</Typography>
           <InputBase sx={styles.input} />
-        </Box>
-        <Box sx={{ width: "100%" }}>
-          <Typography color="primary" mb={1} fontSize="15px" fontWeight="400">
-            ایمیل
-          </Typography>
+        </Grid>
+        <Grid item xs={12} md={6}>
+          <Typography sx={styles.label}>ایمیل</Typography>
           <InputBase sx={styles.input} />
-        </Box>
-      </Box>
-      <Box>
-        <Typography color="primary" mb={1} fontSize="15px" fontWeight="400">
-          دیدگاه خود را بنویسید
-        </Typography>
-        <InputBase sx={styles.textarea} multiline minRows={8} maxRows={8} />
-      </Box>
-      <Box>
-        <ContainedButton width="130px">ثبت</ContainedButton>
-      </Box>
+        </Grid>
+        <Grid item xs={12}>
+          <Typography sx={styles.label}>دیدگاه خود را بنویسید</Typography>
+          <InputBase sx={styles.textarea} multiline minRows={8} maxRows={8} />
+        </Grid>
+        <Grid item xs={12}>
+          <ContainedButton width="130px">ثبت</ContainedButton>
+        </Grid>
+      </Grid>
     </Box>
   );
 }
@@ -58,6 +52,12 @@ const styles = {
     border: "1px solid #CFD8DC",
     borderRadius: "8px",
     p: 1.5,
+  },
+  label: {
+    color: "primary.main",
+    fontSize: "16px",
+    fontWeight: "400",
+    mb: 1,
   },
 };
 

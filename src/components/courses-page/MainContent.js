@@ -5,7 +5,6 @@ import {
 import { BsListCheck } from "react-icons/bs";
 import { VscQuestion } from "react-icons/vsc";
 import { TbSchool } from "react-icons/tb";
-import { QuestionAnswerOutlined, AddCommentOutlined } from '@mui/icons-material';
 // components
 import Title from "shared/Title";
 import Description from "shared/Description";
@@ -22,7 +21,7 @@ function MainContent({ course }) {
         color: "primary.contrastText",
       }}
     >
-      <Box sx={{ width: "100%", height: "564px", mb: 4 }}>
+      <Box sx={{ width: "100%", mb: 4 }}>
         <img
           src={course.image}
           alt="course image"
@@ -99,11 +98,11 @@ function MainContent({ course }) {
           سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار گیرد.
         </Description>
       </Box>
-      <Box sx={{ width: "100%", height: "564px", my: 4 }}>
+      <Box sx={{ width: "100%", my: 4 }}>
         <img
           src={course.image}
           alt="course image"
-          style={{ width: "100%", height: "100%", borderRadius: "24px" }}
+          style={{ width: "100%", borderRadius: "24px" }}
         />
       </Box>
       <Box mb={4}>

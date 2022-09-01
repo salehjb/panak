@@ -14,7 +14,15 @@ function CommentRules() {
         {COMMENT_REGISTRATION_RULES.map((rule, index) => (
           <Box key={index} sx={{ ...flexAlignCenter, mb: 1.5 }}>
             <Done sx={{ color: "#49B337" }} />
-            <Typography color="primary" fontSize="16px">{rule.text}</Typography>
+            <Typography
+              sx={{
+                mr: 1,
+                color: "primary.main",
+                fontSize: { xs: "14px", md: "16px" },
+              }}
+            >
+              {rule.text}
+            </Typography>
           </Box>
         ))}
       </Box>

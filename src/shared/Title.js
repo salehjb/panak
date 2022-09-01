@@ -29,8 +29,8 @@ function Title({ text, icon }) {
       <Box sx={{ mt: 0.5, mb: 2 }}>
         <Box
           sx={{
-            backgroundColor: (theme) => theme.palette.secondary.main,
-            width: "25%",
+            backgroundColor: "secondary.main",
+            width: "200px",
             height: "4px",
           }}
         ></Box>

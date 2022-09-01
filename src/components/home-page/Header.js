@@ -34,13 +34,13 @@ function Header() {
             borderRadius: "0 0 56px 0",
             display: "flex",
             alignItems: "flex-end",
-            backgroundImage: `url("/vectors/zohal.png"), url("/vectors/breaked-line.png")`,
-            backgroundRepeat: "no-repeat, space",
+            backgroundImage: `url("/vectors/zohal.png")`,
+            backgroundRepeat: "no-repeat",
             backgroundPosition: "50px 50px",
-            backgroundSize: "auto, 30px auto",
+            backgroundSize: "auto",
           }}
         >
-          <img src="/images/home-header-image.png" alt="header" width="300px" />
+          <img src="/images/home-header-image.png" alt="header" width="320px" />
         </Grid>
       </Grid>
   );
