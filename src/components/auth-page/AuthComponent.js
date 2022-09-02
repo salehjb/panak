@@ -10,13 +10,16 @@ import {
   Typography,
   Link as MuiLink,
 } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Visibility, VisibilityOff, ArrowBack } from "@mui/icons-material";
 // components
 import AuthLayout from "./AuthLayout";
 import { ContainedButton, OutlinedButton } from "shared/Button";
 // mui => theme
-import { flexJustifyCenter } from "mui/theme/commonStyles";
-
+import {
+  flexAlignCenter,
+  flexBetweenCenter,
+  flexJustifyCenter,
+} from "mui/theme/commonStyles";
 function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [form, setForm] = useState(
@@ -39,25 +42,33 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   return (
     <AuthLayout>
       <Grid container color="primary.contrastText">
-        <Grid item xs={12} align="center">
-          <Typography fontSize="24px" fontWeight="400" mb={3}>
-            {headerText}
-          </Typography>
+        <Grid item xs={12} mb={5}>
+          <Box sx={{ ...flexBetweenCenter }}>
+            <Typography fontSize="24px" fontWeight="400">
+              {headerText}
+            </Typography>
+            <Link href="/">
+              <MuiLink sx={{ ...flexAlignCenter }}>
+                <Typography sx={{ ml: 1 }}>صفحه اصلی</Typography>
+                <ArrowBack />
+              </MuiLink>
+            </Link>
+          </Box>
         </Grid>
         <Grid item xs={12}>
           <form onSubmit={(e) => submitHandler(e)}>
             <Grid container>
               {inputsArray.map((item, index) => (
-                <Grid item xs={12} key={index} sx={{ ...flexJustifyCenter }}>
+                <Grid item xs={12} key={index}>
                   <Box>
                     <Typography mb={0.8} fontWeight="400">
                       {item.label}
                     </Typography>
                     <InputBase
                       sx={{
-                        width: "318px",
+                        width: "100%",
                         height: "48px",
-                        mb: 2,
+                        mb: 2.5,
                         border: "1px solid #CFD8DC",
                         borderRadius: "8px",
                         pr: 1.5,
@@ -87,32 +98,31 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
                 </Grid>
               ))}
               <Grid item xs={12} sx={{ ...flexJustifyCenter }}>
-                <ContainedButton type="submit" width="318px">
-                  {buttonText}
-                </ContainedButton>
+                <ContainedButton type="submit">{buttonText}</ContainedButton>
               </Grid>
             </Grid>
           </form>
         </Grid>
         <Grid item xs={12} align="center">
           <Box
-            width="318px"
             mt={2}
-            display="flex"
-            justifyContent="space-between"
-            alignItems="center"
+            sx={{
+              ...flexBetweenCenter,
+            }}
           >
             {type === "login" ? (
               <>
                 <Typography>
                   حسابی ندارید ؟{" "}
                   <Link href="/signup">
-                    <MuiLink sx={{ color: "#566E7A" }}>ثبت نام</MuiLink>
+                    <MuiLink sx={{ color: "primary.contrastText" }}>
+                      ثبت نام
+                    </MuiLink>
                   </Link>
                 </Typography>
                 <Typography>
                   <Link href="/">
-                    <MuiLink sx={{ color: "#566E7A" }}>
+                    <MuiLink sx={{ color: "primary.contrastText" }}>
                       فراموشی رمز عبور
                     </MuiLink>
                   </Link>
@@ -122,7 +132,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
               <Typography>
                 حساب دارید ؟{" "}
                 <Link href="/login">
-                  <MuiLink sx={{ color: "#566E7A" }}>ورود</MuiLink>
+                  <MuiLink sx={{ color: "primary.contrastText" }}>ورود</MuiLink>
                 </Link>
               </Typography>
             )}
@@ -132,7 +142,6 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
           <Link href={`/api/auth/signin`}>
             <MuiLink>
               <OutlinedButton
-                width="318px"
                 color="primary.main"
                 borderColor="primary.main"
                 onClick={() => signIn()}

@@ -1,16 +1,13 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 // mui => theme
 import { dcFlex, flexCenter } from "mui/theme/commonStyles";
-// components
-import Navbar from "components/layout/Navbar";
 
 function AuthLayout({ children }) {
   return (
     <>
-      <Navbar />
       <Box
         sx={{
-          height: "calc(100vh - 80px)",
+          height: "100vh",
           ...flexCenter,
         }}
       >
@@ -18,7 +15,7 @@ function AuthLayout({ children }) {
           <Box
             sx={{
               width: "100%",
-              height: "557px",
+              height: { xs: "auto", md: "600px" },
               backgroundColor: "white",
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
               borderRadius: "16px",
@@ -35,32 +32,35 @@ function AuthLayout({ children }) {
                   ...flexCenter,
                 }}
               >
-                <Box>{children}</Box>
+                <Box
+                  sx={{ width: { xs: "100%", md: "70%" }, p: 2 }}
+                >
+                  {children}
+                </Box>
               </Grid>
-              <Grid
-                item
-                xs={5}
-                sx={{
-                  backgroundColor: "primary.main",
-                  borderRadius: "16px 0px 0px 16px",
-                  display: { xs: "none", md: "flex" },
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexDirection: "column",
-                  color: "white",
-                }}
-              >
-                <Box>
+              <Grid item xs={5}>
+                <Box
+                  sx={{
+                    height: "100%",
+                    backgroundColor: "primary.main",
+                    borderRadius: "16px 0px 0px 16px",
+                    display: { xs: "none", md: "flex" },
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "column",
+                    color: "white",
+                  }}
+                >
                   <img
                     src={"/logos/logo.png"}
                     alt="logo"
                     width="108px"
                     height="112px"
                   />
+                  <Typography fontSize="20px" fontWeight="400">
+                    پلتفرم آموزش آنلاین پاناک
+                  </Typography>
                 </Box>
-                <Typography fontSize="20px" fontWeight="400">
-                  پلتفرم آموزش آنلاین پاناک
-                </Typography>
               </Grid>
             </Grid>
           </Box>

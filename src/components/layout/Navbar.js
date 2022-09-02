@@ -1,5 +1,12 @@
 import Link from "next/link";
-import { Container, Box, Link as MuiLink, Badge, Avatar } from "@mui/material";
+import {
+  Container,
+  Box,
+  Link as MuiLink,
+  Badge,
+  Avatar,
+  Typography,
+} from "@mui/material";
 import { useSelector } from "react-redux";
 import { getAllCarts } from "../../redux/cart/cartSlice";
 import { useSession } from "next-auth/react";
@@ -8,7 +15,7 @@ import { PAGES } from "datas";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 // components
-import { ContainedButton } from "shared/Button";
+import { ContainedButton, OutlinedButton } from "shared/Button";
 import NavDrawer from "./NavDrawer";
 
 function Navbar() {
@@ -80,13 +87,17 @@ function Navbar() {
               </Link>
             </Badge>
           </Box>
-          <Box mr={{ xs: 0, md: 3 }}>
+          <Box
+            sx={{ mr: { xs: 0, md: 3 }, display: { xs: "none", md: "flex" } }}
+          >
             {!session && status === "unauthenticated" && (
               <Link href="/signup">
                 <MuiLink>
-                  <ContainedButton width="130px">
-                    ثبت نام / ورود
-                  </ContainedButton>
+                  <Box sx={{ width: "138px" }}>
+                    <ContainedButton width="fit-content">
+                      <Typography>ثبت نام / ورود</Typography>
+                    </ContainedButton>
+                  </Box>
                 </MuiLink>
               </Link>
             )}

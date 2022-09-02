@@ -1,4 +1,6 @@
+import { useSession } from "next-auth/react";
 import { useState } from "react";
+import Link from "next/link";
 import {
   Box,
   Divider,
@@ -15,10 +17,11 @@ import {
   flexAlignCenter,
   flexBetweenCenter,
 } from "mui/theme/commonStyles";
-import Link from "next/link";
 
 function NavDrawer() {
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
+
+  const { data: session, status } = useSession();
 
   return (
     <>
@@ -48,14 +51,14 @@ function NavDrawer() {
             <Close />
           </IconButton>
         </Box>
-        <Divider variant="fullWidth" sx={{ my: 1 }} />
+        <Divider variant="fullWidth" sx={{ mt: 1, mb: 2 }} />
         <Box>
           {PAGES.map((item, index) => {
             const CustomIcon = item.icon;
             return (
               <Link href={item.href} key={index}>
                 <MuiLink
-                  sx={{ ...flexAlignCenter, mt: 3 }}
+                  sx={{ ...flexAlignCenter, mb: 3 }}
                   onClick={() => setIsOpenDrawer(false)}
                 >
                   <CustomIcon />
