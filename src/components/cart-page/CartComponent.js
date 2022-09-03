@@ -1,20 +1,18 @@
 import {
   Box,
+  Button,
   Divider,
   Grid,
   InputAdornment,
   InputBase,
   Typography,
 } from "@mui/material";
-// datas
-import { PAYMENT_GATEWAYS } from "datas";
 // utils
 import { priceFormatter } from "utils/functions";
 // mui => theme
 import { flexBetween, flexBetweenCenter } from "mui/theme/commonStyles";
 // components
 import CartItem from "./CartItem";
-import { ContainedButton } from "shared/Button";
 
 function CartComponent({ carts }) {
   const rawAmount = carts.reduce((acc, curr) => {
@@ -29,7 +27,7 @@ function CartComponent({ carts }) {
         spacing={{ xs: 0, md: 3 }}
         sx={{
           ...flexBetween,
-          color: "primary.contrastText",
+          color: "primary.light",
         }}
       >
         <Grid item xs={12} md={8}>
@@ -77,9 +75,9 @@ function CartComponent({ carts }) {
               placeholder="محل وارد کردن کد تخفیف"
               endAdornment={
                 <InputAdornment position="end">
-                  <ContainedButton bgColor="primary.main" height="40px">
+                  <Button variant="contained" color="primary">
                     اعمال
-                  </ContainedButton>
+                  </Button>
                 </InputAdornment>
               }
             />
@@ -96,7 +94,9 @@ function CartComponent({ carts }) {
               </Typography>
             </Box>
             <Box sx={{ mt: 3 }}>
-              <ContainedButton>تکمیل سفارش</ContainedButton>
+              <Button variant="contained" color="secondary" fullWidth>
+                تکمیل سفارش
+              </Button>
             </Box>
           </Box>
         </Grid>

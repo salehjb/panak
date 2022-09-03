@@ -47,7 +47,7 @@ function Sidebar() {
                     <MuiLink
                       sx={{
                         ...flexAlignCenter,
-                        color: "primary.contrastText",
+                        color: "primary.light",
                       }}
                     >
                       <ListItemButton

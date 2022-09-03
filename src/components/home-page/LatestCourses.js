@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Box, Container, Grid, Link as MuiLink } from "@mui/material";
+import { Box, Button, Container, Grid, Link as MuiLink } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getProductsWithSlice } from "redux/products/productsSlice";
 // components
@@ -7,7 +7,6 @@ import HomeTitle from "./HomeTitle";
 import CourseBox from "components/courses-page/CourseBox";
 // mui => theme
 import { flexCenter, flexJustifyCenter } from "mui/theme/commonStyles";
-import { ContainedButton } from "shared/Button";
 
 function LatestCourses() {
   const courses = useSelector((state) => getProductsWithSlice(state, 4));
@@ -45,10 +44,10 @@ function LatestCourses() {
           }}
         >
           <Link href="/courses">
-            <MuiLink>
-              <ContainedButton width="150px" margin="0 0 2rem 0">
+            <MuiLink sx={{ mb: 3 }}>
+              <Button variant="contained" color="secondary" fullWidth>
                 مشاهده همه دوره ها
-              </ContainedButton>
+              </Button>
             </MuiLink>
           </Link>
         </Box>

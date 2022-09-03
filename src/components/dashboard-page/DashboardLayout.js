@@ -7,7 +7,7 @@ function DashboardLayout({ children }) {
   return (
     <Grid
       container
-      sx={{ color: "primary.contrastText" }}
+      sx={{ color: "primary.light" }}
     >
       <Grid item md={2.5} sx={{ display: { xs: "none", md: "block" } }}>
         <Sidebar />

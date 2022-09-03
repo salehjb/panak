@@ -1,9 +1,7 @@
 import Link from "next/link";
-import { Grid, Typography, Link as MuiLink } from "@mui/material";
+import { Grid, Typography, Link as MuiLink, Button } from "@mui/material";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
-// components
-import { ContainedButton } from "shared/Button";
 
 function FavoriteCoursesEmpty() {
   return (
@@ -14,8 +12,10 @@ function FavoriteCoursesEmpty() {
           هنوز هیچ محصولی را به علاقه مندی ها اضافه نکردید
         </Typography>
         <Link href="/courses">
-          <MuiLink>
-            <ContainedButton width="130px" margin="1rem 0 0 0">دوره ها</ContainedButton>
+          <MuiLink sx={{ width: "138px" }}>
+            <Button variant="contained" color="secondary" fullWidth>
+              دوره ها
+            </Button>
           </MuiLink>
         </Link>
       </Grid>

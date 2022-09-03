@@ -1,7 +1,6 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 // components
 import PageLayout from "components/layout/PageLayout";
-import { ContainedButton } from "shared/Button";
 import Meta from "components/Meta";
 import Description from "shared/Description";
 import Input from "shared/Input";
@@ -160,7 +159,7 @@ function PanakEmployment() {
               sx={{
                 fontSize: { xs: "15px", md: "19px" },
                 fontWeight: "400",
-                textAlign: { xs: "center", md: "right" }
+                textAlign: { xs: "center", md: "right" },
               }}
             >
               اطلاعات زیر را تکمیل کنید. به زودی با شما تماس میگیریم.
@@ -185,7 +184,9 @@ function PanakEmployment() {
                 ...flexJustifyCenter,
               }}
             >
-              <ContainedButton>ارسال فرم درخواست</ContainedButton>
+              <Button variant="contained" color="secondary" fullWidth>
+                ارسال فرم درخواست
+              </Button>
             </Box>
           </Grid>
         </Grid>

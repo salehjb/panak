@@ -16,8 +16,9 @@ const lightTheme = createTheme({
       default: "#f1f1f1",
     },
     primary: {
+      light: "#455A64",
       main: "#0E363F",
-      contrastText: "#455A64",
+      contrastText: "#fff",
     },
     secondary: {
       main: "#FF9B0C",
@@ -49,7 +50,7 @@ const lightTheme = createTheme({
     MuiLink: {
       defaultProps: {
         sx: {
-          color: "primary.contrastText",
+          color: "primary.light",
           cursor: "pointer",
           margin: 0,
           padding: 0,
@@ -59,9 +60,13 @@ const lightTheme = createTheme({
     },
     MuiButton: {
       defaultProps: {
-        size: "small",
-        p: 0,
+        size: "medium",
         disableRipple: false,
+        sx: {
+          height: "47px",
+          p: 2,
+          borderRadius: "8px",
+        },
       },
       variant: "text",
     },

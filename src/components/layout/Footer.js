@@ -8,6 +8,7 @@ import {
   InputBase,
   Divider,
   Link as MuiLink,
+  Button,
 } from "@mui/material";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneEnabledIcon from "@mui/icons-material/PhoneEnabled";
@@ -17,7 +18,6 @@ import { SOCIAL_MEDIAS } from "datas";
 // mui => theme
 import { flexCenter, flexEnd } from "mui/theme/commonStyles";
 // components
-import { ContainedButton } from "shared/Button";
 import Description from "shared/Description";
 
 function Footer() {
@@ -125,7 +125,11 @@ function Footer() {
                       ml: 1,
                     }}
                   />
-                  <ContainedButton width="50px">تایید</ContainedButton>
+                  <Box sx={{ width: "50px" }}>
+                    <Button variant="contained" color="secondary">
+                      تایید
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
             </Grid>

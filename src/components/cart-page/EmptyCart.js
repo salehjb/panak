@@ -4,12 +4,11 @@ import {
   Container,
   Typography,
   Link as MuiLink,
+  Button,
 } from "@mui/material";
 import Image from "next/image";
 // mui => theme
 import { flexCenter } from "mui/theme/commonStyles";
-// components
-import { ContainedButton } from "shared/Button";
 
 function EmptyCart() {
   return (
@@ -26,16 +25,21 @@ function EmptyCart() {
           />
         </Box>
         <Box mt={3}>
-          <Typography color="primary" sx={{ fontSize: "18px", fontWeight: "400" }}>
+          <Typography
+            color="primary"
+            sx={{ fontSize: "18px", fontWeight: "400" }}
+          >
             شما هنوز هیچ دوره ای را خریداری نکرده اید
           </Typography>
         </Box>
         <Box mt={3}>
           <Link href="/courses">
             <MuiLink>
-              <ContainedButton width="138px">
-                دوره ها
-              </ContainedButton>
+              <Box sx={{ width: "138px" }}>
+                <Button variant="contained" color="secondary" fullWidth>
+                  دوره ها
+                </Button>
+              </Box>
             </MuiLink>
           </Link>
         </Box>

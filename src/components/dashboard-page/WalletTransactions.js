@@ -77,7 +77,7 @@ const styles = {
     color: "#B0BEC5",
   },
   tableCell: {
-    color: "primary.contrastText",
+    color: "primary.light",
     fontSize: "15px",
   },
 };

@@ -4,10 +4,9 @@ import Meta from "components/Meta";
 import Description from "shared/Description";
 import Input from "shared/Input";
 // MUI
-import { Box, Grid, InputBase, Typography } from "@mui/material";
+import { Box, Button, Grid, InputBase, Typography } from "@mui/material";
 // datas
 import { PROJECT_COOPERATION_INPUTS } from "datas";
-import { ContainedButton } from "shared/Button";
 
 const metaInfo = {
   title: "پاناک | همکاری در پروژه",
@@ -121,7 +120,9 @@ function ProjectCooperation() {
           </Grid>
           <Grid item xs={12} sx={{ mt: 3 }}>
             <Box sx={{ width: { xs: "100%", md: "160px" } }}>
-              <ContainedButton width="100%">ارسال فرم درخواست</ContainedButton>
+              <Button variant="contained" color="secondary" fullWidth>
+                ارسال فرم درخواست
+              </Button>
             </Box>
           </Grid>
         </Grid>

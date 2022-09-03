@@ -1,12 +1,6 @@
-import { Box, Grid, Typography } from "@mui/material";
+import { Box, Button, Grid, Typography } from "@mui/material";
 // components
 import Input from "shared/Input";
-import PaymentMethod from "shared/PaymentMethod";
-import { ContainedButton } from "shared/Button";
-// datas
-import { PAYMENT_GATEWAYS } from "datas";
-// mui => theme
-import { flexCenter } from "mui/theme/commonStyles";
 
 function ChargeWallet() {
   return (
@@ -30,7 +24,9 @@ function ChargeWallet() {
           <Input item={{ type: "text", label: "مبلغ ( تومان )" }} />
         </Box>
         <Box>
-          <ContainedButton>پرداخت</ContainedButton>
+          <Button variant="contained" color="secondary" fullWidth>
+            پرداخت
+          </Button>
         </Box>
         <Box sx={{ mt: 4 }}>
           <Typography>

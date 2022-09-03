@@ -3,10 +3,9 @@ import { useSelector } from "react-redux";
 import { getProductsWithSlice } from "redux/products/productsSlice";
 import { useSession } from "next-auth/react";
 import { getAllPurchases } from "redux/purchases/purchasesSlice";
-import { Box, Grid, Typography, Link as MuiLink } from "@mui/material";
+import { Box, Grid, Typography, Link as MuiLink, Button } from "@mui/material";
 // components
 import DashboardLayout from "components/dashboard-page/DashboardLayout";
-import { ContainedButton } from "shared/Button";
 import Description from "shared/Description";
 import CourseBox from "components/dashboard-page/CourseBox";
 import PurchasesBox from "components/dashboard-page/PurchasesBox";
@@ -60,13 +59,11 @@ function index() {
                 </Description>
                 <Link href="/dashboard/my-purchases">
                   <MuiLink>
-                    <ContainedButton
-                      width="150px"
-                      height="40px"
-                      margin="1rem 0 0 0"
-                    >
-                      دوره های من
-                    </ContainedButton>
+                    <Box sx={{ mt: 2 }}>
+                      <Button variant="contained" color="secondary">
+                        دوره های من
+                      </Button>
+                    </Box>
                   </MuiLink>
                 </Link>
               </Box>

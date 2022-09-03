@@ -5,6 +5,7 @@ import {
   Divider,
   Typography,
   Link as MuiLink,
+  Button,
 } from "@mui/material";
 import { TaskAltOutlined } from "@mui/icons-material";
 import { addItem, getAllCarts } from "redux/cart/cartSlice";
@@ -15,8 +16,6 @@ import { useSnackbar } from "notistack";
 import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
 // utils
 import { priceFormatter, timeFormatter, handleSnack } from "utils/functions";
-// components
-import { ContainedButton, OutlinedButton } from "shared/Button";
 
 function CourseDetails({ course }) {
   const dispatch = useDispatch();
@@ -36,7 +35,7 @@ function CourseDetails({ course }) {
         borderRadius: "24px",
         boxShadow: "0px 10px 20px rgba(0, 0, 0, 0.1)",
         p: 3,
-        color: "primary.contrastText",
+        color: "primary.light",
       }}
     >
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
@@ -109,14 +108,16 @@ function CourseDetails({ course }) {
         {courseExistInCart ? (
           <Link href="/shopping-cart">
             <MuiLink>
-              <ContainedButton bgColor="success.main">
+              <Button variant="contained" color="success" fullWidth>
                 <TaskAltOutlined />
                 <Typography sx={{ mr: 1 }}>مشاهده سبد خرید</Typography>
-              </ContainedButton>
+              </Button>
             </MuiLink>
           </Link>
         ) : (
-          <ContainedButton
+          <Button
+            variant="contained"
+            color="secondary"
             onClick={() => {
               dispatch(addItem(course));
               handleSnack(
@@ -125,16 +126,21 @@ function CourseDetails({ course }) {
                 `${course.title} به سبد خرید اضافه شد`
               );
             }}
+            fullWidth
           >
             اضافه کردن به سبد خرید
-          </ContainedButton>
+          </Button>
         )}
-        <OutlinedButton
-          margin="0.5rem 0 0 0"
-          onClick={() => dispatch(addFavoriteCourse(course))}
-        >
-          افزودن به علاقه مندی ها
-        </OutlinedButton>
+        <Box sx={{ mt: 1 }}>
+          <Button
+            variant="outlined"
+            color="secondary"
+            onClick={() => dispatch(addFavoriteCourse(course))}
+            fullWidth
+          >
+            افزودن به علاقه مندی ها
+          </Button>
+        </Box>
       </Box>
     </Box>
   );

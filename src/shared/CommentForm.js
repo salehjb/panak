@@ -1,9 +1,4 @@
-import { Box, Grid, InputBase, Typography } from "@mui/material";
-// components
-import Input from "shared/Input";
-// mui => theme
-import { flexAlignCenter } from "mui/theme/commonStyles";
-import { ContainedButton } from "./Button";
+import { Box, Button, Grid, InputBase, Typography } from "@mui/material";
 
 function CommentForm() {
   return (
@@ -30,7 +25,11 @@ function CommentForm() {
           <InputBase sx={styles.textarea} multiline minRows={8} maxRows={8} />
         </Grid>
         <Grid item xs={12}>
-          <ContainedButton width="130px">ثبت</ContainedButton>
+          <Box sx={{ width: "130px" }}>
+            <Button variant="contained" color="secondary" fullWidth>
+              ثبت
+            </Button>
+          </Box>
         </Grid>
       </Grid>
     </Box>

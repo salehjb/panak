@@ -42,7 +42,7 @@ function PageLayout({ title, children }) {
               backgroundColor: "white",
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
               borderRadius: "32px",
-              color: "primary.contrastText",
+              color: "primary.light",
               ...dcFlex,
               px: { xs: 2, md: 6 },
               pb: 4,

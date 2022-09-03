@@ -19,7 +19,7 @@ function CourseBox({ course }) {
     <Card
       sx={{
         borderRadius: "15px",
-        color: "primary.contrastText",
+        color: "primary.light",
       }}
     >
       <CardMedia

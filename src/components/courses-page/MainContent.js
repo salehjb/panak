@@ -18,7 +18,7 @@ function MainContent({ course }) {
     <Box
       sx={{
         width: "100%",
-        color: "primary.contrastText",
+        color: "primary.light",
       }}
     >
       <Box sx={{ width: "100%", mb: 4 }}>

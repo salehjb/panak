@@ -9,11 +9,11 @@ import {
   InputBase,
   Typography,
   Link as MuiLink,
+  Button,
 } from "@mui/material";
 import { Visibility, VisibilityOff, ArrowBack } from "@mui/icons-material";
 // components
 import AuthLayout from "./AuthLayout";
-import { ContainedButton, OutlinedButton } from "shared/Button";
 // mui => theme
 import {
   flexAlignCenter,
@@ -41,7 +41,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
 
   return (
     <AuthLayout>
-      <Grid container color="primary.contrastText">
+      <Grid container color="primary.light">
         <Grid item xs={12} mb={5}>
           <Box sx={{ ...flexBetweenCenter }}>
             <Typography fontSize="24px" fontWeight="400">
@@ -98,7 +98,14 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
                 </Grid>
               ))}
               <Grid item xs={12} sx={{ ...flexJustifyCenter }}>
-                <ContainedButton type="submit">{buttonText}</ContainedButton>
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  type="submit"
+                  fullWidth
+                >
+                  {buttonText}
+                </Button>
               </Grid>
             </Grid>
           </form>
@@ -115,14 +122,14 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
                 <Typography>
                   حسابی ندارید ؟{" "}
                   <Link href="/signup">
-                    <MuiLink sx={{ color: "primary.contrastText" }}>
+                    <MuiLink sx={{ color: "primary.light" }}>
                       ثبت نام
                     </MuiLink>
                   </Link>
                 </Typography>
                 <Typography>
                   <Link href="/">
-                    <MuiLink sx={{ color: "primary.contrastText" }}>
+                    <MuiLink sx={{ color: "primary.light" }}>
                       فراموشی رمز عبور
                     </MuiLink>
                   </Link>
@@ -132,7 +139,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
               <Typography>
                 حساب دارید ؟{" "}
                 <Link href="/login">
-                  <MuiLink sx={{ color: "primary.contrastText" }}>ورود</MuiLink>
+                  <MuiLink sx={{ color: "primary.light" }}>ورود</MuiLink>
                 </Link>
               </Typography>
             )}
@@ -141,14 +148,15 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
         <Grid item xs={12} mt={2} align="center">
           <Link href={`/api/auth/signin`}>
             <MuiLink>
-              <OutlinedButton
-                color="primary.main"
-                borderColor="primary.main"
+              <Button
+                variant="outlined"
+                color="primary"
                 onClick={() => signIn()}
+                fullWidth
               >
                 <Typography ml={1}>ورود با گوگل</Typography>
                 <img src="/icons/google-icon.svg" alt="google icon" />
-              </OutlinedButton>
+              </Button>
             </MuiLink>
           </Link>
         </Grid>

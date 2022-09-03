@@ -6,6 +6,7 @@ import {
   Badge,
   Avatar,
   Typography,
+  Button,
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getAllCarts } from "../../redux/cart/cartSlice";
@@ -15,7 +16,6 @@ import { PAGES } from "datas";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
 // components
-import { ContainedButton, OutlinedButton } from "shared/Button";
 import NavDrawer from "./NavDrawer";
 
 function Navbar() {
@@ -93,11 +93,9 @@ function Navbar() {
             {!session && status === "unauthenticated" && (
               <Link href="/signup">
                 <MuiLink>
-                  <Box sx={{ width: "138px" }}>
-                    <ContainedButton width="fit-content">
-                      <Typography>ثبت نام / ورود</Typography>
-                    </ContainedButton>
-                  </Box>
+                  <Button variant="contained" color="secondary">
+                    ثبت نام / ورود
+                  </Button>
                 </MuiLink>
               </Link>
             )}

@@ -20,7 +20,7 @@ function AuthLayout({ children }) {
               boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.05)",
               borderRadius: "16px",
               ...dcFlex,
-              color: "primary.contrastText",
+              color: "primary.light",
             }}
           >
             <Grid container height="100%">

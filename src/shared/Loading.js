@@ -15,7 +15,7 @@ function Loading() {
     >
       <RingLoader color={"#FF9B0C"} loading={true} size={100} />
       <Typography
-        sx={{ mt: 4, fontSize: "20px", color: "primary.contrastText" }}
+        sx={{ mt: 4, fontSize: "20px", color: "primary.light" }}
       >
         در حال پردازش اطلاعات ...
       </Typography>

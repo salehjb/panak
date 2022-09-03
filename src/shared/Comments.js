@@ -52,7 +52,7 @@ function Comments() {
                 >
                   مهدی جلیلی
                 </Typography>
-                <Typography sx={{ color: "primary.contrastText" }}>
+                <Typography sx={{ color: "primary.light" }}>
                   1400/05/25
                 </Typography>
               </Box>

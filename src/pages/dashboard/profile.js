@@ -1,8 +1,7 @@
-import { Avatar, Badge, Box, Grid, Typography } from "@mui/material";
+import { Avatar, Badge, Box, Button, Grid, Typography } from "@mui/material";
 import { CameraAltOutlined } from "@mui/icons-material";
 // components
 import DashboardLayout from "components/dashboard-page/DashboardLayout";
-import { ContainedButton } from "shared/Button";
 import Meta from "components/Meta";
 import Input from "shared/Input";
 // datas
@@ -87,9 +86,11 @@ function profile() {
               </Grid>
             </Grid>
             <Grid item xs={12}>
-              <ContainedButton width="160px" margin="2rem 0 0 0">
-                ثبت تغییرات
-              </ContainedButton>
+              <Box sx={{ width: "160px", mt: 4 }}>
+                <Button variant="contained" color="secondary" fullWidth>
+                  ثبت تغییرات
+                </Button>
+              </Box>
             </Grid>
           </Grid>
         </Box>
