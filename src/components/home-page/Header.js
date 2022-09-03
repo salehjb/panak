@@ -1,6 +1,6 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 // mui => theme
-import { flexAlignCenter, flexCenter, flexEnd } from "mui/theme/commonStyles";
+import { dcFlex, flexAlignCenter, flexCenter, flexEnd } from "mui/theme/commonStyles";
 import Description from "shared/Description";
 // components
 import Benefits from "./Benefits";
@@ -46,19 +46,93 @@ function Header() {
         xs={12}
         md={5}
         sx={{
+          position: "relative",
           display: { xs: "none", md: "flex" },
           alignItems: "flex-end",
           backgroundColor: "primary.main",
           width: "100%",
           height: "calc(100vh - 80px)",
           borderRadius: "0 0 56px 0",
-          backgroundImage: `url("/vectors/zohal.png")`,
+          backgroundImage: `url(/vectors/zohal.png), url(/vectors/education-cap.svg)`,
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "50px 50px",
+          backgroundPosition: "70px 100px, 440px 80px",
           backgroundSize: "auto",
         }}
       >
-        <img src="/images/home-header-image.png" alt="header" width="370px" />
+        <Box
+          sx={{
+            top: "200px",
+            right: "-20px",
+            width: "100px",
+            height: "100px",
+            backgroundColor: "white",
+            position: "absolute",
+            borderRadius: "8px",
+            transform: "rotate(19deg)",
+          }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "-15px",
+              right: "-15px",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "primary.main",
+              borderRadius: "8px",
+              ...flexCenter,
+            }}
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png"
+              alt="javascript"
+              width="60px"
+              style={{ borderRadius: "8px" }}
+            />
+          </Box>
+        </Box>
+        <Box
+          sx={{
+            position: "absolute",
+            bottom: "50px",
+            right: "-50px",
+            width: "100px",
+            height: "100px",
+            backgroundColor: "white",
+            borderRadius: "8px",
+          }}
+        >
+          <Box
+            sx={{
+              position: "absolute",
+              top: "-15px",
+              right: "-15px",
+              width: "100%",
+              height: "100%",
+              backgroundColor: "primary.main",
+              borderRadius: "8px",
+              ...flexCenter,
+            }}
+          >
+            <img
+              src="https://nerdysoft.com/wp-content/uploads/2021/11/java-14-1.svg"
+              alt="javascript"
+              width="50px"
+              style={{ borderRadius: "8px" }}
+            />
+          </Box>
+        </Box>
+        <img
+          src="/images/home-header-image.png"
+          alt="header"
+          width="370px"
+          style={{ zIndex: "1000" }}
+        />
+        <Box sx={{ position: "absolute", left: 0, ...dcFlex }}>
+          {[0, 1, 2].map((_, index) => (
+            <img src="/vectors/breaked-line.png" width="400px" />
+          ))}
+        </Box>
       </Grid>
     </Grid>
   );

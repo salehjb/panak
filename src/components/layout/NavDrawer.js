@@ -7,6 +7,7 @@ import {
   IconButton,
   Typography,
   Link as MuiLink,
+  Button,
 } from "@mui/material";
 import { Close } from "@mui/icons-material";
 // datas
@@ -58,7 +59,10 @@ function NavDrawer() {
             return (
               <Link href={item.href} key={index}>
                 <MuiLink
-                  sx={{ ...flexAlignCenter, mb: 3 }}
+                  sx={{
+                    ...flexAlignCenter,
+                    mb: index + 1 !== PAGES.length && 3,
+                  }}
                   onClick={() => setIsOpenDrawer(false)}
                 >
                   <CustomIcon />
@@ -68,6 +72,18 @@ function NavDrawer() {
             );
           })}
         </Box>
+        {!session && (
+          <>
+            <Divider variant="fullWidth" sx={{ my: 2 }} />
+            <Link href="/signup">
+              <MuiLink>
+                <Button variant="contained" color="secondary" fullWidth>
+                  ثبت نام / ورود
+                </Button>
+              </MuiLink>
+            </Link>
+          </>
+        )}
       </Box>
     </>
   );

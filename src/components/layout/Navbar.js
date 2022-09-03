@@ -87,10 +87,8 @@ function Navbar() {
               </Link>
             </Badge>
           </Box>
-          <Box
-            sx={{ mr: { xs: 0, md: 3 }, display: { xs: "none", md: "flex" } }}
-          >
-            {!session && status === "unauthenticated" && (
+          {!session && status === "unauthenticated" && (
+            <Box sx={{ display: { xs: "none", md: "flex" }, mr: 2 }}>
               <Link href="/signup">
                 <MuiLink>
                   <Button variant="contained" color="secondary">
@@ -98,15 +96,15 @@ function Navbar() {
                   </Button>
                 </MuiLink>
               </Link>
-            )}
-            {session && status === "authenticated" && (
-              <Link href="/dashboard">
-                <MuiLink>
-                  <Avatar src={session.user.image} />
-                </MuiLink>
-              </Link>
-            )}
-          </Box>
+            </Box>
+          )}
+          {session && status === "authenticated" && (
+            <Link href="/dashboard">
+              <MuiLink sx={{ mr: 2 }}>
+                <Avatar src={session.user.image} />
+              </MuiLink>
+            </Link>
+          )}
         </Box>
       </Container>
     </Box>
