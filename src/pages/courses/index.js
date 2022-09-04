@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   Box,
   Container,
@@ -27,7 +27,15 @@ const metaInfo = {
 };
 
 function courses() {
+  const [search, setSearch] = useState("")
+
   const { loading, data, errors } = useQuery(GET_COURSES);
+
+  const courses = data?.courses.filter((item) => {
+    if (item.title.includes(search)) {
+      return item
+    }
+  })
 
   return (
     <>
@@ -53,6 +61,8 @@ function courses() {
                       height: "48px",
                       pr: 2,
                     }}
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
                     endAdornment={
                       <InputAdornment position="end">
                         <IconButton>
@@ -61,10 +71,12 @@ function courses() {
                       </InputAdornment>
                     }
                   />
-                  <Grouping />
+                  <Box sx={{ mt: 2 }}>
+                    <Grouping />
+                  </Box>
                 </Grid>
                 <Grid item sm={12} md={9}>
-                  <Courses data={data} />
+                  <Courses courses={courses} />
                 </Grid>
               </Grid>
             </Container>

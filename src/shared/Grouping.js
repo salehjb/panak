@@ -10,23 +10,19 @@ import {
   Typography,
 } from "@mui/material";
 import { ExpandMore } from "@mui/icons-material";
-// mui => theme
-import { flexAlignCenter } from "mui/theme/commonStyles";
 
 function Grouping() {
-  const array = new Array(5).fill(0);
+  const array = new Array(2).fill(0);
 
   return (
-    <Box my={5} sx={{ backgroundColor: "white", borderRadius: "16px" }}>
+    <Box>
       {array.map((_, index) => (
         <Accordion
           key={index}
           sx={{
             mt: 1,
             "&.MuiPaper-root": {
-              py: 0.5,
-              borderBottom: index + 1 !== array.length && "1px solid #e0e0e0",
-              mx: 1,
+              borderRadius: "10px",
               "&::before": {
                 content: "''",
                 display: "none",
@@ -51,7 +47,6 @@ function Grouping() {
               <Box key={index}>
                 <FormGroup>
                   <FormControlLabel
-                    sx={{ margin: "0" }}
                     control={<Checkbox />}
                     label="عنوان اول"
                   />

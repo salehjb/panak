@@ -9,10 +9,10 @@ import CourseBox from "./CourseBox";
 import { GET_COURSES } from "graphql/queries";
 import Loading from "shared/Loading";
 
-function Courses({ data }) {
+function Courses({ courses }) {
   return (
     <Grid container spacing={{ xs: 0, md: 2 }}>
-      {data.courses.map((course, index) => (
+      {courses.map((course, index) => (
         <Grid
           item
           xs={12}

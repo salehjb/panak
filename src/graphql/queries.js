@@ -38,3 +38,15 @@ export const GET_COURSE_DETAILS = gql`
     }
   }
 `;
+
+export const GET_TEACHERS = gql`
+  query {
+    teachers {
+      name
+      image {
+        url
+      }
+      stack
+    }
+  }
+`
