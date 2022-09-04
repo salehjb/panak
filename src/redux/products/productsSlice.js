@@ -10,7 +10,15 @@ const initialState = {
 export const fetchProducts = createAsyncThunk(
   "products/fetchProducts",
   async () => {
-    const response = await axios.get("https://fakestoreapi.com/products");
+    const response = await axios.get("https://api-eu-west-2.hygraph.com/v2/cl7mdah491t6801upanw21ron/master", {
+      query: `
+        query {
+          courses {
+            title
+          }
+        }
+      `
+    });
     return response.data;
   }
 );
@@ -26,15 +34,7 @@ const productsSlice = createSlice({
       })
       .addCase(fetchProducts.fulfilled, (state, action) => {
         state.status = "success";
-        const loadedProducts = action.payload.map((product) => {
-          product.title = "دوره متخصص ری اکت";
-          product.teacher = "صالح جلیلی";
-          product.price = 10000000;
-          product.image =
-            "https://solvers.fr/wp-content/uploads/2019/06/8-astuces-pour-ame%CC%81liorer-les-performances-des-applications-React.png";
-          return product;
-        });
-        state.items = loadedProducts;
+        state.items = action.payload;
       })
       .addCase(fetchProducts.rejected, (state, action) => {
         state.status = "error";

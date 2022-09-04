@@ -23,9 +23,9 @@ function MainContent({ course }) {
     >
       <Box sx={{ width: "100%", mb: 4 }}>
         <img
-          src={course.image}
+          src={course.image.url}
           alt="course image"
-          style={{ width: "100%", height: "100%", borderRadius: "24px" }}
+          style={{ width: "100%", height: "500px", borderRadius: "24px" }}
         />
       </Box>
       <Box mb={4}>
@@ -100,9 +100,9 @@ function MainContent({ course }) {
       </Box>
       <Box sx={{ width: "100%", my: 4 }}>
         <img
-          src={course.image}
+          src={course.image.url}
           alt="course image"
-          style={{ width: "100%", borderRadius: "24px" }}
+          style={{ width: "100%", height: "500px", borderRadius: "24px" }}
         />
       </Box>
       <Box mb={4}>

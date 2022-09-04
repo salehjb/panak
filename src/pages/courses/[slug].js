@@ -1,7 +1,9 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
 import { useRouter } from "next/router";
+import { useQuery } from "@apollo/client";
 import { useSelector } from "react-redux";
 import { getProductById } from "redux/products/productsSlice";
+import { GET_COURSE_DETAILS } from "graphql/queries";
 // components
 import CourseDetails from "components/courses-page/CourseDetails";
 import TeacherDetails from "components/courses-page/TeacherDetails";
@@ -13,26 +15,28 @@ import Loading from "shared/Loading";
 
 function CourseSinglePage() {
   const router = useRouter();
-  const { id } = router.query;
+  const { slug } = router.query;
 
-  const course = useSelector((state) => getProductById(state, Number(id)));
+  const { loading, data, errors } = useQuery(GET_COURSE_DETAILS, {
+    variables: { slug }
+  });
 
   return (
     <>
-      {course ? (
+      {!loading ? (
         <>
-          <Meta title={`پاناک | ${course.title}`} />
+          <Meta title={`پاناک | ${data.course.title}`} />
           <Layout>
-            <HeadTitle title={course.title} />
+            <HeadTitle title={data.course.title} />
             <Container maxWidth="xl">
               <Grid container spacing={{ xs: 0, md: 3 }}>
                 <Grid item xs={12} md={8}>
-                  <MainContent course={course} />
+                  <MainContent course={data.course} />
                 </Grid>
                 <Grid item xs={12} md={4}>
                   <Box>
-                    <CourseDetails course={course} />
-                    <TeacherDetails course={course} />
+                    <CourseDetails course={data.course} />
+                    <TeacherDetails course={data.course} />
                   </Box>
                 </Grid>
               </Grid>

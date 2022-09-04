@@ -25,17 +25,17 @@ function CourseBox({ course }) {
       <CardMedia
         component="img"
         height="250"
-        src={course.image}
-        sx={{ borderRadius: "15px" }}
+        src={course.image.url}
+        sx={{ borderRadius: "15px", objectFit: "fill" }}
       />
       <CardContent>
         <Typography sx={{ fontSize: "17px", fontWeight: "400" }}>
-          {course.title}
+          دوره {course.title}
         </Typography>
         <Box sx={{ ...flexAlignCenter, mt: 2 }}>
           <img src="/icons/profile-icon.svg" alt="profile icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
-            {course.teacher}
+            {course.teacher.name}
           </Typography>
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1.5 }}>
@@ -50,7 +50,7 @@ function CourseBox({ course }) {
           <Typography sx={{ fontSize: "17px", fontWeight: "400", mr: 1 }}>
             {priceFormatter(course.price)} تومان
           </Typography>
-          <Link href={`/courses/${course.id}`}>
+          <Link href={`/courses/${course.slug}`}>
             <MuiLink sx={{ color: "secondary.main", ...flexAlignCenter }}>
               <Typography sx={{ ml: 1, fontWeight: "400", fontSize: "15px" }}>
                 مشاهده دوره

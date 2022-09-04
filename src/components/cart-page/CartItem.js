@@ -31,7 +31,7 @@ function CartItem({ course }) {
         }}
       >
         <img
-          src={course.image}
+          src={course.image.url}
           alt="course image"
           width="70px"
           height="55px"
@@ -41,7 +41,7 @@ function CartItem({ course }) {
           <Typography fontSize="16px" fontWeight="400">
             {course.title}
           </Typography>
-          <Typography fontSize="14px">{course.teacher}</Typography>
+          <Typography fontSize="14px">{course.teacher.name}</Typography>
         </Box>
       </Box>
       <Box

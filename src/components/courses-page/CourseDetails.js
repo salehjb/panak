@@ -15,7 +15,7 @@ import { useSnackbar } from "notistack";
 // mui => theme
 import { flexAlignCenter, flexBetweenCenter } from "mui/theme/commonStyles";
 // utils
-import { priceFormatter, timeFormatter, handleSnack } from "utils/functions";
+import { priceFormatter, handleSnack } from "utils/functions";
 
 function CourseDetails({ course }) {
   const dispatch = useDispatch();
@@ -53,7 +53,7 @@ function CourseDetails({ course }) {
             مدت دوره
           </Typography>
         </Box>
-        <Typography>{timeFormatter(20, 30, 0)}</Typography>
+        <Typography>{course.duration} ساعت</Typography>
       </Box>
       <Box sx={{ ...flexBetweenCenter, mb: 2 }}>
         <Box sx={{ ...flexAlignCenter }}>

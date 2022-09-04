@@ -6,10 +6,10 @@ import lightTheme from "mui/theme/lightTheme";
 import { store, persistor } from "redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
-import { fetchArticles } from "redux/articles/articlesSlice";
 import { fetchProducts } from "redux/products/productsSlice";
 import { SessionProvider } from "next-auth/react";
 import { SnackbarProvider } from "notistack";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 // styles
 import "scss/globals.scss";
 import "video-react/dist/video-react.css";
@@ -17,12 +17,16 @@ import "react-toastify/dist/ReactToastify.css";
 
 const clientSideEmotionCache = createEmotionCache();
 
+const client = new ApolloClient({
+  uri: "https://api-eu-west-2.hygraph.com/v2/cl7mdah491t6801upanw21ron/master",
+  cache: new InMemoryCache(),
+});
+
 function MyApp({
   Component,
   emotionCache = clientSideEmotionCache,
   pageProps,
 }) {
-  store.dispatch(fetchArticles());
   store.dispatch(fetchProducts());
 
   return (
@@ -32,9 +36,11 @@ function MyApp({
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
             <SessionProvider session={pageProps.session}>
-              <SnackbarProvider maxSnack={3}>
-                <Component {...pageProps} />
-              </SnackbarProvider>
+              <ApolloProvider client={client}>
+                <SnackbarProvider maxSnack={3}>
+                  <Component {...pageProps} />
+                </SnackbarProvider>
+              </ApolloProvider>
             </SessionProvider>
           </PersistGate>
         </Provider>

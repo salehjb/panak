@@ -12,14 +12,12 @@ import {
 } from "redux-persist";
 import cartReducer from "./cart/cartSlice";
 import productsReducer from "./products/productsSlice";
-import articlesReducer from "./articles/articlesSlice";
 import favoriteCoursesReducer from "./favorite-courses/favoriteCoursesSlice";
 import purchasesCoursesReducer from "./purchases/purchasesSlice";
 
 const reducers = combineReducers({
   cart: cartReducer,
-  products: productsReducer,
-  articles: articlesReducer,
+  products: productsReducer,  
   favoriteCourses: favoriteCoursesReducer,
   purchases: purchasesCoursesReducer,
 });

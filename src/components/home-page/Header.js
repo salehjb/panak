@@ -1,6 +1,11 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 // mui => theme
-import { dcFlex, flexAlignCenter, flexCenter, flexEnd } from "mui/theme/commonStyles";
+import {
+  dcFlex,
+  flexAlignCenter,
+  flexCenter,
+  flexEnd,
+} from "mui/theme/commonStyles";
 import Description from "shared/Description";
 // components
 import Benefits from "./Benefits";
@@ -130,7 +135,7 @@ function Header() {
         />
         <Box sx={{ position: "absolute", left: 0, ...dcFlex }}>
           {[0, 1, 2].map((_, index) => (
-            <img src="/vectors/breaked-line.png" width="400px" />
+            <img src="/vectors/breaked-line.png" width="400px" key={index} />
           ))}
         </Box>
       </Grid>
