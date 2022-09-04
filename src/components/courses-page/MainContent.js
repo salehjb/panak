@@ -54,7 +54,7 @@ function MainContent({ course }) {
         </Description>
       </Box>
       <Box>
-        <Title text="ری اکت چیست؟" icon={<VscQuestion />} />
+        <Title text={`${course.title} چیست ؟`} icon={<VscQuestion />} />
         <Description>
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
           از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و

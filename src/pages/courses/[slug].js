@@ -27,7 +27,7 @@ function CourseSinglePage() {
         <>
           <Meta title={`پاناک | ${data.course.title}`} />
           <Layout>
-            <HeadTitle title={data.course.title} />
+            <HeadTitle title={`دوره ${data.course.title}`} />
             <Container maxWidth="xl">
               <Grid container spacing={{ xs: 0, md: 3 }}>
                 <Grid item xs={12} md={8}>

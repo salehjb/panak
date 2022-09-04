@@ -1,16 +1,12 @@
 import Link from "next/link";
 import { Box, Button, Container, Grid, Link as MuiLink } from "@mui/material";
-import { useSelector } from "react-redux";
-import { getProductsWithSlice } from "redux/products/productsSlice";
 // components
 import HomeTitle from "./HomeTitle";
 import CourseBox from "components/courses-page/CourseBox";
 // mui => theme
 import { flexCenter, flexJustifyCenter } from "mui/theme/commonStyles";
 
-function LatestCourses() {
-  const courses = useSelector((state) => getProductsWithSlice(state, 4));
-
+function LatestCourses({ courses }) {
   return (
     <Grid container mt={9}>
       <Container maxWidth="xl">
