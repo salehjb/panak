@@ -103,7 +103,7 @@ function AboutUs() {
                     sx={{
                       ...dcFlex,
                       alignItems: "center",
-                      m: 2,
+                      m: 3,
                     }}
                   >
                     <Avatar

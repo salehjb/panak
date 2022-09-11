@@ -18,7 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 const clientSideEmotionCache = createEmotionCache();
 
 const client = new ApolloClient({
-  uri: "https://api-eu-west-2.hygraph.com/v2/cl7mdah491t6801upanw21ron/master",
+  uri: process.env.NEXT_PUBLIC_GRAPHCMS_URI,
   cache: new InMemoryCache(),
 });
 
