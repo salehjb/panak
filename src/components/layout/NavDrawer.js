@@ -9,7 +9,7 @@ import {
   Link as MuiLink,
   Button,
 } from "@mui/material";
-import { Close } from "@mui/icons-material";
+import { Close, ShoppingBagOutlined } from "@mui/icons-material";
 // datas
 import { PAGES } from "datas";
 // mui => theme
@@ -61,7 +61,7 @@ function NavDrawer() {
                 <MuiLink
                   sx={{
                     ...flexAlignCenter,
-                    mb: index + 1 !== PAGES.length && 3,
+                    mb: 3,
                   }}
                   onClick={() => setIsOpenDrawer(false)}
                 >
@@ -71,6 +71,15 @@ function NavDrawer() {
               </Link>
             );
           })}
+          <Link href="/shopping-cart">
+            <MuiLink
+              sx={{ ...flexAlignCenter }}
+              onClick={() => setIsOpenDrawer(false)}
+            >
+              <ShoppingBagOutlined />
+              <Typography sx={{ mr: 1 }}>سبد خرید</Typography>
+            </MuiLink>
+          </Link>
         </Box>
         {!session && (
           <>

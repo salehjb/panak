@@ -27,9 +27,11 @@ function PageLayout({ title, children }) {
       >
         <Container maxWidth="xl">
           <Typography
+            variant="h1"
             sx={{
               color: "white",
               fontSize: { xs: "30px", md: "40px" },
+              fontWeight: "300",
               my: "1rem",
               textAlign: "center",
             }}

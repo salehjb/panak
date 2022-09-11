@@ -71,7 +71,7 @@ function courses() {
                       </InputAdornment>
                     }
                   />
-                  <Box sx={{ mt: 2 }}>
+                  <Box sx={{ mt: 2, mb: { xs: 2, md: 0 } }}>
                     <Grouping />
                   </Box>
                 </Grid>

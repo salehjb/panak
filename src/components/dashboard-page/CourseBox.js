@@ -1,8 +1,6 @@
 import Link from "next/link";
 import { Box, IconButton, Typography, Link as MuiLink } from "@mui/material";
-import { Close } from "@mui/icons-material";
-import { addItem } from "redux/cart/cartSlice";
-import { useDispatch } from "react-redux";
+import { ArrowCircleLeftOutlined, Close } from "@mui/icons-material";
 import { removeFavoriteCourse } from "redux/favorite-courses/favoriteCoursesSlice";
 // mui => theme
 import { flexAlignCenter } from "mui/theme/commonStyles";
@@ -10,8 +8,6 @@ import { flexAlignCenter } from "mui/theme/commonStyles";
 import { priceFormatter, timeFormatter } from "utils/functions";
 
 function CourseBox({ course, isDeleteIcon }) {
-  const dispatch = useDispatch();
-
   return (
     <Box
       sx={{
@@ -26,7 +22,7 @@ function CourseBox({ course, isDeleteIcon }) {
       <Link href={`/courses/${course.id}`}>
         <MuiLink sx={{ width: "40%", height: "150px" }}>
           <img
-            src={course.image}
+            src={course.image.url}
             alt="course image"
             width="100%"
             height="100%"
@@ -52,7 +48,7 @@ function CourseBox({ course, isDeleteIcon }) {
         <Box sx={{ ...flexAlignCenter, mt: 1 }}>
           <img src="/icons/profile-icon.svg" alt="profile icon" />
           <Typography sx={{ fontSize: "15px", mr: 1 }}>
-            {course.teacher}
+            {course.teacher.name}
           </Typography>
         </Box>
         <Box sx={{ ...flexAlignCenter, mt: 1 }}>
@@ -61,26 +57,21 @@ function CourseBox({ course, isDeleteIcon }) {
             {timeFormatter(15, 33, 0)}
           </Typography>
         </Box>
-        <Box sx={{ ...flexAlignCenter, justifyContent: "space-between" }}>
+        <Box sx={{ ...flexAlignCenter, justifyContent: "space-between", mt: 2 }}>
           <Typography
-            sx={{ fontSize: "17px", fontWeight: "400", mt: 1 }}
+            sx={{ fontSize: "17px", fontWeight: "400" }}
             color="primary"
           >
             {priceFormatter(course.price)} تومان
           </Typography>
-          <IconButton
-            onClick={() => dispatch(addItem(course))}
-            sx={{
-              width: "35px",
-              height: "35px",
-              backgroundColor: "secondary.main",
-              "&:hover": {
-                backgroundColor: "secondary.dark",
-              },
-            }}
-          >
-            <img src="/icons/add-product-icon.svg" alt="add product icon" />
-          </IconButton>
+          <Link href={`/courses/${course.slug}`}>
+            <MuiLink sx={{ color: "secondary.main", ...flexAlignCenter }}>
+              <Typography sx={{ ml: 1, fontWeight: "400", fontSize: "15px", display: { xs: "none", md: "flex" } }}>
+                مشاهده دوره
+              </Typography>
+              <ArrowCircleLeftOutlined />
+            </MuiLink>
+          </Link>
         </Box>
       </Box>
     </Box>
