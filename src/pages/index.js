@@ -3,7 +3,7 @@ import { useQuery } from "@apollo/client";
 // components
 import Header from "components/home-page/Header";
 import LatestCourses from "components/home-page/LatestCourses";
-import PanakDescription from "components/home-page/PanakDescription";
+import FriendlyChat from "components/home-page/FriendlyChat";
 import Layout from "components/layout/Layout";
 import Meta from "components/Meta";
 import Loading from "shared/Loading";
@@ -22,7 +22,7 @@ function index() {
         <Layout>
           <Header />
           <LatestCourses courses={data.courses.slice(0, 4)} />
-          <PanakDescription />
+          <FriendlyChat />
         </Layout>
       ) : (
         <Loading />
