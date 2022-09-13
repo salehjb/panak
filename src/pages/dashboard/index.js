@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useSelector } from "react-redux";
 import { useQuery } from "@apollo/client";
 import { GET_COURSES } from "graphql/queries";
-import { useSession } from "next-auth/react";
 import { getAllPurchases } from "redux/purchases/purchasesSlice";
 import { Box, Grid, Typography, Link as MuiLink, Button } from "@mui/material";
 // components
@@ -20,10 +19,6 @@ import { priceFormatter } from "utils/functions";
 function index() {
   const { loading, data, errors } = useQuery(GET_COURSES);
   const purchases = useSelector(getAllPurchases);
-
-  const { data: session, status } = useSession();
-
-  console.log(data?.courses);
 
   return (
     <>
@@ -58,9 +53,9 @@ function index() {
                       color: "white",
                     }}
                   >
-                    سلام {session?.user.name} عزیز!
+                    سلام صالح عزیز!
                   </Typography>
-                  <Description color="white" fontSize="14px">
+                  <Description sx={{ color: "white", fontSize: "14px" }}>
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                     با استفاده طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
                     مجله در ستون و سطرآنچنان لازم است

@@ -13,12 +13,12 @@ export default async function middleware(req) {
       ? "http://localhost:3000"
       : "https://panak.vercel.app";
 
-  if (url.includes("/dashboard") && !token) {
-    return NextResponse.redirect(`${baseURL}/login`);
-  }
+//   if (url.includes("/dashboard") && !token) {
+//     return NextResponse.redirect(`${baseURL}/login`);
+//   }
 
-  if ((url.includes("/login") || url.includes("/signup")) && token) {
-    console.log(baseURL);
-    return NextResponse.redirect(`${baseURL}`);
-  }
+//   if ((url.includes("/login") || url.includes("/signup")) && token) {
+//     console.log(baseURL);
+//     return NextResponse.redirect(`${baseURL}`);
+//   }
 }

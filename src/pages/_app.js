@@ -7,7 +7,6 @@ import { store, persistor } from "redux/store";
 import { PersistGate } from "redux-persist/integration/react";
 import { Provider } from "react-redux";
 import { fetchProducts } from "redux/products/productsSlice";
-import { SessionProvider } from "next-auth/react";
 import { SnackbarProvider } from "notistack";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 // styles
@@ -35,13 +34,11 @@ function MyApp({
         <CssBaseline />
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <SessionProvider session={pageProps.session}>
-              <ApolloProvider client={client}>
-                <SnackbarProvider maxSnack={3}>
-                  <Component {...pageProps} />
-                </SnackbarProvider>
-              </ApolloProvider>
-            </SessionProvider>
+            <ApolloProvider client={client}>
+              <SnackbarProvider maxSnack={3}>
+                <Component {...pageProps} />
+              </SnackbarProvider>
+            </ApolloProvider>
           </PersistGate>
         </Provider>
       </ThemeProvider>

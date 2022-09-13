@@ -10,7 +10,6 @@ import {
 } from "@mui/material";
 import { useSelector } from "react-redux";
 import { getAllCarts } from "../../redux/cart/cartSlice";
-import { useSession } from "next-auth/react";
 // datas
 import { PAGES } from "datas";
 // mui => theme
@@ -20,8 +19,6 @@ import NavDrawer from "./NavDrawer";
 
 function Navbar() {
   const carts = useSelector(getAllCarts);
-
-  const { data: session, status } = useSession();
 
   return (
     <Box
@@ -87,7 +84,7 @@ function Navbar() {
               </Link>
             </Badge>
           </Box>
-          {!session && status === "unauthenticated" && (
+          {true && (
             <Box sx={{ display: { xs: "none", md: "flex" }, mr: 2 }}>
               <Link href="/signup">
                 <MuiLink>
@@ -98,13 +95,13 @@ function Navbar() {
               </Link>
             </Box>
           )}
-          {session && status === "authenticated" && (
+          {/* {session && status === "authenticated" && (
             <Link href="/dashboard">
               <MuiLink sx={{ mr: 2 }}>
                 <Avatar src={session.user.image} />
               </MuiLink>
             </Link>
-          )}
+          )} */}
         </Box>
       </Container>
     </Box>

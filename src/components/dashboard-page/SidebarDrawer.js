@@ -64,7 +64,7 @@ function SidebarDrawer() {
               </Link>
             );
           })}
-          <Link>
+          <Link href="/">
             <MuiLink
               sx={{ ...flexAlignCenter, mt: 3 }}
               onClick={() => {

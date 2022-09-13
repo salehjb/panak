@@ -1,4 +1,3 @@
-import { useSession } from "next-auth/react";
 import { useState } from "react";
 import Link from "next/link";
 import {
@@ -21,8 +20,6 @@ import {
 
 function NavDrawer() {
   const [isOpenDrawer, setIsOpenDrawer] = useState(false);
-
-  const { data: session, status } = useSession();
 
   return (
     <>
@@ -81,7 +78,7 @@ function NavDrawer() {
             </MuiLink>
           </Link>
         </Box>
-        {!session && (
+        {true && (
           <>
             <Divider variant="fullWidth" sx={{ my: 2 }} />
             <Link href="/signup">
