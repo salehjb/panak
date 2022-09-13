@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { signIn } from "next-auth/react";
 import Link from "next/link";
 import {
   Box,
@@ -151,7 +150,6 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
               <Button
                 variant="outlined"
                 color="primary"
-                onClick={() => signIn()}
                 fullWidth
               >
                 <Typography ml={1}>ورود با گوگل</Typography>
