@@ -16,7 +16,6 @@ import { ExitToApp } from "@mui/icons-material";
 import { DASHBOARD_SIDEBAR_ITEMS } from "datas";
 // mui => theme
 import { flexAlignCenter, flexCenter } from "mui/theme/commonStyles";
-import { signOut } from "next-auth/react";
 // utils
 import { getURL } from "utils/functions";
 
@@ -90,12 +89,11 @@ function Sidebar() {
                   </Link>
                 );
               })}
-              <Link href={`/api/auth/signout`}>
+              <Link href="/">
                 <MuiLink
                   sx={{
                     ...flexAlignCenter,
                   }}
-                  onClick={() => signOut()}
                 >
                   <ListItemButton>
                     <ListItemIcon

@@ -13,8 +13,6 @@ function index() {
 
   const GRAPHCMS_URI = process.env.NEXT_PUBLIC_GRAPHCMS_URI
 
-  console.log(GRAPHCMS_URI);
-
   return (
     <>
       <Meta title="آکادمی آنلاین پاناک" />
