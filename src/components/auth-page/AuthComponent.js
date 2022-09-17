@@ -121,9 +121,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
                 <Typography>
                   حسابی ندارید ؟{" "}
                   <Link href="/signup">
-                    <MuiLink sx={{ color: "primary.light" }}>
-                      ثبت نام
-                    </MuiLink>
+                    <MuiLink sx={{ color: "primary.light" }}>ثبت نام</MuiLink>
                   </Link>
                 </Typography>
                 <Typography>
@@ -147,11 +145,7 @@ function AuthComponent({ type, headerText, inputsArray, buttonText }) {
         <Grid item xs={12} mt={2} align="center">
           <Link href={`/api/auth/signin`}>
             <MuiLink>
-              <Button
-                variant="outlined"
-                color="primary"
-                fullWidth
-              >
+              <Button variant="outlined" color="primary" fullWidth>
                 <Typography ml={1}>ورود با گوگل</Typography>
                 <img src="/icons/google-icon.svg" alt="google icon" />
               </Button>
