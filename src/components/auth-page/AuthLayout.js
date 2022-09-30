@@ -52,7 +52,7 @@ function AuthLayout({ children }) {
                   }}
                 >
                   <img
-                    src={"/logos/logo.png"}
+                    src="/logos/panak-logo-white.png"
                     alt="logo"
                     width="108px"
                     height="112px"

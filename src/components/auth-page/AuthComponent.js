@@ -19,6 +19,7 @@ import {
   flexBetweenCenter,
   flexJustifyCenter,
 } from "mui/theme/commonStyles";
+
 function AuthComponent({ type, headerText, inputsArray, buttonText }) {
   const [isShowPassword, setIsShowPassword] = useState(false);
   const [form, setForm] = useState(

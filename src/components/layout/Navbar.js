@@ -44,7 +44,7 @@ function Navbar() {
               sx={{ ml: { xs: 0, md: 4 }, width: "57px", height: "57px" }}
             >
               <img
-                src={"/logos/logo-red.png"}
+                src={"/logos/panak-logo-color.png"}
                 alt="logo"
                 width="100%"
                 height="100%"
